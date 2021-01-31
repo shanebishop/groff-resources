@@ -1,0 +1,7499 @@
+%!PS
+%%Version: 3.3.2
+%%DocumentFonts: (atend)
+%%Pages: (atend)
+%%EndComments
+%
+% Version 3.3.2 prologue for troff files.
+%
+
+/#copies 1 store
+/aspectratio 1 def
+/formsperpage 1 def
+/landscape false def
+/linewidth .3 def
+/magnification 1 def
+/margin 0 def
+/orientation 0 def
+/resolution 720 def
+/rotation 1 def
+/xoffset 0 def
+/yoffset 0 def
+
+/roundpage true def
+/useclippath true def
+/pagebbox [0 0 612 792] def
+
+/R  /Times-Roman def
+/I  /Times-Italic def
+/B  /Times-Bold def
+/BI /Times-BoldItalic def
+/H  /Helvetica def
+/HI /Helvetica-Oblique def
+/HB /Helvetica-Bold def
+/HX /Helvetica-BoldOblique def
+/CW /Courier def
+/CO /Courier def
+/CI /Courier-Oblique def
+/CB /Courier-Bold def
+/CX /Courier-BoldOblique def
+/PA /Palatino-Roman def
+/PI /Palatino-Italic def
+/PB /Palatino-Bold def
+/PX /Palatino-BoldItalic def
+/Hr /Helvetica-Narrow def
+/Hi /Helvetica-Narrow-Oblique def
+/Hb /Helvetica-Narrow-Bold def
+/Hx /Helvetica-Narrow-BoldOblique def
+/KR /Bookman-Light def
+/KI /Bookman-LightItalic def
+/KB /Bookman-Demi def
+/KX /Bookman-DemiItalic def
+/AR /AvantGarde-Book def
+/AI /AvantGarde-BookOblique def
+/AB /AvantGarde-Demi def
+/AX /AvantGarde-DemiOblique def
+/NR /NewCenturySchlbk-Roman def
+/NI /NewCenturySchlbk-Italic def
+/NB /NewCenturySchlbk-Bold def
+/NX /NewCenturySchlbk-BoldItalic def
+/ZD /ZapfDingbats def
+/ZI /ZapfChancery-MediumItalic def
+/S  /S def
+/S1 /S1 def
+/GR /Symbol def
+
+/inch {72 mul} bind def
+/min {2 copy gt {exch} if pop} bind def
+
+/setup {
+	counttomark 2 idiv {def} repeat pop
+
+	landscape {/orientation 90 orientation add def} if
+	/scaling 72 resolution div def
+	linewidth setlinewidth
+	1 setlinecap
+
+	pagedimensions
+	xcenter ycenter translate
+	orientation rotation mul rotate
+	width 2 div neg height 2 div translate
+	xoffset inch yoffset inch neg translate
+	margin 2 div dup neg translate
+	magnification dup aspectratio mul scale
+	scaling scaling scale
+
+	addmetrics
+	0 0 moveto
+} def
+
+/pagedimensions {
+	useclippath userdict /gotpagebbox known not and {
+		/pagebbox [clippath pathbbox newpath] def
+		roundpage currentdict /roundpagebbox known and {roundpagebbox} if
+	} if
+	pagebbox aload pop
+	4 -1 roll exch 4 1 roll 4 copy
+	landscape {4 2 roll} if
+	sub /width exch def
+	sub /height exch def
+	add 2 div /xcenter exch def
+	add 2 div /ycenter exch def
+	userdict /gotpagebbox true put
+} def
+
+/addmetrics {
+	/Symbol /S null Sdefs cf
+	/Times-Roman /S1 StandardEncoding dup length array copy S1defs cf
+} def
+
+/pagesetup {
+	/page exch def
+	currentdict /pagedict known currentdict page known and {
+		page load pagedict exch get cvx exec
+	} if
+} def
+
+/decodingdefs [
+	{counttomark 2 idiv {y moveto show} repeat}
+	{neg /y exch def counttomark 2 idiv {y moveto show} repeat}
+	{neg moveto {2 index stringwidth pop sub exch div 0 32 4 -1 roll widthshow} repeat}
+	{neg moveto {spacewidth sub 0.0 32 4 -1 roll widthshow} repeat}
+	{counttomark 2 idiv {y moveto show} repeat}
+	{neg setfunnytext}
+] def
+
+/setdecoding {/t decodingdefs 3 -1 roll get bind def} bind def
+
+/w {neg moveto show} bind def
+/m {neg dup /y exch def moveto} bind def
+/done {/lastpage where {pop lastpage} if} def
+
+/f {
+	dup /font exch def findfont exch
+	dup /ptsize exch def scaling div dup /size exch def scalefont setfont
+	linewidth ptsize mul scaling 10 mul div setlinewidth
+	/spacewidth ( ) stringwidth pop def
+} bind def
+
+/changefont {
+	/fontheight exch def
+	/fontslant exch def
+	currentfont [
+		1 0
+		fontheight ptsize div fontslant sin mul fontslant cos div
+		fontheight ptsize div
+		0 0
+	] makefont setfont
+} bind def
+
+/sf {f} bind def
+
+/cf {
+	dup length 2 idiv
+	/entries exch def
+	/chtab exch def
+	/newencoding exch def
+	/newfont exch def
+
+	findfont dup length 1 add dict
+	/newdict exch def
+	{1 index /FID ne {newdict 3 1 roll put}{pop pop} ifelse} forall
+
+	newencoding type /arraytype eq {newdict /Encoding newencoding put} if
+
+	newdict /Metrics entries dict put
+	newdict /Metrics get
+	begin
+		chtab aload pop
+		1 1 entries {pop def} for
+		newfont newdict definefont pop
+	end
+} bind def
+
+%
+% A few arrays used to adjust reference points and character widths in some
+% of the printer resident fonts. If square roots are too high try changing
+% the lines describing /radical and /radicalex to,
+%
+%	/radical	[0 -75 550 0]
+%	/radicalex	[-50 -75 500 0]
+%
+% Move braceleftbt a bit - default PostScript character is off a bit.
+%
+
+/Sdefs [
+	/bracketlefttp		[201 500]
+	/bracketleftbt		[201 500]
+	/bracketrighttp		[-81 380]
+	/bracketrightbt		[-83 380]
+	/braceleftbt		[203 490]
+	/bracketrightex		[220 -125 500 0]
+	/radical		[0 0 550 0]
+	/radicalex		[-50 0 500 0]
+	/parenleftex		[-20 -170 0 0]
+	/integral		[100 -50 500 0]
+	/infinity		[10 -75 730 0]
+] def
+
+/S1defs [
+	/underscore		[0 80 500 0]
+	/endash			[7 90 650 0]
+] def
+%
+% Tries to round clipping path dimensions, as stored in array pagebbox, so they
+% match one of the known sizes in the papersizes array. Lower left coordinates
+% are always set to 0.
+%
+
+/roundpagebbox {
+    7 dict begin
+	/papersizes [8.5 inch 11 inch 14 inch 17 inch] def
+
+	/mappapersize {
+		/val exch def
+		/slop .5 inch def
+		/diff slop def
+		/j 0 def
+		0 1 papersizes length 1 sub {
+			/i exch def
+			papersizes i get val sub abs
+			dup diff le {/diff exch def /j i def} {pop} ifelse
+		} for
+		diff slop lt {papersizes j get} {val} ifelse
+	} def
+
+	pagebbox 0 0 put
+	pagebbox 1 0 put
+	pagebbox dup 2 get mappapersize 2 exch put
+	pagebbox dup 3 get mappapersize 3 exch put
+    end
+} bind def
+
+%%EndProlog
+%%BeginSetup
+mark
+/linewidth 0.5 def
+/#copies 1 store
+/landscape false def
+%%Patch from lp
+/resolution 720 def
+setup
+2 setdecoding
+%%EndSetup
+%%Page: 35 1
+/saveobj save def
+mark
+1 pagesetup
+12 B f
+(Tbl \320 A Program to Format Tables\262)6 1973 1 2073 1220 t
+10 R f
+(L. L. Cherry)2 515 1 2802 1460 t
+(M. E. Lesk)2 460 1 2830 1580 t
+10 I f
+(AT&T Bell Laboratories)2 1001 1 2559 1760 t
+(Murray Hill, New Jersey 07974)4 1300 1 2410 1880 t
+10 R f
+(ABSTRACT)2798 2261 w
+10 I f
+(Tbl)1110 2577 w
+10 R f
+(is a document formatting preprocessor for)5 1727 1 1287 2577 t
+10 I f
+(troff)3049 2577 w
+10 R f
+(or)3265 2577 w
+10 I f
+(nroff)3383 2577 w
+10 R f
+( fairly complex)2 632(which makes even)2 757 2 3621 2577 t
+( may be independently)3 934( are made up of columns which)6 1313( Tables)1 334(tables easy to specify and enter.)5 1319 4 1110 2697 t
+( may be placed)3 646( Headings)1 450( decimal points.)2 666(centered, right-adjusted, left-adjusted, or aligned by)5 2138 4 1110 2817 t
+( entry may contain equations, or may con-)7 1756( table)1 230( A)1 141(over single columns or groups of columns.)6 1773 4 1110 2937 t
+( table,)1 256( or vertical lines may be drawn as desired in the)10 2017( Horizontal)1 496(sist of several rows of text.)5 1131 4 1110 3057 t
+( example:)1 399( For)1 205(and any table or element may be enclosed in a box.)10 2123 3 1110 3177 t
+10 S f
+(_ ________________________________________)1 2019 1 2050 3327 t
+10 R f
+(U. S. Energy Production/Consumption)3 1572 1 2273 3447 t
+8 R f
+(\(in quadrillion Btu\))2 631 1 2744 3567 t
+10 S f
+(_ ________________________________________)1 2019 1 2050 3577 t
+(_ ________________________________________)1 2019 1 2050 3597 t
+10 R f
+(Production Consumption)1 1129 1 2450 3707 t
+(Year)2103 3767 w
+8 R f
+(all sources)1 343 1 2498 3827 t
+10 R f
+(Net)3802 3767 w
+10 S f
+(_ ________________________________________)1 2019 1 2050 3847 t
+10 R f
+( +0.51)1 598( 36.27)1 639(1953 36.77)1 682 3 2100 3967 t
+( 1.54)1 190( \261)1 408( 40.35)1 639(1958 38.81)1 682 4 2100 4087 t
+( 2.47)1 190( \261)1 408( 48.32)1 639(1963 45.85)1 682 4 2100 4207 t
+( 4.19)1 190( \261)1 408( 61.00)1 639(1968 56.81)1 682 4 2100 4327 t
+( 12.22)1 240( \261)1 358( 74.28)1 639(1973 62.06)1 682 4 2100 4447 t
+( 17.08)1 240( \261)1 358( 78.09)1 639(1978 61.01)1 682 4 2100 4567 t
+( 8.86)1 190( \261)1 408( 70.05)1 639(1983 61.19)1 682 4 2100 4687 t
+( 11.46)1 240( \261)1 358( 76.01)1 639(1987 64.55)1 682 4 2100 4807 t
+10 S f
+( \347)1 -2019(_ ________________________________________)1 2019 2 2050 4827 t
+(\347)2050 4727 w
+(\347)2050 4627 w
+(\347)2050 4527 w
+(\347)2050 4427 w
+(\347)2050 4327 w
+(\347)2050 4227 w
+(\347)2050 4127 w
+(\347)2050 4027 w
+(\347)2050 3927 w
+(\347)2050 3827 w
+(\347)2050 3727 w
+(\347)2050 3627 w
+(\347)2050 3527 w
+(\347)2050 3427 w
+(\347)2375 4827 w
+(\347)2375 4797 w
+(\347)2375 4697 w
+(\347)2375 4597 w
+(\347)2375 4497 w
+(\347)2375 4397 w
+(\347)2375 4297 w
+(\347)2375 4197 w
+(\347)2375 4097 w
+(\347)2375 3997 w
+(\347)2375 3897 w
+(\347)2375 3797 w
+(\347)2375 3697 w
+(\347)2964 4827 w
+(\347)2964 4797 w
+(\347)2964 4697 w
+(\347)2964 4597 w
+(\347)2964 4497 w
+(\347)2964 4397 w
+(\347)2964 4297 w
+(\347)2964 4197 w
+(\347)2964 4097 w
+(\347)2964 3997 w
+(\347)2964 3897 w
+(\347)2964 3797 w
+(\347)2964 3697 w
+(\347)3654 4827 w
+(\347)3654 4797 w
+(\347)3654 4697 w
+(\347)3654 4597 w
+(\347)3654 4497 w
+(\347)3654 4397 w
+(\347)3654 4297 w
+(\347)3654 4197 w
+(\347)3654 4097 w
+(\347)3654 3997 w
+(\347)3654 3897 w
+(\347)3654 3797 w
+(\347)3654 3697 w
+(\347)4069 4827 w
+(\347)4069 4727 w
+(\347)4069 4627 w
+(\347)4069 4527 w
+(\347)4069 4427 w
+(\347)4069 4327 w
+(\347)4069 4227 w
+(\347)4069 4127 w
+(\347)4069 4027 w
+(\347)4069 3927 w
+(\347)4069 3827 w
+(\347)4069 3727 w
+(\347)4069 3627 w
+(\347)4069 3527 w
+(\347)4069 3427 w
+10 B f
+(1. Introduction.)1 711 1 720 5208 t
+10 I f
+(Tbl)970 5488 w
+10 R f
+( a)1 80(turns a simple description of a table into)7 1677 2 1147 5488 t
+10 I f
+(troff)720 5608 w
+10 R f
+(or)952 5608 w
+10 I f
+(nroff)1086 5608 w
+10 R f
+([3] program \(list of commands\) that)5 1564 1 1340 5608 t
+( portion of a)3 533( attempts to isolate a)4 874( It)1 132(prints the table.)2 645 4 720 5728 t
+( can successfully handle and leave the)6 1728(job that it)2 456 2 720 5848 t
+( Thus)1 296(remainder for other programs.)3 1316 2 720 5968 t
+10 I f
+(tbl)2396 5968 w
+10 R f
+(may be)1 330 1 2574 5968 t
+(used with the equation formatting program)5 1822 1 720 6088 t
+10 I f
+(eqn)2589 6088 w
+10 R f
+([2])2788 6088 w
+(or various layout macro packages [1], [5], [6], but)8 2184 1 720 6208 t
+(does not duplicate their functions.)4 1389 1 720 6328 t
+10 R f
+( into two parts.)3 681(This memorandum is divided)3 1253 2 970 6608 t
+(First we give the rules for preparing)6 1538 1 720 6728 t
+10 I f
+(tbl)2300 6728 w
+10 R f
+(input; then)1 448 1 2456 6728 t
+( description of rules)3 841( The)1 228(some examples are shown.)3 1115 3 720 6848 t
+( user may)2 416(is precise but technical, and the beginning)6 1768 2 720 6968 t
+8 R f
+(\262This is a version of [4] revised by Lorinda Cherry.)9 1698 1 720 7201 t
+10 R f
+( read the examples \256rst, as they show some)8 1832(prefer to)1 352 2 3216 5208 t
+( section explaining)2 811( A)1 159(common table arrangements.)2 1214 3 3216 5328 t
+(how to invoke)2 598 1 3216 5448 t
+10 I f
+(tbl)3853 5448 w
+10 R f
+( avoid)1 261( To)1 183(precedes the examples.)2 950 3 4006 5448 t
+(repetition, henceforth read)2 1071 1 3216 5568 t
+10 I f
+(troff)4320 5568 w
+10 R f
+(as)4534 5568 w
+10 I f
+(``troff)4650 5568 w
+10 R f
+(or)4922 5568 w
+10 I f
+(nroff.'')5038 5568 w
+10 R f
+(The input to)2 531 1 3466 5724 t
+10 I f
+(tbl)4043 5724 w
+10 R f
+( with)1 225(is text for a document,)4 980 2 4195 5724 t
+( a ``)2 198(tables preceded by)2 782 2 3216 5844 t
+10 CW f
+(.TS)4196 5844 w
+10 R f
+('' \(table start\) command)3 1024 1 4376 5844 t
+(and followed by a ``)4 941 1 3216 5964 t
+10 CW f
+(.TE)4157 5964 w
+10 R f
+('' \(table end\) command.)3 1063 1 4337 5964 t
+10 I f
+(Tbl)3216 6084 w
+10 R f
+(processes the tables, generating)3 1312 1 3401 6084 t
+10 I f
+(troff)4755 6084 w
+10 R f
+(formatting)4978 6084 w
+( remainder of the text)4 1019(commands, and leaves the)3 1165 2 3216 6204 t
+(unchanged. The)1 681 1 3216 6324 t
+10 CW f
+(.TS)3932 6324 w
+10 R f
+(and)4147 6324 w
+10 CW f
+(.TE)4326 6324 w
+10 R f
+(lines are copied, too,)3 859 1 4541 6324 t
+(so that)1 279 1 3216 6444 t
+10 I f
+(troff)3535 6444 w
+10 R f
+(page layout macros \(such as the memo)6 1643 1 3757 6444 t
+( can use these lines to delimit)6 1249(formatting macros [1]\))2 935 2 3216 6564 t
+( particular, any)2 649( In)1 165( as they see \256t.)4 687(and place tables)2 683 4 3216 6684 t
+(arguments on the)2 728 1 3216 6804 t
+10 CW f
+(.TS)3989 6804 w
+10 R f
+(or)4213 6804 w
+10 CW f
+(.TE)4340 6804 w
+10 R f
+(lines are copied but)3 836 1 4564 6804 t
+( document)1 449(otherwise ignored, and may be used by)6 1735 2 3216 6924 t
+(layout macro commands.)2 1023 1 3216 7044 t
+10 R f
+(The format of the input is as follows:)7 1541 1 3466 7200 t
+10 R f
+( 35)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 35 1
+%%Page: 36 2
+/saveobj save def
+mark
+2 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 R f
+(text)1080 840 w
+10 CW f
+(.TS)1080 960 w
+10 I f
+(table)1080 1080 w
+10 CW f
+(.TE)1080 1200 w
+10 R f
+(text)1080 1320 w
+10 CW f
+(.TS)1080 1440 w
+10 I f
+(table)1080 1560 w
+10 CW f
+(.TE)1080 1680 w
+10 R f
+(text)1080 1800 w
+14 R f
+(. . .)2 187 1 1088 1920 t
+10 R f
+(where the format of each table is as follows:)8 1832 1 720 2111 t
+10 CW f
+(.TS)1080 2302 w
+10 I f
+(options)1080 2422 w
+10 CW f
+(;)1408 2422 w
+10 I f
+(format)1080 2542 w
+10 CW f
+(.)1380 2542 w
+10 I f
+(data)1080 2662 w
+10 CW f
+(.TE)1080 2782 w
+10 R f
+( is independent, and must contain format-)6 1752(Each table)1 432 2 720 2973 t
+( data to be entered)4 803(ting information followed by the)4 1381 2 720 3093 t
+( formatting information, which)3 1370( The)1 257(in the table.)2 557 3 720 3213 t
+( rows of the)3 570(describes the individual columns and)4 1614 2 720 3333 t
+( preceded by a few options that affect)7 1617(table, may be)2 567 2 720 3453 t
+( detailed description of tables is)5 1373( A)1 151(the entire table.)2 660 3 720 3573 t
+(given in the next section.)4 1034 1 720 3693 t
+10 B f
+( commands.)1 519(2. Input)1 381 2 720 3956 t
+10 R f
+( table contains, \256rst, glo-)4 1042(As indicated above, a)3 892 2 970 4118 t
+( section describing the lay-)4 1116(bal options, then a format)4 1068 2 720 4238 t
+(out of the table entries, and then the data to be)10 2184 1 720 4358 t
+( format and data are always required,)6 1637(printed. The)1 547 2 720 4478 t
+( various parts of the table)5 1117( The)1 234(but not the options.)3 833 3 720 4598 t
+(are entered as follows:)3 924 1 720 4718 t
+10 B f
+(2.1. Options)1 556 1 720 4981 t
+10 R f
+( be a single line of options affecting)7 1497(There may)1 437 2 970 5143 t
+( the)1 156( present, this line must follow)5 1239( If)1 134(the whole table.)2 655 4 720 5263 t
+10 CW f
+(.TS)720 5383 w
+10 R f
+(line immediately and must contain a list of)7 1946 1 958 5383 t
+( or commas,)2 521(option names separated by spaces, tabs,)5 1663 2 720 5503 t
+( allow-)1 293( The)1 226( by a semicolon.)3 694(and must be terminated)3 971 4 720 5623 t
+(able options are:)2 676 1 720 5743 t
+10 CW f
+(center)840 5905 w
+10 R f
+( is left-)2 367(center the table \(default)3 1067 2 1470 5905 t
+(adjust\);)1470 6025 w
+10 CW f
+(expand)840 6187 w
+10 R f
+(make the table as wide as the)6 1434 1 1470 6187 t
+(current line length;)2 776 1 1470 6307 t
+10 CW f
+(box)840 6469 w
+10 R f
+(enclose the table in a box;)5 1080 1 1470 6469 t
+10 CW f
+(allbox)840 6631 w
+10 R f
+(enclose each item in the table in a)7 1434 1 1470 6631 t
+(box;)1470 6751 w
+10 CW f
+(doublebox)840 6913 w
+10 R f
+(enclose the table in two boxes;)5 1269 1 1470 6913 t
+10 CW f
+(tab)840 7075 w
+10 R f
+(\()1080 7075 w
+10 I f
+(x)1113 7075 w
+10 R f
+(\) use)1 438 1 1165 7075 t
+10 I f
+(x)1663 7075 w
+10 R f
+(instead of tab to separate)4 1136 1 1768 7075 t
+(data items.)1 441 1 1470 7195 t
+10 CW f
+(linesize\()3336 840 w
+10 I f
+(n)3876 840 w
+10 CW f
+(\))3926 840 w
+10 R f
+( from)1 231(set lines or rules \(e.g.)4 898 2 3986 840 t
+10 CW f
+(box)5179 840 w
+10 R f
+(\))5367 840 w
+(in)3966 960 w
+10 I f
+(n)4077 960 w
+10 R f
+(point type;)1 439 1 4160 960 t
+10 CW f
+(delim\()3336 1122 w
+10 I f
+(xy)3696 1122 w
+10 CW f
+(\))3784 1122 w
+10 R f
+(recognize)3966 1122 w
+10 I f
+(x)4430 1122 w
+10 R f
+(and)4551 1122 w
+10 I f
+(y)4773 1122 w
+10 R f
+(as the)1 283 1 4895 1122 t
+10 I f
+(eqn)5256 1122 w
+10 R f
+(delimiters.)3966 1242 w
+10 I f
+(Tbl)3466 1404 w
+10 R f
+( one page by)3 549(tries to keep boxed tables on)5 1205 2 3646 1404 t
+(issuing appropriate)1 787 1 3216 1524 t
+10 I f
+(troff)4051 1524 w
+10 R f
+(``need'' \()1 401 1 4280 1524 t
+10 CW f
+(.ne)4681 1524 w
+10 R f
+(\) commands.)1 539 1 4861 1524 t
+( calculated from the number of)5 1388(These requests are)2 796 2 3216 1644 t
+( spacing com-)2 620(lines in the tables, and if there are)7 1564 2 3216 1764 t
+( these requests may be)4 942(mands embedded in the input,)4 1242 2 3216 1884 t
+(inaccurate; use normal)2 995 1 3216 2004 t
+10 I f
+(troff)4281 2004 w
+10 R f
+(procedures, such as)2 868 1 4532 2004 t
+( user who)2 460( The)1 249( case.)1 257(keep-release macros, in that)3 1218 4 3216 2124 t
+( mac-)1 234(must have a multi-page boxed table should use)7 1950 2 3216 2244 t
+( this purpose, as explained below)5 1481(ros designed for)2 703 2 3216 2364 t
+(under `Usage.')1 600 1 3216 2484 t
+10 B f
+(2.2. Format)1 537 1 3216 2744 t
+10 R f
+( the)1 175(The format section of the table speci\256es)6 1759 2 3466 2906 t
+( in this section)3 683( line)1 210( Each)1 292(layout of the columns.)3 999 4 3216 3026 t
+( of the table \(except that the)6 1210(corresponds to one line)3 974 2 3216 3146 t
+( up to the)3 417(last line corresponds to all following lines)6 1767 2 3216 3266 t
+(next)3216 3386 w
+10 CW f
+(.T&)3430 3386 w
+10 R f
+(, if any \320 see below\), and each line con-)9 1790 1 3610 3386 t
+( is)1 105( It)1 132( the table.)2 417(tains a key-letter for each column of)6 1530 4 3216 3506 t
+( each)1 240(good practice to separate the key letters for)7 1944 2 3216 3626 t
+( key-letter is one of)4 828( Each)1 271(column by spaces or tabs.)4 1085 3 3216 3746 t
+(the following:)1 572 1 3216 3866 t
+10 CW f
+(L)3282 4028 w
+10 R f
+(or)3375 4028 w
+10 CW f
+(l)3491 4028 w
+10 R f
+(to indicate a left-adjusted column entry;)5 1635 1 3716 4028 t
+10 CW f
+(R)3282 4190 w
+10 R f
+(or)3375 4190 w
+10 CW f
+(r)3491 4190 w
+10 R f
+( a right-adjusted column)3 1193(to indicate)1 491 2 3716 4190 t
+(entry;)3716 4310 w
+10 CW f
+(C)3282 4472 w
+10 R f
+(or)3375 4472 w
+10 CW f
+(c)3491 4472 w
+10 R f
+(to indicate a centered column entry;)5 1473 1 3716 4472 t
+10 CW f
+(N)3282 4634 w
+10 R f
+(or)3375 4634 w
+10 CW f
+(n)3491 4634 w
+10 R f
+( a numerical column entry, to)5 1251(to indicate)1 433 2 3716 4634 t
+( numerical entries)2 763(be aligned with other)3 921 2 3716 4754 t
+( the units digits of numbers line)6 1399(so that)1 285 2 3716 4874 t
+(up;)3716 4994 w
+10 CW f
+(A)3282 5156 w
+10 R f
+(or)3375 5156 w
+10 CW f
+(a)3491 5156 w
+10 R f
+( an alphabetic subcolumn; all)4 1247(to indicate)1 437 2 3716 5156 t
+(corresponding entries are aligned on the)5 1684 1 3716 5276 t
+( the widest is)3 570(left, and positioned so that)4 1114 2 3716 5396 t
+( the column \(see example)4 1056(centered within)1 628 2 3716 5516 t
+(on page 12\);)2 515 1 3716 5636 t
+10 CW f
+(S)3282 5798 w
+10 R f
+(or)3375 5798 w
+10 CW f
+(s)3491 5798 w
+10 R f
+(to indicate a spanned heading, i.e. to)6 1684 1 3716 5798 t
+( from the previous)3 774(indicate that the entry)3 910 2 3716 5918 t
+( across this column)3 925(column continues)1 759 2 3716 6038 t
+( for the \256rst column, obvi-)5 1160(\(not allowed)1 524 2 3716 6158 t
+(ously\); or)1 394 1 3716 6278 t
+14 CW f
+(\303)3282 6500 w
+10 R f
+( heading,)1 382(to indicate a vertically spanned)4 1302 2 3716 6440 t
+( entry from the)3 680(i.e. to indicate that the)4 1004 2 3716 6560 t
+( through)1 379(previous row continues down)3 1305 2 3716 6680 t
+( \256rst row)2 389( allowed for the)3 674( \(Not)1 256(this row.)1 365 4 3716 6800 t
+(of the table, obviously\).)3 976 1 3716 6920 t
+10 R f
+( speci\256ed, a loca-)3 728(When numerical alignment is)3 1206 2 3466 7082 t
+( rightmost)1 426( The)1 230( the decimal point is sought.)5 1213(tion for)1 315 4 3216 7202 t
+10 R f
+( Papers)1 299(36 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 36 2
+%%Page: 37 3
+/saveobj save def
+mark
+3 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+(dot \()1 217 1 720 840 t
+10 CW f
+(.)937 840 w
+10 R f
+( digit is used as a decimal)6 1219( to a)2 234(\) adjacent)1 454 3 997 840 t
+(point; if there is no dot adjoining a digit, the right-)10 2184 1 720 960 t
+( as a units digit; if no alignment is)8 1450(most digit is used)3 734 2 720 1080 t
+( How-)1 298(indicated, the item is centered in the column.)7 1886 2 720 1200 t
+( special non-printing character string)4 1621(ever, the)1 380 2 720 1320 t
+10 CW f
+(\\&)2784 1320 w
+10 R f
+( used to override unconditionally dots and)6 1862(may be)1 322 2 720 1440 t
+( string lines up)3 622(digits, or to align alphabetic data; this)6 1562 2 720 1560 t
+( and then disappears)3 905(where a dot normally would,)4 1279 2 720 1680 t
+( below, the)2 503( the example)2 570( In)1 171(from the \256nal output.)3 940 4 720 1800 t
+( will be aligned \(in a numeri-)6 1231(items shown at the left)4 953 2 720 1920 t
+(cal column\) as shown on the right:)6 1430 1 720 2040 t
+10 R f
+(13 13)1 892 1 1269 2350 t
+(4)1269 2470 w
+14 R f
+(.)1327 2470 w
+10 R f
+(2 4)1 799 1 1362 2470 t
+14 R f
+(.)2169 2470 w
+10 R f
+(2)2204 2470 w
+(26)1269 2590 w
+14 R f
+(.)1377 2590 w
+10 R f
+(4)1412 2590 w
+14 R f
+(.)1470 2590 w
+10 R f
+(12 26)1 563 1 1505 2590 t
+14 R f
+(.)2076 2590 w
+10 R f
+(4)2111 2590 w
+14 R f
+(.)2169 2590 w
+10 R f
+(12)2204 2590 w
+(abc abc)1 961 1 1269 2710 t
+(abc\\& abc)1 892 1 1269 2830 t
+(43\\&3)1269 2950 w
+14 R f
+(.)1533 2950 w
+10 R f
+(22 433)1 643 1 1568 2950 t
+14 R f
+(.)2219 2950 w
+10 R f
+(22)2254 2950 w
+(749)1269 3070 w
+14 R f
+(.)1427 3070 w
+10 R f
+(12 749)1 699 1 1462 3070 t
+14 R f
+(.)2169 3070 w
+10 R f
+(12)2204 3070 w
+10 B f
+(Note:)970 3380 w
+10 R f
+( the same)2 419(If numerical data are used in)5 1238 2 1247 3380 t
+(column with wider)2 817 1 720 3500 t
+10 CW f
+(L)1592 3500 w
+10 R f
+(or)1707 3500 w
+10 CW f
+(r)1845 3500 w
+10 R f
+(type table entries, the)3 944 1 1960 3500 t
+(widest)720 3620 w
+10 I f
+(number)1019 3620 w
+10 R f
+( wider)1 266(is centered relative to the)4 1055 2 1362 3620 t
+10 CW f
+(L)2722 3620 w
+10 R f
+(or)2821 3620 w
+10 CW f
+(r)720 3740 w
+10 R f
+(items \()1 287 1 817 3740 t
+10 CW f
+(L)1104 3740 w
+10 R f
+(is used instead of)3 727 1 1201 3740 t
+10 CW f
+(l)1992 3740 w
+10 R f
+(for readability; they)2 815 1 2089 3740 t
+( Alignment)1 512( key-letters\).)1 530(have the same meaning as)4 1142 3 720 3860 t
+( is)1 128( This)1 273(within the numerical items is preserved.)5 1783 3 720 3980 t
+(similar to the behavior of)4 1078 1 720 4100 t
+10 CW f
+(a)1840 4100 w
+10 R f
+( as explained)2 557(type data,)1 405 2 1942 4100 t
+( \(requested)1 463( alphabetic subcolumns)2 986(above. However,)1 735 3 720 4220 t
+(by the)1 285 1 720 4340 t
+10 CW f
+(a)1068 4340 w
+10 R f
+( always slightly indented)3 1114(key-letter\) are)1 599 2 1191 4340 t
+(relative to)1 412 1 720 4460 t
+10 CW f
+(L)1167 4460 w
+10 R f
+( column width is)3 697(items; if necessary, the)3 945 2 1262 4460 t
+( is not true for)4 634( This)1 253(increased to force this.)3 954 3 720 4580 t
+10 CW f
+(n)2630 4580 w
+10 R f
+(type)2732 4580 w
+(entries.)720 4700 w
+10 BI f
+(Warning:)970 4934 w
+10 R f
+(the)1419 4934 w
+10 CW f
+(n)1616 4934 w
+10 R f
+(and)1724 4934 w
+10 CW f
+(a)1943 4934 w
+10 R f
+(items should not be)3 853 1 2051 4934 t
+(used in the same column.)4 1045 1 720 5054 t
+10 R f
+( describing each)2 680(For readability, the key-letters)3 1254 2 970 5288 t
+( end of)2 313( The)1 231( by spaces.)2 471(column should be separated)3 1169 4 720 5408 t
+( lay-)1 190( The)1 223( is indicated by a period.)5 1032(the format section)2 739 4 720 5528 t
+( key-letters in the format section resembles)6 1779(out of the)2 405 2 720 5648 t
+( a)1 95( Thus)1 284( actual data in the table.)5 1078(the layout of the)3 727 4 720 5768 t
+(simple format might appear as:)4 1275 1 720 5888 t
+9 CW f
+(c s s)2 378 1 1008 6178 t
+( .)1 108(l n n)2 378 2 1008 6278 t
+10 R f
+( \256rst)1 207(which speci\256es a table of three columns. The)7 1977 2 720 6588 t
+( a heading centered across)4 1122(line of the table contains)4 1062 2 720 6708 t
+( each remaining line contains a)5 1404(all three columns;)2 780 2 720 6828 t
+( column followed by)3 923(left-adjusted item in the \256rst)4 1261 2 720 6948 t
+( table in)2 364( sample)1 328( A)1 150(two columns of numerical data.)4 1342 4 720 7068 t
+(this format might be:)3 866 1 720 7188 t
+(Overall title)1 488 1 3982 840 t
+( 9.1)1 325(Item-a 34.22)1 846 2 3616 960 t
+( .02)1 375(Item-b 12.65)1 846 2 3616 1080 t
+( 5.8)1 450( 23)1 250(Items: c,d,e)1 471 3 3616 1200 t
+( 14.92)1 375(Total 69.87)1 846 2 3616 1320 t
+10 R f
+( of the key-letter)3 725(There are some additional features)4 1459 2 3216 1500 t
+(system:)3216 1620 w
+10 I f
+(Horizontal lines)1 673 1 3282 1776 t
+10 R f
+(\320 A key-letter may be replaced)5 1412 1 3988 1776 t
+(by)3466 1896 w
+10 CW f
+(_)3606 1896 w
+10 R f
+( horizontal line)2 633(\(underscore\) to indicate a)3 1061 2 3706 1896 t
+( the corresponding column entry, or)5 1491(in place of)2 443 2 3466 2016 t
+(by)3466 2136 w
+10 CW f
+(=)3615 2136 w
+10 R f
+( If)1 147(to indicate a double horizontal line.)5 1530 2 3723 2136 t
+( column contains a horizontal line,)5 1467(an adjacent)1 467 2 3466 2256 t
+( lines adjoining this)3 907(or if there are vertical)4 1027 2 3466 2376 t
+( extended to)2 574(column, this horizontal line is)4 1360 2 3466 2496 t
+( any data entry is)4 806( If)1 156(meet the nearby lines.)3 972 3 3466 2616 t
+( a)1 92(provided for this column, it is ignored and)7 1842 2 3466 2736 t
+(warning message is printed.)3 1139 1 3466 2856 t
+10 I f
+(Vertical lines)1 575 1 3282 3012 t
+10 R f
+( be placed)2 484(\320 A vertical bar may)4 1026 2 3890 3012 t
+( will cause a)3 532( This)1 248(between column key-letters.)2 1154 3 3466 3132 t
+(vertical line between the corresponding)4 1934 1 3466 3252 t
+( vertical bar to the left)5 929( A)1 139( the table.)2 409(columns of)1 457 4 3466 3372 t
+( the right of the last)5 845(of the \256rst key-letter or to)5 1089 2 3466 3492 t
+( If)1 132( a line at the edge of the table.)8 1264(one produces)1 538 3 3466 3612 t
+( appear between key-letters, a)4 1243(two vertical bars)2 691 2 3466 3732 t
+(double vertical line is drawn.)4 1194 1 3466 3852 t
+10 I f
+(Space between columns)2 990 1 3282 4008 t
+10 R f
+( follow)1 308(\320 A number may)3 787 2 4305 4008 t
+( amount of)2 493( indicates the)2 589( This)1 267(the key-letter.)1 585 4 3466 4128 t
+( and the next)3 594(separation between this column)3 1340 2 3466 4248 t
+( the)1 179( number normally speci\256es)3 1184(column. The)1 571 3 3466 4368 t
+10 R f
+(separation in)1 526 1 3466 4488 t
+10 I f
+(ens)4030 4488 w
+10 R f
+( the ``expand'' option is)4 1017(*. If)1 212 2 4171 4488 t
+( a)1 90(used, then these numbers are multiplied by)6 1844 2 3466 4608 t
+( the table is as wide as the)7 1180(constant such that)2 754 2 3466 4728 t
+( default column)2 761( The)1 280(current line length.)2 893 3 3466 4848 t
+( is)1 122( the separation)2 640( If)1 153(separation number is 3.)3 1019 4 3466 4968 t
+( case \(largest space)3 1030(changed the worst)2 904 2 3466 5088 t
+(requested\) governs.)1 789 1 3466 5208 t
+10 I f
+(Vertical spanning)1 735 1 3282 5364 t
+10 R f
+(\320 Normally, vertically spanned)3 1350 1 4050 5364 t
+( the table)2 392(items extending over several rows of)5 1542 2 3466 5484 t
+( a key-)2 309( If)1 143( their vertical range.)3 860(are centered in)2 622 4 3466 5604 t
+(letter is followed by)3 826 1 3466 5724 t
+10 CW f
+(t)4325 5724 w
+10 R f
+(or)4418 5724 w
+10 CW f
+(T)4534 5724 w
+10 R f
+(, any corresponding)2 806 1 4594 5724 t
+( the top)2 352(vertically spanned item will begin at)5 1582 2 3466 5844 t
+(line of its range.)3 673 1 3466 5964 t
+10 I f
+(Font changes)1 558 1 3282 6120 t
+10 R f
+(\320 A key-letter may be followed by)6 1527 1 3873 6120 t
+( pre-)1 193(a string containing a font name or number)7 1741 2 3466 6240 t
+( letter)1 242(ceded by the)2 526 2 3466 6360 t
+10 CW f
+(f)4271 6360 w
+10 R f
+(or)4368 6360 w
+10 CW f
+(F)4488 6360 w
+10 R f
+( indicates that)2 579(. This)1 273 2 4548 6360 t
+( dif-)1 188(the corresponding column should be in a)6 1746 2 3466 6480 t
+( default font \(usually)3 994(ferent font from the)3 940 2 3466 6600 t
+( font names are one or two)6 1352(Roman\). All)1 582 2 3466 6720 t
+(letters; a one-letter font name should be)6 1934 1 3466 6840 t
+( or)1 118(separated from whatever follows by a space)6 1816 2 3466 6960 t
+8 R f
+(* One en is about the width of the letter `n', or more precisely,)13 2184 1 3216 7090 t
+(half the current type size measured in points \(1 point = 1/72 inch\).)12 2177 1 3216 7190 t
+10 R f
+( 37)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 37 3
+%%Page: 38 4
+/saveobj save def
+mark
+4 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 R f
+( single letters)2 601(tab. The)1 394 2 970 840 t
+10 CW f
+(B)2024 840 w
+10 R f
+(,)2084 840 w
+10 CW f
+(b)2169 840 w
+10 R f
+(,)2229 840 w
+10 CW f
+(I)2314 840 w
+10 R f
+(, and)1 229 1 2374 840 t
+10 CW f
+(i)2663 840 w
+10 R f
+(are)2783 840 w
+(shorter synonyms for)2 885 1 970 960 t
+10 CW f
+(fB)1898 960 w
+10 R f
+(and)2061 960 w
+10 CW f
+(fI)2248 960 w
+10 R f
+(and refer to)2 493 1 2411 960 t
+( and italic fonts in the current font)7 1579(the bold)1 355 2 970 1080 t
+( change commands given with)4 1367(family. Font)1 567 2 970 1200 t
+(the table entries override these speci\256cations.)5 1853 1 970 1320 t
+10 I f
+(Point size changes)2 816 1 786 1485 t
+10 R f
+(\320 A key-letter may be fol-)5 1269 1 1635 1485 t
+(lowed by the letter)3 818 1 970 1605 t
+10 CW f
+(p)1837 1605 w
+10 R f
+(or)1946 1605 w
+10 CW f
+(P)2078 1605 w
+10 R f
+( to)1 126(and a number)2 591 2 2187 1605 t
+( point size of the corresponding)5 1437(indicate the)1 497 2 970 1725 t
+( number may be a signed)5 1151( The)1 243(table entries.)1 540 3 970 1845 t
+( an increment)2 565(digit, in which case it is taken as)7 1369 2 970 1965 t
+( If)1 149( current point size.)3 818(or decrement from the)3 967 3 970 2085 t
+( size and a column separation)5 1378(both a point)2 556 2 970 2205 t
+(value are given, one or more blanks must)7 1934 1 970 2325 t
+(separate them.)1 584 1 970 2445 t
+10 I f
+( changes)1 378(Vertical spacing)1 683 2 786 2610 t
+10 R f
+(\320 A key-letter may be)4 1024 1 1880 2610 t
+(followed by the letter)3 896 1 970 2730 t
+10 CW f
+(v)1904 2730 w
+10 R f
+(or)2002 2730 w
+10 CW f
+(V)2123 2730 w
+10 R f
+( number to)2 457(and a)1 226 2 2221 2730 t
+( be used)2 389(indicate the vertical line spacing to)5 1545 2 970 2850 t
+( entry.)1 278(within a multi-line corresponding table)4 1656 2 970 2970 t
+( signed digit, in which)4 980(The number may be a)4 954 2 970 3090 t
+( or decrement)2 584(case it is taken as an increment)6 1350 2 970 3210 t
+( column)1 351( A)1 156(from the current vertical spacing.)4 1427 3 970 3330 t
+(separation value must be separated by blanks)6 1934 1 970 3450 t
+( from a vertical)3 735(or some other speci\256cation)3 1199 2 970 3570 t
+( no effect)2 444( request has)2 541( This)1 271(spacing request.)1 678 4 970 3690 t
+( a text)2 290(unless the corresponding table entry is)5 1644 2 970 3810 t
+(block \(see below\).)2 750 1 970 3930 t
+10 I f
+(Column width indication)2 1052 1 786 4095 t
+10 R f
+( be)1 148(\320 A key-letter may)3 885 2 1871 4095 t
+( letter)1 264(followed by the)2 697 2 970 4215 t
+10 CW f
+(w)1990 4215 w
+10 R f
+(or)2109 4215 w
+10 CW f
+(W)2251 4215 w
+10 R f
+(and a width)2 534 1 2370 4215 t
+( width is used as a)5 815( This)1 253(value in parentheses.)2 866 3 970 4335 t
+( the largest ele-)3 714( If)1 158( width.)1 312(minimum column)1 750 4 970 4455 t
+( the column is not as wide as the)8 1595(ment in)1 339 2 970 4575 t
+( the)1 161(width value given after)3 968 2 970 4695 t
+10 CW f
+(w)2165 4695 w
+10 R f
+(, the largest ele-)3 679 1 2225 4695 t
+( the larg-)2 394( If)1 141( wide.)1 261(ment is assumed to be that)5 1138 4 970 4815 t
+( column is wider than the)5 1148(est element in the)3 786 2 970 4935 t
+( width)1 275( The)1 235(speci\256ed value, its width is used.)5 1424 3 970 5055 t
+( a default line length for)5 1212(is also used as)3 722 2 970 5175 t
+( Normal)1 388(included text blocks.)2 880 2 970 5295 t
+10 I f
+(troff)2288 5295 w
+10 R f
+(units can)1 384 1 2520 5295 t
+( value; if none are)4 800(be used to scale the width)5 1134 2 970 5415 t
+( the width)2 538( If)1 192(used, the default is ens.)4 1204 3 970 5535 t
+( integer the)2 643(speci\256cation is a unitless)3 1291 2 970 5655 t
+( the width)2 492( If)1 170(parentheses may be omitted.)3 1272 3 970 5775 t
+( the)1 179(value is changed in a column,)5 1352 2 970 5895 t
+10 I f
+(last)2558 5895 w
+10 R f
+(one)2760 5895 w
+(given controls.)1 602 1 970 6015 t
+10 I f
+(Equal width columns)2 887 1 786 6180 t
+10 R f
+( key-letter may be fol-)4 980(\320 A)1 218 2 1706 6180 t
+(lowed by the letter)3 821 1 970 6300 t
+10 CW f
+(e)1841 6300 w
+10 R f
+(or)1951 6300 w
+10 CW f
+(E)2084 6300 w
+10 R f
+(to indicate equal)2 710 1 2194 6300 t
+( key-letters)1 455( columns whose)2 660( All)1 194(width columns.)1 625 4 970 6420 t
+(are followed by)2 674 1 970 6540 t
+10 CW f
+(e)1720 6540 w
+10 R f
+(or)1829 6540 w
+10 CW f
+(E)1988 6540 w
+10 R f
+(are made the same)3 808 1 2096 6540 t
+( the user to get a group of)7 1100( permits)1 335(width. This)1 499 3 970 6660 t
+(regularly spaced columns.)2 1061 1 970 6780 t
+10 I f
+(Staggered columns)1 801 1 786 6945 t
+10 R f
+(\320 A key-letter may be fol-)5 1284 1 1620 6945 t
+(lowed by the letter)3 791 1 970 7065 t
+10 CW f
+(u)1801 7065 w
+10 R f
+(or)1900 7065 w
+10 CW f
+(U)2022 7065 w
+10 R f
+(to indicate that the)3 783 1 2121 7065 t
+( be moved up one)4 842(corresponding entry is to)3 1092 2 970 7185 t
+( it easy, for example, to)5 1015( makes)1 296( This)1 252(half line.)1 371 4 3466 840 t
+( differences between numbers)3 1220(have a column of)3 714 2 3466 960 t
+( The)1 230(in an adjoining column.)3 1004 2 3466 1080 t
+10 CW f
+(allbox)4742 1080 w
+10 R f
+(option)5144 1080 w
+(does not work with staggered columns.)5 1605 1 3466 1200 t
+10 I f
+(Zero-width item)1 665 1 3282 1356 t
+10 R f
+(\320 A key-letter may be followed)5 1420 1 3980 1356 t
+(by the letter)2 569 1 3466 1476 t
+10 CW f
+(z)4106 1476 w
+10 R f
+(or)4237 1476 w
+10 CW f
+(Z)4391 1476 w
+10 R f
+( the)1 192(to indicate that)2 686 2 4522 1476 t
+( is to be ignored in)5 907(corresponding data item)2 1027 2 3466 1596 t
+( may be use-)3 561( This)1 255(calculating column widths.)2 1118 3 3466 1716 t
+( headings to run)3 707(ful, for example, in allowing)4 1227 2 3466 1836 t
+( spanned head-)2 636(across adjacent columns where)3 1298 2 3466 1956 t
+(ings would be inappropriate.)3 1167 1 3466 2076 t
+10 B f
+(Note:)3282 2232 w
+10 R f
+( features is imma-)3 817(The order of the above)4 1036 2 3547 2232 t
+( need not be separated by spaces,)6 1477(terial; they)1 457 2 3466 2352 t
+( above to avoid ambiguities)4 1153(except as indicated)2 781 2 3466 2472 t
+( a)1 81( Thus)1 270( and font changes.)3 762(involving point size)2 821 4 3466 2592 t
+( italic font and 12)4 805(numerical column entry in)3 1129 2 3466 2712 t
+( width of 2.5)3 652(point type with a minimum)4 1282 2 3466 2832 t
+( ens from the next)4 817(inches and separated by 6)4 1117 2 3466 2952 t
+(column could be speci\256ed as)4 1186 1 3466 3072 t
+9 CW f
+(np12w\(2.5i\)fI 6)1 864 1 3504 3232 t
+10 I f
+(Alternative notation)1 830 1 3282 3412 t
+10 R f
+( the for-)2 377(\320 Instead of listing)3 878 2 4145 3412 t
+( a table on consecu-)4 848(mat of successive lines of)4 1086 2 3466 3532 t
+(tive lines of the format section, successive line)7 1934 1 3466 3652 t
+(formats may be given on the same line,)7 1934 1 3466 3772 t
+(separated by commas, so that the format for)7 1934 1 3466 3892 t
+(the example above might have been written:)6 1817 1 3466 4012 t
+9 CW f
+(c s s, l n n .)6 756 1 3504 4172 t
+10 I f
+(Default)3282 4352 w
+10 R f
+( the)1 182(\320 Column descriptors missing from)4 1603 2 3615 4352 t
+( line are assumed to be)5 1062(end of a format)3 705 2 3466 4472 t
+10 CW f
+(L)5315 4472 w
+10 R f
+(.)5375 4472 w
+( the format section, how-)4 1109(The longest line in)3 825 2 3466 4592 t
+(ever, de\256nes the number of columns in the)7 1934 1 3466 4712 t
+( the data are ignored)4 934(table; extra columns in)3 1000 2 3466 4832 t
+(silently.)3466 4952 w
+10 B f
+(2.3. Data)1 421 1 3216 5192 t
+10 R f
+( the table are typed after the for-)7 1413(The data for)2 521 2 3466 5348 t
+( one line)2 376( each table line is typed as)6 1150(mat. Normally,)1 658 3 3216 5468 t
+( any)1 192( long input lines can be broken:)6 1392( Very)1 279(of data.)1 321 4 3216 5588 t
+( last character is)3 699(line whose)1 449 2 3216 5708 t
+10 CW f
+(\\)4407 5708 w
+10 R f
+(is combined with the)3 890 1 4510 5708 t
+( the)1 174(following line \(and)2 818 2 3216 5828 t
+10 CW f
+(\\)4260 5828 w
+10 R f
+( data for)2 386(vanishes\). The)1 642 2 4372 5828 t
+( separated by)2 548(different columns \(the table entries\) are)5 1636 2 3216 5948 t
+( character has been speci\256ed)4 1276(tabs, or by whatever)3 908 2 3216 6068 t
+(with the option)2 684 1 3216 6188 t
+10 CW f
+(tabs)3964 6188 w
+10 R f
+( are a few special)4 843(. There)1 353 2 4204 6188 t
+(cases:)3216 6308 w
+10 I f
+( within tables)2 620(Troff commands)1 692 2 3282 6464 t
+10 R f
+(\320 An input line)3 773 1 4627 6464 t
+(beginning with a)2 704 1 3466 6584 t
+10 CW f
+(.)4211 6584 w
+10 R f
+( but)1 168(followed by anything)2 887 2 4345 6584 t
+( is assumed to be a command to)7 1337(a number)1 382 2 3466 6704 t
+10 I f
+(troff)5219 6704 w
+10 R f
+( its)1 134(and is passed through unchanged, retaining)5 1800 2 3466 6824 t
+( for example, vertical)3 886( So,)1 200( table.)1 255(position in the)2 593 4 3466 6944 t
+( by)1 137(space within a table may be produced)6 1580 2 3466 7064 t
+10 CW f
+(.sp)5220 7064 w
+10 R f
+(commands in the data.)3 923 1 3466 7184 t
+10 R f
+( Papers)1 299(38 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 38 4
+%%Page: 39 5
+/saveobj save def
+mark
+5 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+10 I f
+(Full width horizontal lines)3 1135 1 786 840 t
+10 R f
+( input line con-)3 680(\320 An)1 270 2 1954 840 t
+(taining only)1 503 1 970 960 t
+10 CW f
+(_)1519 960 w
+10 R f
+(\(underscore\) or)1 632 1 1625 960 t
+10 CW f
+(=)2303 960 w
+10 R f
+(\(equal sign\))1 495 1 2409 960 t
+( respec-)1 330(is taken to be a single or double line,)8 1604 2 970 1080 t
+(tively, extending the full width of the table.)7 1791 1 970 1200 t
+10 I f
+(Single column horizontal lines)3 1304 1 786 1371 t
+10 R f
+(\320 An input table)3 781 1 2123 1371 t
+(entry containing only the character)4 1467 1 970 1491 t
+10 S f
+(_ _)1 55 1 2481 1491 t
+10 R f
+(or)2580 1491 w
+10 CW f
+(=)2734 1491 w
+10 R f
+(is)2837 1491 w
+( or double line extending)4 1083(taken to be a single)4 851 2 970 1611 t
+( lines are)2 402( Such)1 279( column.)1 371(the full width of the)4 882 4 970 1731 t
+( vertical lines)2 598(extended to meet horizontal or)4 1336 2 970 1851 t
+( obtain these char-)3 800( To)1 191( column.)1 372(adjoining this)1 571 4 970 1971 t
+( in a column, either precede)5 1268(acters explicitly)1 666 2 970 2091 t
+(them by)1 339 1 970 2211 t
+10 CW f
+(\\&)1348 2211 w
+10 R f
+(or follow them by a space before)6 1397 1 1507 2211 t
+(the usual tab or newline.)4 1011 1 970 2331 t
+10 I f
+(Short horizontal lines)2 892 1 786 2502 t
+10 R f
+( input table entry con-)4 934(\320 An)1 259 2 1711 2502 t
+(taining only the string)3 914 1 970 2622 t
+10 CW f
+(\\_)1920 2622 w
+10 R f
+( sin-)1 185(is taken to be a)4 643 2 2076 2622 t
+( the column.)2 519(gle line as wide as the contents of)7 1415 2 970 2742 t
+(It is not extended to meet adjoining lines.)7 1711 1 970 2862 t
+10 I f
+(Repeated characters)1 845 1 786 3033 t
+10 R f
+( con-)1 225(\320 An input table entry)4 1015 2 1664 3033 t
+(taining only a string of the form)6 1361 1 970 3153 t
+10 CW f
+(\\R)2369 3153 w
+10 I f
+(x)2489 3153 w
+10 R f
+(where)2571 3153 w
+10 I f
+(x)2852 3153 w
+10 R f
+(is any character is replaced by repetitions of)7 1934 1 970 3273 t
+(the character)1 547 1 970 3393 t
+10 I f
+(x)1578 3393 w
+10 R f
+( the)1 182(as wide as the data in)5 1031 2 1691 3393 t
+( sequence of)2 532(column. The)1 555 2 970 3513 t
+10 I f
+(x)2099 3513 w
+10 R f
+('s is not extended)3 753 1 2151 3513 t
+(to meet adjoining columns.)3 1113 1 970 3633 t
+10 I f
+(Vertically spanned items)2 1044 1 786 3804 t
+10 R f
+( table entry)2 507(\320 An input)2 534 2 1863 3804 t
+(containing only the character string)4 1522 1 970 3924 t
+10 CW f
+(\\\303)2544 3924 w
+10 R f
+(indi-)2715 3924 w
+( immediately above)2 848(cates that the table entry)4 1086 2 970 4044 t
+( is)1 171( It)1 198(spans downward over this row.)4 1565 3 970 4164 t
+(equivalent to a table format key-letter of)6 1661 1 970 4284 t
+10 CW f
+(\303)2664 4284 w
+10 R f
+(.)2724 4284 w
+10 I f
+(Text blocks)1 470 1 786 4455 t
+10 R f
+( order to include a block of text)7 1389(\320 In)1 226 2 1289 4455 t
+(as a table entry, precede it by)6 1220 1 970 4575 t
+10 CW f
+(T{)2224 4575 w
+10 R f
+(and follow it)2 527 1 2377 4575 t
+(by)970 4695 w
+10 CW f
+(T})1103 4695 w
+10 R f
+( the sequence)2 553(. Thus)1 291 2 1223 4695 t
+9 R f
+(. . .)2 129 1 1008 4881 t
+9 CW f
+(T{)1191 4881 w
+9 I f
+(block of)1 295 1 1008 4981 t
+(text)1008 5081 w
+9 CW f
+(T})1008 5181 w
+9 R f
+(. . .)2 129 1 1146 5181 t
+10 R f
+( as a single entry in the)6 1077(is the way to enter,)4 857 2 970 5387 t
+( cannot conveniently be)3 1038(table, something that)2 896 2 970 5507 t
+( Note)1 277( tabs.)1 236(typed as a simple string between)5 1421 3 970 5627 t
+(that the)1 322 1 970 5747 t
+10 CW f
+(T})1342 5747 w
+10 R f
+( a line;)2 320(end delimiter must begin)3 1072 2 1512 5747 t
+(additional columns of data may follow after a)7 1934 1 970 5867 t
+( the example on)3 737( See)1 236( the same line.)3 679(tab on)1 282 4 970 5987 t
+( an illustration of included text)5 1410(page 44 for)2 524 2 970 6107 t
+( or so text)3 430( more than \256fty)3 655( If)1 136(blocks in a table.)3 713 4 970 6227 t
+( used in a table, various limits in the)8 1519(blocks are)1 415 2 970 6347 t
+10 I f
+(troff)970 6467 w
+10 R f
+( be exceeded, pro-)3 796(program are likely to)3 909 2 1199 6467 t
+( as `too many)3 805(ducing diagnostics such)2 1129 2 3466 840 t
+(string/macro names' or `too many number)5 1934 1 3466 960 t
+(registers.')3466 1080 w
+10 R f
+( table, pro-)2 459(Text blocks are pulled out from the)6 1475 2 3466 1236 t
+(cessed separately by)2 846 1 3466 1356 t
+10 I f
+(troff)4353 1356 w
+10 R f
+(, and replaced in the)4 866 1 4534 1356 t
+( is)1 124( no line length)3 668( If)1 155(table as a solid block.)4 987 4 3466 1476 t
+( of text tself, or in the)6 1007(speci\256ed in the block)3 927 2 3466 1596 t
+( use)1 168(table format, the default is to)5 1199 2 3466 1716 t
+10 I f
+(L)4868 1716 w
+10 S f
+(\264)4932 1716 w
+10 I f
+(C /)1 103 1 4995 1716 t
+10 R f
+(\()5106 1716 w
+10 I f
+(N)5147 1716 w
+10 S f
+(+)5238 1716 w
+10 R f
+(1 \))1 91 1 5309 1716 t
+(where)3466 1836 w
+10 I f
+(L)3763 1836 w
+10 R f
+(is the current line length,)4 1112 1 3873 1836 t
+10 I f
+(C)5038 1836 w
+10 R f
+(is the)1 242 1 5158 1836 t
+( the text,)2 381(number of table columns spanned by)5 1553 2 3466 1956 t
+(and)3466 2076 w
+10 I f
+(N)3658 2076 w
+10 R f
+( columns in the)3 680(is the total number of)4 947 2 3773 2076 t
+( parameters \(point size, font,)4 1230( other)1 251(table. The)1 453 3 3466 2196 t
+( those)1 246(etc.\) used in setting the block of text are)8 1688 2 3466 2316 t
+( \(includ-)1 357(in effect at the beginning of the table)7 1577 2 3466 2436 t
+( the)1 156(ing the effect of)3 664 2 3466 2556 t
+10 CW f
+(.TS)4320 2556 w
+10 R f
+(macro\) and any table)3 866 1 4534 2556 t
+( size, spacing and font,)4 967(format speci\256cations of)2 967 2 3466 2676 t
+(using the)1 413 1 3466 2796 t
+10 CW f
+(p)3980 2796 w
+10 R f
+(,)4040 2796 w
+10 CW f
+(v)4166 2796 w
+10 R f
+(and)4299 2796 w
+10 CW f
+(f)4543 2796 w
+10 R f
+(modi\256ers to the)2 724 1 4676 2796 t
+( text)1 185( within the)2 446( Commands)1 523(column key-letters.)1 780 4 3466 2916 t
+( of course.)2 500(block itself are also recognized,)4 1434 2 3466 3036 t
+(However,)3466 3156 w
+10 I f
+(troff)3927 3156 w
+10 R f
+(commands within the table)3 1221 1 4179 3156 t
+( within the text block do not affect)7 1442(data but not)2 492 2 3466 3276 t
+(that block.)1 430 1 3466 3396 t
+10 B f
+(Warnings:)3282 3552 w
+10 R f
+(Although any number of lines may be)6 1629 1 3771 3552 t
+( table, only the \256rst 200 lines are)7 1436(present in a)2 498 2 3466 3672 t
+( widths of the various)4 966(used in calculating the)3 968 2 3466 3792 t
+( of course, may)3 675( multi-page table,)2 744(columns. A)1 515 3 3466 3912 t
+( if)1 124(be arranged as several single-page tables)5 1810 2 3466 4032 t
+( dif\256culties)1 465( Other)1 297( be a problem.)3 607(this proves to)2 565 4 3466 4152 t
+( arise because, in the cal-)5 1082(with formatting may)2 852 2 3466 4272 t
+( column widths all table entries are)6 1488(culation of)1 446 2 3466 4392 t
+( being used)2 485(assumed to be in the font and size)7 1449 2 3466 4512 t
+(when the)1 409 1 3466 4632 t
+10 CW f
+(.TS)3946 4632 w
+10 R f
+(command was encountered,)2 1203 1 4197 4632 t
+(except for font and size changes indicated \(a\))7 1934 1 3466 4752 t
+( table format section and \(b\) within the)7 1689(in the)1 245 2 3466 4872 t
+( in the entry)3 1038(table data \(as)2 896 2 3466 4992 t
+10 CW f
+(\\s+3\\fIdata\\fP\\s0)3466 5112 w
+10 R f
+(\). Therefore,)1 914 1 4486 5112 t
+(although arbitrary)1 732 1 3466 5232 t
+10 I f
+(troff)4237 5232 w
+10 R f
+(requests may be sprin-)3 943 1 4457 5232 t
+( a table, care must be taken to avoid)8 1633(kled in)1 301 2 3466 5352 t
+(confusing the width calculations; use requests)5 1934 1 3466 5472 t
+(such as)1 299 1 3466 5592 t
+10 CW f
+(.ps)3798 5592 w
+10 R f
+(with care.)1 401 1 4011 5592 t
+10 B f
+( Command Lines)2 750(2.4. Additional)1 673 2 3216 5832 t
+10 R f
+( table must be changed after)5 1197(If the format of a)4 737 2 3466 5988 t
+( summar-)1 389(many similar lines, as with sub-headings or)6 1795 2 3216 6108 t
+(izations, the)1 503 1 3216 6228 t
+10 CW f
+(.T&)3764 6228 w
+10 R f
+( be)1 140(\(table continue\) command can)3 1271 2 3989 6228 t
+( outline of)2 455( The)1 235( change column parameters.)3 1185(used to)1 309 4 3216 6348 t
+(such a table input is:)4 854 1 3216 6468 t
+10 R f
+( 39)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 39 5
+%%Page: 40 6
+/saveobj save def
+mark
+6 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 CW f
+(.TS)1080 840 w
+10 I f
+(options)1080 960 w
+10 CW f
+(;)1408 960 w
+10 I f
+(format)1080 1080 w
+14 I f
+(.)1388 1080 w
+10 I f
+(data)1080 1200 w
+14 I f
+(. . .)2 187 1 1088 1320 t
+10 CW f
+(.T&)1080 1440 w
+10 I f
+(format)1080 1560 w
+14 I f
+(.)1388 1560 w
+10 I f
+(data)1080 1680 w
+10 CW f
+(.T&)1080 1800 w
+10 I f
+(format)1080 1920 w
+14 I f
+(.)1388 1920 w
+10 I f
+(data)1080 2040 w
+10 CW f
+(.TE)1080 2160 w
+10 R f
+( this)1 187( Using)1 313(as in the examples on pages 43 and 46.)8 1684 3 720 2367 t
+( table line can be close to its)7 1500(procedure, each)1 684 2 720 2487 t
+(corresponding format line.)2 1078 1 720 2607 t
+10 BI f
+(Warning:)720 2757 w
+10 R f
+( to change the number of)5 1055(It is not possible)3 692 2 1157 2757 t
+( space between columns, the global)5 1629(columns, the)1 555 2 720 2877 t
+(options such as)2 647 1 720 2997 t
+10 I f
+(box,)1411 2997 w
+10 R f
+(or the selection of columns to)5 1280 1 1624 2997 t
+( is)1 111( Nor)1 232(be made equal width.)3 911 3 720 3117 t
+10 CW f
+(.T&)2018 3117 w
+10 R f
+(recognized after)1 662 1 2242 3117 t
+(the \256rst 200 lines of a table.)6 1161 1 720 3237 t
+10 B f
+(3. Usage.)1 421 1 720 3530 t
+10 R f
+(On)970 3702 w
+9 R f
+(UNIX)1129 3702 w
+10 S f
+(\322)1354 3702 w
+10 R f
+(systems,)1474 3702 w
+10 I f
+(tbl)1857 3702 w
+10 R f
+(can be run on a sim-)5 892 1 2012 3702 t
+(ple table with the command)4 1142 1 720 3822 t
+9 CW f
+(tbl input-file | troff)3 1188 1 1008 4009 t
+10 R f
+( are)1 197(but for more complicated use, where there)6 1987 2 720 4216 t
+( they contain equations and)4 1201(several input \256les, and)3 983 2 720 4336 t
+10 CW f
+(-ms)720 4456 w
+10 R f
+(layout commands as well as tables, the normal)7 1964 1 940 4456 t
+(command would be)2 804 1 720 4576 t
+9 CW f
+(tbl)1008 4763 w
+9 I f
+(\256les ...)1 244 1 1224 4763 t
+9 CW f
+(| eqn | troff -ms)4 918 1 1522 4763 t
+10 R f
+( the usual options may be used on the)8 1579(and, of course,)2 605 2 720 4970 t
+10 I f
+(troff)720 5090 w
+10 R f
+(and)934 5090 w
+10 I f
+(eqn)1111 5090 w
+10 R f
+(commands. If any of the \256le names are)7 1608 1 1296 5090 t
+10 CW f
+(-)720 5210 w
+10 R f
+(the standard input is read at that point.)7 1588 1 813 5210 t
+10 R f
+( users employing line)3 939(For the convenience of)3 995 2 970 5382 t
+(printers without adequate driving tables or post-)6 2184 1 720 5502 t
+(\256lters, there is a special)4 1020 1 720 5622 t
+10 CW f
+(-TX)1786 5622 w
+10 R f
+(command line option)2 892 1 2012 5622 t
+(to)720 5742 w
+10 I f
+(tbl)859 5742 w
+10 R f
+( output that does not have)5 1205(which produces)1 665 2 1034 5742 t
+(fractional line motions in it.)4 1146 1 720 5862 t
+10 R f
+(Note that when)2 642 1 970 6034 t
+10 I f
+(eqn)1653 6034 w
+10 R f
+(and)1847 6034 w
+10 I f
+(tbl)2033 6034 w
+10 R f
+(are used together)2 715 1 2189 6034 t
+(on the same \256le,)3 721 1 720 6154 t
+10 I f
+(tbl)1488 6154 w
+10 R f
+( there)1 245( If)1 145( \256rst.)1 227(should be used)2 638 4 1649 6154 t
+( either order works,)3 862(are no equations within tables,)4 1322 2 720 6274 t
+(but it is usually faster to run)6 1188 1 720 6394 t
+10 I f
+(tbl)1944 6394 w
+10 R f
+(\256rst, since)1 422 1 2094 6394 t
+10 I f
+(eqn)2551 6394 w
+10 R f
+(nor-)2738 6394 w
+( of the input than)4 751(mally produces a larger expansion)4 1433 2 720 6514 t
+10 I f
+(tbl)3216 840 w
+10 R f
+( within tables)2 593( if there are equations)4 976(. However,)1 501 3 3330 840 t
+(\(using the)1 426 1 3216 960 t
+10 I f
+(delim)3696 960 w
+10 R f
+(mechanism in)1 587 1 3980 960 t
+10 I f
+(eqn)4622 960 w
+10 R f
+(\),)4774 960 w
+10 I f
+(tbl)4887 960 w
+10 R f
+(must be)1 344 1 5056 960 t
+( must)1 248( Users)1 313( will be scrambled.)3 844(\256rst or the output)3 779 4 3216 1080 t
+( using equations in)3 807(also beware of)2 615 2 3216 1200 t
+10 CW f
+(n)4708 1200 w
+10 R f
+(-style columns;)1 632 1 4768 1200 t
+(this is nearly always wrong, since)5 1493 1 3216 1320 t
+10 I f
+(tbl)4763 1320 w
+10 R f
+(attempts to)1 470 1 4930 1320 t
+( two parts and this)4 805(split numerical format items into)4 1379 2 3216 1440 t
+( user can defend)3 692( The)1 227(is not possible with equations.)4 1265 3 3216 1560 t
+( by giving the)3 580(against this)1 461 2 3216 1680 t
+10 I f
+(delim\(xx\))4291 1680 w
+10 R f
+(table option; this)2 691 1 4709 1680 t
+(prevents splitting of numerical columns within the)6 2184 1 3216 1800 t
+( the)1 175( example, if)2 528(delimiters. For)1 649 3 3216 1920 t
+10 I f
+(eqn)4621 1920 w
+10 R f
+(delimiters are)1 574 1 4826 1920 t
+10 I f
+($$)3216 2040 w
+10 R f
+(, giving)1 337 1 3324 2040 t
+10 I f
+(delim\($$\))3717 2040 w
+10 R f
+( such as)2 376(a numerical column)2 855 2 4169 2040 t
+10 CW f
+(1245$+- 16$)1 663 1 3216 2160 t
+10 R f
+( not after)2 384(will be divided after 1245,)4 1101 2 3915 2160 t
+(16.)3216 2280 w
+10 I f
+(Tbl)3466 2436 w
+10 R f
+(accepts up to about 35 columns, the exact)7 1755 1 3645 2436 t
+( on the availability of number)5 1395(number depending)1 789 2 3216 2556 t
+( number register)2 754( user must avoid)3 805(registers. The)1 625 3 3216 2676 t
+(names used by)2 612 1 3216 2796 t
+10 I f
+(tbl)3865 2796 w
+10 R f
+( numbers)1 380(, which include two-digit)3 1041 2 3979 2796 t
+( of the form)3 534(from 31 to 97, and strings)5 1128 2 3216 2916 t
+10 CW f
+(4)4923 2916 w
+10 I f
+(x)4983 2916 w
+10 R f
+(,)5027 2916 w
+10 CW f
+(5)5097 2916 w
+10 I f
+(x)5157 2916 w
+10 R f
+(,)5201 2916 w
+10 CW f
+(#)5271 2916 w
+10 I f
+(x)5331 2916 w
+10 R f
+(,)5375 2916 w
+10 I f
+(x)3216 3036 w
+10 CW f
+(+)3260 3036 w
+10 R f
+(,)3320 3036 w
+10 I f
+(x)3379 3036 w
+10 CW f
+(|)3423 3036 w
+10 R f
+(,)3483 3036 w
+10 CW f
+(\303)3569 3036 w
+10 I f
+(x)3629 3036 w
+10 R f
+(, and)1 203 1 3673 3036 t
+10 I f
+(x)3910 3036 w
+10 CW f
+(-)3954 3036 w
+10 R f
+(, where)1 302 1 4014 3036 t
+10 I f
+(x)4350 3036 w
+10 R f
+( lower case letter.)3 727(is any)1 245 2 4428 3036 t
+(The names)1 450 1 3216 3156 t
+10 CW f
+(##)3706 3156 w
+10 R f
+(,)3826 3156 w
+10 CW f
+(#-)3891 3156 w
+10 R f
+(, and)1 209 1 4011 3156 t
+10 CW f
+(#\303)4261 3156 w
+10 R f
+(are also used in certain)4 978 1 4422 3156 t
+( number register names,)3 1010( conserve)1 397(circumstances. To)1 777 3 3216 3276 t
+(the)3216 3396 w
+10 CW f
+(n)3378 3396 w
+10 R f
+(and)3479 3396 w
+10 CW f
+(a)3664 3396 w
+10 R f
+(formats share a register; hence the res-)6 1635 1 3765 3396 t
+( may not be used in the same)7 1227(triction above that they)3 957 2 3216 3516 t
+(column.)3216 3636 w
+10 R f
+( writing layout macros,)3 966(For aid in)2 413 2 3466 3792 t
+10 I f
+(tbl)4883 3792 w
+10 R f
+(de\256nes a)1 365 1 5035 3792 t
+(number register)1 655 1 3216 3912 t
+10 CW f
+(TW)3922 3912 w
+10 R f
+( the table width; it is)5 945(which is)1 362 2 4093 3912 t
+(de\256ned by the time that the)5 1186 1 3216 4032 t
+10 CW f
+(.TE)4447 4032 w
+10 R f
+(macro is invoked)2 728 1 4672 4032 t
+( used in the expansion of that macro.)7 1666(and may be)2 518 2 3216 4152 t
+( assist in laying out multi-page)5 1316(More importantly, to)2 868 2 3216 4272 t
+( the macro T# is de\256ned to produce the)8 1668(boxed tables)1 516 2 3216 4392 t
+( lines of a boxed table, and)6 1247(bottom lines and side)3 937 2 3216 4512 t
+( in the)2 270( use of this macro)4 754( By)1 186(then invoked at its end.)4 974 4 3216 4632 t
+( par-)1 195( In)1 151( be boxed.)2 433(page footer a multi-page table can)5 1405 4 3216 4752 t
+(ticular, the)1 468 1 3216 4872 t
+10 CW f
+(-ms)3750 4872 w
+10 R f
+(macros can be used to print a)6 1404 1 3996 4872 t
+( heading by)2 514(multi-page boxed table with a repeated)5 1670 2 3216 4992 t
+(giving the argument)2 865 1 3216 5112 t
+10 CW f
+(H)4136 5112 w
+10 R f
+(to the)1 255 1 4251 5112 t
+10 CW f
+(.TS)4561 5112 w
+10 R f
+( the)1 176(macro. If)1 428 2 4796 5112 t
+(table start macro is written)4 1097 1 3216 5232 t
+14 CW f
+(.)3943 5392 w
+9 CW f
+(TS H)1 216 1 4027 5392 t
+10 R f
+(a line of the form)4 725 1 3216 5572 t
+14 CW f
+(.)3943 5732 w
+9 CW f
+(TH)4027 5732 w
+10 R f
+( table heading)2 610(must be given in the table after any)7 1574 2 3216 5912 t
+( up to the)3 429( Material)1 414(\(or at the start if none\).)5 1010 3 3216 6032 t
+10 CW f
+(.TH)5111 6032 w
+10 R f
+(is)5333 6032 w
+( the remain-)2 516(placed at the top of each page of table;)8 1668 2 3216 6152 t
+(ing lines in the table are placed on several pages as)10 2184 1 3216 6272 t
+( that this is)3 491(required. Note)1 627 2 3216 6392 t
+10 I f
+(not)4377 6392 w
+10 R f
+(a feature of)2 489 1 4556 6392 t
+10 I f
+(tbl)5089 6392 w
+10 R f
+(, but)1 197 1 5203 6392 t
+(of the)1 238 1 3216 6512 t
+10 CW f
+(-ms)3487 6512 w
+10 R f
+(layout macros.)1 596 1 3700 6512 t
+10 B f
+(4. Examples.)1 583 1 720 6977 t
+10 R f
+(Here are some examples illustrating features of)6 1932 1 970 7200 t
+10 I f
+(tbl.)2935 7200 w
+10 R f
+(The symbol)1 483 1 3132 7200 t
+6 R f
+(T)3684 7190 w
+10 S1 f
+()3664 7200 w
+cleartomark
+saveobj restore
+%%BeginGlobal
+/build_ci {
+    pop
+    size 3 mul 8 div /rad exch def
+    currentpoint
+    newpath
+    rad add exch rad add exch rad 0 360 arc
+    stroke
+} def
+%%EndGlobal
+/saveobj save def
+mark
+10 S1 f
+3664 7200 m
+75 build_ci
+3739 7200 m
+10 R f
+(in the input represents a tab character.)6 1563 1 3788 7200 t
+10 R f
+( Papers)1 299(40 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 40 6
+%%Page: 41 7
+/saveobj save def
+mark
+7 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+10 B f
+(Input:)720 960 w
+14 R f
+(.)878 1140 w
+10 R f
+(TS)913 1140 w
+(box;)870 1260 w
+(c c c)2 198 1 870 1380 t
+(l l r)2 155 1 870 1500 t
+14 R f
+(.)1033 1500 w
+10 R f
+(Fact)870 1620 w
+6 R f
+(T)1078 1610 w
+10 S1 f
+()1058 1620 w
+1058 1620 m
+75 build_ci
+1133 1620 m
+10 R f
+(Location)1149 1620 w
+6 R f
+(T)1540 1610 w
+10 S1 f
+()1520 1620 w
+1520 1620 m
+75 build_ci
+1595 1620 m
+10 R f
+(Statistic)1611 1620 w
+(Largest state)1 515 1 870 1860 t
+6 R f
+(T)1421 1850 w
+10 S1 f
+()1401 1860 w
+1401 1860 m
+75 build_ci
+1476 1860 m
+10 R f
+(Alaska)1492 1860 w
+6 R f
+(T)1805 1850 w
+10 S1 f
+()1785 1860 w
+1785 1860 m
+75 build_ci
+1860 1860 m
+10 R f
+(591,004 sq. mi.)2 636 1 1876 1860 t
+(Smallest state)1 561 1 870 1980 t
+6 R f
+(T)1467 1970 w
+10 S1 f
+()1447 1980 w
+1447 1980 m
+75 build_ci
+1522 1980 m
+10 R f
+(Rhode Island)1 538 1 1538 1980 t
+6 R f
+(T)2112 1970 w
+10 S1 f
+()2092 1980 w
+2092 1980 m
+75 build_ci
+2167 1980 m
+10 R f
+(1,212 sq. mi.)2 536 1 2183 1980 t
+(Longest river)1 543 1 870 2100 t
+6 R f
+(T)1449 2090 w
+10 S1 f
+()1429 2100 w
+1429 2100 m
+75 build_ci
+1504 2100 m
+10 R f
+(Mississippi-Missouri)1520 2100 w
+6 R f
+(T)2402 2090 w
+10 S1 f
+()2382 2100 w
+2382 2100 m
+75 build_ci
+2457 2100 m
+10 R f
+(3,710 mi.)1 389 1 2473 2100 t
+(Highest mountain)1 722 1 870 2220 t
+6 R f
+(T)1628 2210 w
+10 S1 f
+()1608 2220 w
+1608 2220 m
+75 build_ci
+1683 2220 m
+10 R f
+(Mount McKinley, AK)2 907 1 1699 2220 t
+6 R f
+(T)2642 2210 w
+10 S1 f
+()2622 2220 w
+2622 2220 m
+75 build_ci
+2697 2220 m
+10 R f
+(20,320 ft.)1 394 1 2713 2220 t
+(Lowest point)1 533 1 870 2340 t
+6 R f
+(T)1439 2330 w
+10 S1 f
+()1419 2340 w
+1419 2340 m
+75 build_ci
+1494 2340 m
+10 R f
+(Death Valley, CA)2 734 1 1510 2340 t
+6 R f
+(T)2280 2330 w
+10 S1 f
+()2260 2340 w
+2260 2340 m
+75 build_ci
+2335 2340 m
+10 R f
+( ft.)1 119(\261 282)1 215 2 2351 2340 t
+14 R f
+(.)878 2460 w
+10 R f
+(TE)913 2460 w
+10 B f
+(Output:)2880 960 w
+10 S f
+(_ _____________________________________________________)1 2665 1 2880 1040 t
+10 R f
+( Statistic)1 905(Fact Location)1 1228 2 3205 1160 t
+( sq. mi.)2 311( 591,004)1 1105( Alaska)1 634(Largest state)1 515 4 2930 1400 t
+( sq. mi.)2 311( 1,212)1 844( Island)1 277( Rhode)1 572(Smallest state)1 561 5 2930 1520 t
+( mi.)1 164( 3,710)1 683( Mississippi-Missouri)1 1175(Longest river)1 543 4 2930 1640 t
+( ft.)1 119( 20,320)1 667( McKinley, AK)2 640( Mount)1 417(Highest mountain)1 722 5 2930 1760 t
+( ft.)1 119( 282)1 165( \261)1 675( Valley, CA)2 496( Death)1 577(Lowest point)1 533 6 2930 1880 t
+10 S f
+( \347)1 -2665(_ _____________________________________________________)1 2665 2 2880 1900 t
+(\347)2880 1840 w
+(\347)2880 1740 w
+(\347)2880 1640 w
+(\347)2880 1540 w
+(\347)2880 1440 w
+(\347)2880 1340 w
+(\347)2880 1240 w
+(\347)2880 1140 w
+(\347)5545 1900 w
+(\347)5545 1840 w
+(\347)5545 1740 w
+(\347)5545 1640 w
+(\347)5545 1540 w
+(\347)5545 1440 w
+(\347)5545 1340 w
+(\347)5545 1240 w
+(\347)5545 1140 w
+10 B f
+(Input:)720 2700 w
+14 R f
+(.)878 2880 w
+10 R f
+(TS)913 2880 w
+(allbox;)870 3000 w
+(c s s)2 188 1 870 3120 t
+(c c c)2 198 1 870 3240 t
+(n n n)2 216 1 870 3360 t
+14 R f
+(.)1094 3360 w
+10 R f
+(AT&T Common Stock)2 939 1 870 3480 t
+(Year)870 3600 w
+6 R f
+(T)1099 3590 w
+10 S1 f
+()1079 3600 w
+1079 3600 m
+75 build_ci
+1154 3600 m
+10 R f
+(Price)1170 3600 w
+6 R f
+(T)1411 3590 w
+10 S1 f
+()1391 3600 w
+1391 3600 m
+75 build_ci
+1466 3600 m
+10 R f
+(Dividend)1482 3600 w
+(1984)870 3720 w
+6 R f
+(T)1106 3710 w
+10 S1 f
+()1086 3720 w
+1086 3720 m
+75 build_ci
+1161 3720 m
+10 R f
+(15-20)1177 3720 w
+6 R f
+(T)1446 3710 w
+10 S1 f
+()1426 3720 w
+1426 3720 m
+75 build_ci
+1501 3720 m
+10 R f
+($1)1517 3720 w
+14 R f
+(.)1625 3720 w
+10 R f
+(20)1660 3720 w
+(5)870 3840 w
+6 R f
+(T)956 3830 w
+10 S1 f
+()936 3840 w
+936 3840 m
+75 build_ci
+1011 3840 m
+10 R f
+(19-25)1027 3840 w
+6 R f
+(T)1296 3830 w
+10 S1 f
+()1276 3840 w
+1276 3840 m
+75 build_ci
+1351 3840 m
+10 R f
+(1)1367 3840 w
+14 R f
+(.)1425 3840 w
+10 R f
+(20)1460 3840 w
+(6)870 3960 w
+6 R f
+(T)956 3950 w
+10 S1 f
+()936 3960 w
+936 3960 m
+75 build_ci
+1011 3960 m
+10 R f
+(21-28)1027 3960 w
+6 R f
+(T)1296 3950 w
+10 S1 f
+()1276 3960 w
+1276 3960 m
+75 build_ci
+1351 3960 m
+10 R f
+(1)1367 3960 w
+14 R f
+(.)1425 3960 w
+10 R f
+(20)1460 3960 w
+(7)870 4080 w
+6 R f
+(T)956 4070 w
+10 S1 f
+()936 4080 w
+936 4080 m
+75 build_ci
+1011 4080 m
+10 R f
+(20-36)1027 4080 w
+6 R f
+(T)1296 4070 w
+10 S1 f
+()1276 4080 w
+1276 4080 m
+75 build_ci
+1351 4080 m
+10 R f
+(1)1367 4080 w
+14 R f
+(.)1425 4080 w
+10 R f
+(20)1460 4080 w
+(8)870 4200 w
+6 R f
+(T)956 4190 w
+10 S1 f
+()936 4200 w
+936 4200 m
+75 build_ci
+1011 4200 m
+10 R f
+(24-30)1027 4200 w
+6 R f
+(T)1296 4190 w
+10 S1 f
+()1276 4200 w
+1276 4200 m
+75 build_ci
+1351 4200 m
+10 R f
+(1)1367 4200 w
+14 R f
+(.)1425 4200 w
+10 R f
+(20)1460 4200 w
+(9)870 4320 w
+6 R f
+(T)956 4310 w
+10 S1 f
+()936 4320 w
+936 4320 m
+75 build_ci
+1011 4320 m
+10 R f
+(29-37)1027 4320 w
+6 R f
+(T)1296 4310 w
+10 S1 f
+()1276 4320 w
+1276 4320 m
+75 build_ci
+1351 4320 m
+14 R f
+(.)1375 4320 w
+10 R f
+(30*)1410 4320 w
+14 R f
+(.)878 4440 w
+10 R f
+(TE)913 4440 w
+(* \(\256rst quarter only\))3 831 1 870 4560 t
+10 B f
+(Output:)2880 2700 w
+10 S f
+(_ ________________________)1 1205 1 2880 2780 t
+10 R f
+(AT&T Common Stock)2 939 1 3013 2900 t
+10 S f
+(_ ________________________)1 1205 1 2880 2920 t
+10 R f
+( Dividend)1 536(Year Price)1 566 2 2933 3040 t
+10 S f
+(_ ________________________)1 1205 1 2880 3060 t
+10 R f
+( $1.20)1 423(1984 15-20)1 583 2 2930 3180 t
+10 S f
+(_ ________________________)1 1205 1 2880 3200 t
+10 R f
+( 1.20)1 423(5 19-25)1 433 2 3080 3320 t
+10 S f
+(_ ________________________)1 1205 1 2880 3340 t
+10 R f
+( 1.20)1 423(6 21-28)1 433 2 3080 3460 t
+10 S f
+(_ ________________________)1 1205 1 2880 3480 t
+10 R f
+( 1.20)1 423(7 20-36)1 433 2 3080 3600 t
+10 S f
+(_ ________________________)1 1205 1 2880 3620 t
+10 R f
+( 1.20)1 423(8 24-30)1 433 2 3080 3740 t
+10 S f
+(_ ________________________)1 1205 1 2880 3760 t
+10 R f
+( .30*)1 473(9 29-37)1 433 2 3080 3880 t
+10 S f
+( \347)1 -1205(_ ________________________)1 1205 2 2880 3900 t
+(\347)2880 3880 w
+(\347)2880 3780 w
+(\347)2880 3680 w
+(\347)2880 3580 w
+(\347)2880 3480 w
+(\347)2880 3380 w
+(\347)2880 3280 w
+(\347)2880 3180 w
+(\347)2880 3080 w
+(\347)2880 2980 w
+(\347)2880 2880 w
+(\347)3205 3900 w
+(\347)3205 3820 w
+(\347)3205 3720 w
+(\347)3205 3620 w
+(\347)3205 3520 w
+(\347)3205 3420 w
+(\347)3205 3320 w
+(\347)3205 3220 w
+(\347)3205 3120 w
+(\347)3205 3020 w
+(\347)3588 3900 w
+(\347)3588 3820 w
+(\347)3588 3720 w
+(\347)3588 3620 w
+(\347)3588 3520 w
+(\347)3588 3420 w
+(\347)3588 3320 w
+(\347)3588 3220 w
+(\347)3588 3120 w
+(\347)3588 3020 w
+(\347)4085 3900 w
+(\347)4085 3880 w
+(\347)4085 3780 w
+(\347)4085 3680 w
+(\347)4085 3580 w
+(\347)4085 3480 w
+(\347)4085 3380 w
+(\347)4085 3280 w
+(\347)4085 3180 w
+(\347)4085 3080 w
+(\347)4085 2980 w
+(\347)4085 2880 w
+10 R f
+(* \(\256rst quarter only\))3 831 1 2880 4020 t
+10 R f
+( 41)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 41 7
+%%Page: 42 8
+/saveobj save def
+mark
+8 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 B f
+(Input:)720 960 w
+14 R f
+(.)878 1140 w
+10 R f
+(TS)913 1140 w
+(box;)870 1260 w
+(c s s)2 188 1 870 1380 t
+(c)870 1500 w
+10 S f
+(\357)947 1500 w
+10 R f
+(c)1030 1500 w
+10 S f
+(\357)1107 1500 w
+10 R f
+(c)1190 1500 w
+(l)870 1620 w
+10 S f
+(\357)931 1620 w
+10 R f
+(l)1014 1620 w
+10 S f
+(\357)1075 1620 w
+10 R f
+(n)1158 1620 w
+14 R f
+(.)1216 1620 w
+10 R f
+(Major New York Bridges)3 1047 1 870 1740 t
+(=)870 1860 w
+(Bridge)870 1980 w
+6 R f
+(T)1178 1970 w
+10 S1 f
+()1158 1980 w
+1158 1980 m
+75 build_ci
+1233 1980 m
+10 R f
+(Designer)1249 1980 w
+6 R f
+(T)1645 1970 w
+10 S1 f
+()1625 1980 w
+1625 1980 m
+75 build_ci
+1700 1980 m
+10 R f
+(Length)1716 1980 w
+10 S f
+(_)870 2100 w
+10 R f
+(Brooklyn)870 2220 w
+6 R f
+(T)1284 2210 w
+10 S1 f
+()1264 2220 w
+1264 2220 m
+75 build_ci
+1339 2220 m
+10 R f
+(J)1355 2220 w
+14 R f
+(.)1402 2220 w
+10 R f
+(A)1470 2220 w
+14 R f
+(.)1550 2220 w
+10 R f
+(Roebling)1618 2220 w
+6 R f
+(T)2021 2210 w
+10 S1 f
+()2001 2220 w
+2001 2220 m
+75 build_ci
+2076 2220 m
+10 R f
+(1595)2092 2220 w
+(Manhattan)870 2340 w
+6 R f
+(T)1333 2330 w
+10 S1 f
+()1313 2340 w
+1313 2340 m
+75 build_ci
+1388 2340 m
+10 R f
+(G)1404 2340 w
+14 R f
+(.)1484 2340 w
+10 R f
+(Lindenthal)1552 2340 w
+6 R f
+(T)2021 2330 w
+10 S1 f
+()2001 2340 w
+2001 2340 m
+75 build_ci
+2076 2340 m
+10 R f
+(1470)2092 2340 w
+(Williamsburg)870 2460 w
+6 R f
+(T)1456 2450 w
+10 S1 f
+()1436 2460 w
+1436 2460 m
+75 build_ci
+1511 2460 m
+10 R f
+(L)1527 2460 w
+14 R f
+(.)1596 2460 w
+10 R f
+(L)1664 2460 w
+14 R f
+(.)1733 2460 w
+10 R f
+(Buck)1801 2460 w
+6 R f
+(T)2048 2450 w
+10 S1 f
+()2028 2460 w
+2028 2460 m
+75 build_ci
+2103 2460 m
+10 R f
+(1600)2119 2460 w
+10 S f
+(_)870 2580 w
+10 R f
+(Queensborough)870 2700 w
+6 R f
+(T)1538 2690 w
+10 S1 f
+()1518 2700 w
+1518 2700 m
+75 build_ci
+1593 2700 m
+10 R f
+(Palmer &)1 394 1 1609 2700 t
+6 R f
+(T)2039 2690 w
+10 S1 f
+()2019 2700 w
+2019 2700 m
+75 build_ci
+2094 2700 m
+10 R f
+(1182)2110 2700 w
+6 R f
+(T)906 2810 w
+10 S1 f
+()886 2820 w
+886 2820 m
+75 build_ci
+961 2820 m
+10 R f
+(Hornbostel)1043 2820 w
+10 S f
+(_)870 2940 w
+6 R f
+(T)906 3050 w
+10 S1 f
+()886 3060 w
+886 3060 m
+75 build_ci
+961 3060 m
+6 R f
+(T)1013 3050 w
+10 S1 f
+()993 3060 w
+993 3060 m
+75 build_ci
+1068 3060 m
+10 R f
+(1380)1084 3060 w
+(Triborough)870 3180 w
+6 R f
+(T)1361 3170 w
+10 S1 f
+()1341 3180 w
+1341 3180 m
+75 build_ci
+1416 3180 m
+10 R f
+(O)1432 3180 w
+14 R f
+(.)1512 3180 w
+10 R f
+(H)1580 3180 w
+14 R f
+(.)1660 3180 w
+10 R f
+(Ammann)1728 3180 w
+6 R f
+(T)2136 3170 w
+10 S1 f
+()2116 3180 w
+2116 3180 m
+75 build_ci
+2191 3180 m
+10 S f
+(_)2207 3180 w
+6 R f
+(T)906 3290 w
+10 S1 f
+()886 3300 w
+886 3300 m
+75 build_ci
+961 3300 m
+6 R f
+(T)1013 3290 w
+10 S1 f
+()993 3300 w
+993 3300 m
+75 build_ci
+1068 3300 m
+10 R f
+(383)1084 3300 w
+10 S f
+(_)870 3420 w
+10 R f
+(Bronx Whitestone)1 738 1 870 3540 t
+6 R f
+(T)1644 3530 w
+10 S1 f
+()1624 3540 w
+1624 3540 m
+75 build_ci
+1699 3540 m
+10 R f
+(O)1715 3540 w
+14 R f
+(.)1795 3540 w
+10 R f
+(H)1863 3540 w
+14 R f
+(.)1943 3540 w
+10 R f
+(Ammann)2011 3540 w
+6 R f
+(T)2419 3530 w
+10 S1 f
+()2399 3540 w
+2399 3540 m
+75 build_ci
+2474 3540 m
+10 R f
+(2300)2490 3540 w
+(Throgs Neck)1 526 1 870 3660 t
+6 R f
+(T)1432 3650 w
+10 S1 f
+()1412 3660 w
+1412 3660 m
+75 build_ci
+1487 3660 m
+10 R f
+(O)1503 3660 w
+14 R f
+(.)1583 3660 w
+10 R f
+(H)1651 3660 w
+14 R f
+(.)1731 3660 w
+10 R f
+(Ammann)1799 3660 w
+6 R f
+(T)2207 3650 w
+10 S1 f
+()2187 3660 w
+2187 3660 m
+75 build_ci
+2262 3660 m
+10 R f
+(1800)2278 3660 w
+10 S f
+(_)870 3780 w
+10 R f
+(George Washington)1 809 1 870 3900 t
+6 R f
+(T)1715 3890 w
+10 S1 f
+()1695 3900 w
+1695 3900 m
+75 build_ci
+1770 3900 m
+10 R f
+(O)1786 3900 w
+14 R f
+(.)1866 3900 w
+10 R f
+(H)1934 3900 w
+14 R f
+(.)2014 3900 w
+10 R f
+(Ammann)2082 3900 w
+6 R f
+(T)2490 3890 w
+10 S1 f
+()2470 3900 w
+2470 3900 m
+75 build_ci
+2545 3900 m
+10 R f
+(3500)2561 3900 w
+14 R f
+(.)878 4020 w
+10 R f
+(TE)913 4020 w
+10 B f
+(Output:)2880 960 w
+10 S f
+(_ __________________________________________)1 2124 1 2880 1040 t
+10 R f
+(Major New York Bridges)3 1047 1 3418 1160 t
+10 S f
+(_ __________________________________________)1 2124 1 2880 1170 t
+(_ __________________________________________)1 2124 1 2880 1190 t
+10 R f
+( Length)1 569(Bridge Designer)1 1187 2 3198 1300 t
+10 S f
+(_ __________________________________________)1 2124 1 2880 1320 t
+10 R f
+( 1595)1 429( A. Roebling)2 530(Brooklyn J.)1 1023 3 2930 1440 t
+( 1470)1 460( Lindenthal)1 466(Manhattan G.)1 1056 3 2930 1560 t
+( 1600)1 574( L. Buck)2 363(Williamsburg L.)1 1045 3 2930 1680 t
+10 S f
+(_ __________________________________________)1 2124 1 2880 1700 t
+10 R f
+( 1182)1 629( &)1 111(Queensborough Palmer)1 1242 3 2930 1820 t
+(Hornbostel)3955 1940 w
+10 S f
+(_ __________________________________________)1 2124 1 2880 1960 t
+10 R f
+(1380)4712 2080 w
+( H. Ammann)2 535(Triborough O.)1 1056 2 2930 2200 t
+10 S f
+(_ ________)1 408 1 4596 2150 t
+10 R f
+(383)4762 2320 w
+10 S f
+(_ __________________________________________)1 2124 1 2880 2340 t
+10 R f
+( 2300)1 391( H. Ammann)2 535( O.)1 318(Bronx Whitestone)1 738 4 2930 2460 t
+( 1800)1 391( H. Ammann)2 535( O.)1 530(Throgs Neck)1 526 4 2930 2580 t
+10 S f
+(_ __________________________________________)1 2124 1 2880 2600 t
+10 R f
+( 3500)1 391( H. Ammann)2 535( O.)1 247(George Washington)1 809 4 2930 2720 t
+10 S f
+( \347)1 -2124(_ __________________________________________)1 2124 2 2880 2740 t
+(\347)2880 2640 w
+(\347)2880 2540 w
+(\347)2880 2440 w
+(\347)2880 2340 w
+(\347)2880 2240 w
+(\347)2880 2140 w
+(\347)2880 2040 w
+(\347)2880 1940 w
+(\347)2880 1840 w
+(\347)2880 1740 w
+(\347)2880 1640 w
+(\347)2880 1540 w
+(\347)2880 1440 w
+(\347)2880 1340 w
+(\347)2880 1240 w
+(\347)2880 1140 w
+(\347)3814 2740 w
+(\347)3814 2690 w
+(\347)3814 2590 w
+(\347)3814 2490 w
+(\347)3814 2390 w
+(\347)3814 2290 w
+(\347)3814 2190 w
+(\347)3814 2090 w
+(\347)3814 1990 w
+(\347)3814 1890 w
+(\347)3814 1790 w
+(\347)3814 1690 w
+(\347)3814 1590 w
+(\347)3814 1490 w
+(\347)3814 1390 w
+(\347)3814 1290 w
+(\347)4596 2740 w
+(\347)4596 2690 w
+(\347)4596 2590 w
+(\347)4596 2490 w
+(\347)4596 2390 w
+(\347)4596 2290 w
+(\347)4596 2190 w
+(\347)4596 2090 w
+(\347)4596 1990 w
+(\347)4596 1890 w
+(\347)4596 1790 w
+(\347)4596 1690 w
+(\347)4596 1590 w
+(\347)4596 1490 w
+(\347)4596 1390 w
+(\347)4596 1290 w
+(\347)5004 2740 w
+(\347)5004 2640 w
+(\347)5004 2540 w
+(\347)5004 2440 w
+(\347)5004 2340 w
+(\347)5004 2240 w
+(\347)5004 2140 w
+(\347)5004 2040 w
+(\347)5004 1940 w
+(\347)5004 1840 w
+(\347)5004 1740 w
+(\347)5004 1640 w
+(\347)5004 1540 w
+(\347)5004 1440 w
+(\347)5004 1340 w
+(\347)5004 1240 w
+(\347)5004 1140 w
+10 B f
+(Input:)720 4260 w
+14 R f
+(.)878 4440 w
+10 R f
+(TS)913 4440 w
+(c c)1 121 1 870 4560 t
+(np-2)870 4680 w
+10 S f
+(\357)1086 4680 w
+10 R f
+(n)1169 4680 w
+10 S f
+(\357)1252 4680 w
+14 R f
+(.)1343 4680 w
+6 R f
+(T)906 4790 w
+10 S1 f
+()886 4800 w
+886 4800 m
+75 build_ci
+961 4800 m
+10 R f
+(Stack)977 4800 w
+6 R f
+(T)906 4910 w
+10 S1 f
+()886 4920 w
+886 4920 m
+75 build_ci
+961 4920 m
+10 S f
+(_)977 4920 w
+10 R f
+(1)870 5040 w
+6 R f
+(T)956 5030 w
+10 S1 f
+()936 5040 w
+936 5040 m
+75 build_ci
+1011 5040 m
+10 R f
+(46)1027 5040 w
+6 R f
+(T)906 5150 w
+10 S1 f
+()886 5160 w
+886 5160 m
+75 build_ci
+961 5160 m
+10 S f
+(_)977 5160 w
+10 R f
+(2)870 5280 w
+6 R f
+(T)956 5270 w
+10 S1 f
+()936 5280 w
+936 5280 m
+75 build_ci
+1011 5280 m
+10 R f
+(23)1027 5280 w
+6 R f
+(T)906 5390 w
+10 S1 f
+()886 5400 w
+886 5400 m
+75 build_ci
+961 5400 m
+10 S f
+(_)977 5400 w
+10 R f
+(3)870 5520 w
+6 R f
+(T)956 5510 w
+10 S1 f
+()936 5520 w
+936 5520 m
+75 build_ci
+1011 5520 m
+10 R f
+(15)1027 5520 w
+6 R f
+(T)906 5630 w
+10 S1 f
+()886 5640 w
+886 5640 m
+75 build_ci
+961 5640 m
+10 S f
+(_)977 5640 w
+10 R f
+(4)870 5760 w
+6 R f
+(T)956 5750 w
+10 S1 f
+()936 5760 w
+936 5760 m
+75 build_ci
+1011 5760 m
+10 R f
+(6)1027 5760 w
+14 R f
+(.)1085 5760 w
+10 R f
+(5)1120 5760 w
+6 R f
+(T)906 5870 w
+10 S1 f
+()886 5880 w
+886 5880 m
+75 build_ci
+961 5880 m
+10 S f
+(_)977 5880 w
+10 R f
+(5)870 6000 w
+6 R f
+(T)956 5990 w
+10 S1 f
+()936 6000 w
+936 6000 m
+75 build_ci
+1011 6000 m
+10 R f
+(2)1027 6000 w
+14 R f
+(.)1085 6000 w
+10 R f
+(1)1120 6000 w
+6 R f
+(T)906 6110 w
+10 S1 f
+()886 6120 w
+886 6120 m
+75 build_ci
+961 6120 m
+10 S f
+(_)977 6120 w
+14 R f
+(.)878 6240 w
+10 R f
+(TE)913 6240 w
+10 B f
+(Output:)2880 4260 w
+10 R f
+(Stack)3070 4440 w
+10 S f
+(_ _______)1 372 1 2995 4460 t
+8 R f
+(1)2880 4580 w
+10 R f
+(46)3093 4580 w
+10 S f
+(_ _______)1 372 1 2995 4600 t
+8 R f
+(2)2880 4720 w
+10 R f
+(23)3093 4720 w
+10 S f
+(_ _______)1 372 1 2995 4740 t
+8 R f
+(3)2880 4860 w
+10 R f
+(15)3093 4860 w
+10 S f
+(_ _______)1 372 1 2995 4880 t
+8 R f
+(4)2880 5000 w
+10 R f
+(6.5)3143 5000 w
+10 S f
+(_ _______)1 372 1 2995 5020 t
+8 R f
+(5)2880 5140 w
+10 R f
+(2.1)3143 5140 w
+10 S f
+( \347)1 -372(_ _______)1 372 2 2995 5160 t
+(\347)2995 5060 w
+(\347)2995 4960 w
+(\347)2995 4860 w
+(\347)2995 4760 w
+(\347)2995 4660 w
+(\347)2995 4560 w
+(\347)3367 5160 w
+(\347)3367 5060 w
+(\347)3367 4960 w
+(\347)3367 4860 w
+(\347)3367 4760 w
+(\347)3367 4660 w
+(\347)3367 4560 w
+10 R f
+( Papers)1 299(42 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 42 8
+%%Page: 43 9
+/saveobj save def
+mark
+9 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+10 B f
+(Input:)720 960 w
+14 R f
+(.)878 1140 w
+10 R f
+(TS)913 1140 w
+(box;)870 1260 w
+(L L L)2 249 1 870 1380 t
+(L L)1 155 1 870 1500 t
+10 S f
+(_)1058 1500 w
+10 R f
+(L L)1 155 1 870 1620 t
+10 S f
+(\357)1058 1620 w
+10 R f
+(LB)1141 1620 w
+(L L)1 155 1 870 1740 t
+10 S f
+(_)1058 1740 w
+10 R f
+(L L L)2 249 1 870 1860 t
+14 R f
+(.)1127 1860 w
+10 R f
+(january)870 1980 w
+6 R f
+(T)1205 1970 w
+10 S1 f
+()1185 1980 w
+1185 1980 m
+75 build_ci
+1260 1980 m
+10 R f
+(february)1276 1980 w
+6 R f
+(T)1649 1970 w
+10 S1 f
+()1629 1980 w
+1629 1980 m
+75 build_ci
+1704 1980 m
+10 R f
+(march)1720 1980 w
+(april)870 2100 w
+6 R f
+(T)1089 2090 w
+10 S1 f
+()1069 2100 w
+1069 2100 m
+75 build_ci
+1144 2100 m
+10 R f
+(may)1160 2100 w
+(june)870 2220 w
+6 R f
+(T)1078 2210 w
+10 S1 f
+()1058 2220 w
+1058 2220 m
+75 build_ci
+1133 2220 m
+10 R f
+(july)1149 2220 w
+6 R f
+(T)1341 2210 w
+10 S1 f
+()1321 2220 w
+1321 2220 m
+75 build_ci
+1396 2220 m
+10 R f
+(Months)1412 2220 w
+(august)870 2340 w
+6 R f
+(T)1167 2330 w
+10 S1 f
+()1147 2340 w
+1147 2340 m
+75 build_ci
+1222 2340 m
+10 R f
+(september)1238 2340 w
+(october)870 2460 w
+6 R f
+(T)1205 2450 w
+10 S1 f
+()1185 2460 w
+1185 2460 m
+75 build_ci
+1260 2460 m
+10 R f
+(november)1276 2460 w
+6 R f
+(T)1711 2450 w
+10 S1 f
+()1691 2460 w
+1691 2460 m
+75 build_ci
+1766 2460 m
+10 R f
+(december)1782 2460 w
+14 R f
+(.)878 2580 w
+10 R f
+(TE)913 2580 w
+10 B f
+(Output:)2880 960 w
+10 S f
+(_ _____________________________)1 1496 1 2880 1040 t
+10 R f
+( march)1 472(january february)1 786 2 2930 1160 t
+(april may)1 621 1 2930 1280 t
+10 S f
+(_ __________)1 512 1 3864 1230 t
+10 R f
+(june july)1 605 1 2930 1400 t
+10 S f
+(\347)3864 1470 w
+(\347)3864 1430 w
+(\347)3864 1330 w
+10 B f
+(Months)3939 1400 w
+10 R f
+(august september)1 859 1 2930 1520 t
+10 S f
+(_ __________)1 512 1 3864 1470 t
+10 R f
+( december)1 548(october november)1 848 2 2930 1640 t
+10 S f
+( \347)1 -1496(_ _____________________________)1 1496 2 2880 1660 t
+(\347)2880 1640 w
+(\347)2880 1540 w
+(\347)2880 1440 w
+(\347)2880 1340 w
+(\347)2880 1240 w
+(\347)2880 1140 w
+(\347)4376 1660 w
+(\347)4376 1640 w
+(\347)4376 1540 w
+(\347)4376 1440 w
+(\347)4376 1340 w
+(\347)4376 1240 w
+(\347)4376 1140 w
+10 B f
+(Input:)720 2820 w
+14 R f
+(.)878 3000 w
+10 R f
+(FP helvetica)1 505 1 913 3000 t
+14 R f
+(.)878 3120 w
+10 R f
+(TS)913 3120 w
+(box;)870 3240 w
+(cf\(CW s s s)3 487 1 870 3360 t
+14 R f
+(.)1365 3360 w
+10 R f
+(Composition of Foods)2 912 1 870 3480 t
+10 S f
+(_)870 3600 w
+14 R f
+(.)878 3720 w
+10 R f
+(T&)913 3720 w
+(c)870 3840 w
+10 S f
+(\357)980 3840 w
+10 R f
+(c s s)2 188 1 1063 3840 t
+(c)870 3960 w
+10 S f
+(\357)980 3960 w
+10 R f
+(c s s)2 188 1 1063 3960 t
+(c)870 4080 w
+10 S f
+(\357)1013 4080 w
+10 R f
+(c)1096 4080 w
+10 S f
+(\357)1206 4080 w
+10 R f
+(c)1289 4080 w
+10 S f
+(\357)1399 4080 w
+10 R f
+(c)1482 4080 w
+14 R f
+(.)1534 4080 w
+10 R f
+(Food)870 4200 w
+6 R f
+(T)1112 4190 w
+10 S1 f
+()1092 4200 w
+1092 4200 m
+75 build_ci
+1167 4200 m
+10 R f
+(Percent by Weight)2 759 1 1183 4200 t
+(\\\303)870 4320 w
+6 R f
+(T)967 4310 w
+10 S1 f
+()947 4320 w
+947 4320 m
+75 build_ci
+1022 4320 m
+10 S f
+(_)1038 4320 w
+10 R f
+(\\\303)870 4440 w
+6 R f
+(T)967 4430 w
+10 S1 f
+()947 4440 w
+947 4440 m
+75 build_ci
+1022 4440 m
+10 R f
+(Protein)1038 4440 w
+6 R f
+(T)1363 4430 w
+10 S1 f
+()1343 4440 w
+1343 4440 m
+75 build_ci
+1418 4440 m
+10 R f
+(Fat)1434 4440 w
+6 R f
+(T)1598 4430 w
+10 S1 f
+()1578 4440 w
+1578 4440 m
+75 build_ci
+1653 4440 m
+10 R f
+(Carbo-)1669 4440 w
+(\\\303)870 4560 w
+6 R f
+(T)967 4550 w
+10 S1 f
+()947 4560 w
+947 4560 m
+75 build_ci
+1022 4560 m
+10 R f
+(\\\303)1038 4560 w
+6 R f
+(T)1135 4550 w
+10 S1 f
+()1115 4560 w
+1115 4560 m
+75 build_ci
+1190 4560 m
+10 R f
+(\\\303)1206 4560 w
+6 R f
+(T)1303 4550 w
+10 S1 f
+()1283 4560 w
+1283 4560 m
+75 build_ci
+1358 4560 m
+10 R f
+(hydrate)1374 4560 w
+10 S f
+(_)870 4680 w
+14 R f
+(.)878 4800 w
+10 R f
+(T&)913 4800 w
+(l)870 4920 w
+10 S f
+(\357)964 4920 w
+10 R f
+(n)1047 4920 w
+10 S f
+(\357)1163 4920 w
+10 R f
+(n)1246 4920 w
+10 S f
+(\357)1362 4920 w
+10 R f
+(n)1445 4920 w
+14 R f
+(.)1503 4920 w
+10 R f
+(Apples)870 5040 w
+6 R f
+(T)1189 5030 w
+10 S1 f
+()1169 5040 w
+1169 5040 m
+75 build_ci
+1244 5040 m
+14 R f
+(.)1268 5040 w
+10 R f
+(4)1303 5040 w
+6 R f
+(T)1389 5030 w
+10 S1 f
+()1369 5040 w
+1369 5040 m
+75 build_ci
+1444 5040 m
+14 R f
+(.)1468 5040 w
+10 R f
+(5)1503 5040 w
+6 R f
+(T)1589 5030 w
+10 S1 f
+()1569 5040 w
+1569 5040 m
+75 build_ci
+1644 5040 m
+10 R f
+(13)1660 5040 w
+14 R f
+(.)1768 5040 w
+10 R f
+(0)1803 5040 w
+(Halibut)870 5160 w
+6 R f
+(T)1206 5150 w
+10 S1 f
+()1186 5160 w
+1186 5160 m
+75 build_ci
+1261 5160 m
+10 R f
+(18)1277 5160 w
+14 R f
+(.)1385 5160 w
+10 R f
+(4)1420 5160 w
+6 R f
+(T)1506 5150 w
+10 S1 f
+()1486 5160 w
+1486 5160 m
+75 build_ci
+1561 5160 m
+10 R f
+(5)1577 5160 w
+14 R f
+(.)1635 5160 w
+10 R f
+(2)1670 5160 w
+6 R f
+(T)1756 5150 w
+10 S1 f
+()1736 5160 w
+1736 5160 m
+75 build_ci
+1811 5160 m
+14 R f
+(. . .)2 187 1 1835 5160 t
+10 R f
+(Lima beans)1 471 1 870 5280 t
+6 R f
+(T)1377 5270 w
+10 S1 f
+()1357 5280 w
+1357 5280 m
+75 build_ci
+1432 5280 m
+10 R f
+(7)1448 5280 w
+14 R f
+(.)1506 5280 w
+10 R f
+(5)1541 5280 w
+6 R f
+(T)1627 5270 w
+10 S1 f
+()1607 5280 w
+1607 5280 m
+75 build_ci
+1682 5280 m
+14 R f
+(.)1706 5280 w
+10 R f
+(8)1741 5280 w
+6 R f
+(T)1827 5270 w
+10 S1 f
+()1807 5280 w
+1807 5280 m
+75 build_ci
+1882 5280 m
+10 R f
+(22)1898 5280 w
+14 R f
+(.)2006 5280 w
+10 R f
+(0)2041 5280 w
+(Milk)870 5400 w
+6 R f
+(T)1101 5390 w
+10 S1 f
+()1081 5400 w
+1081 5400 m
+75 build_ci
+1156 5400 m
+10 R f
+(3)1172 5400 w
+14 R f
+(.)1230 5400 w
+10 R f
+(3)1265 5400 w
+6 R f
+(T)1351 5390 w
+10 S1 f
+()1331 5400 w
+1331 5400 m
+75 build_ci
+1406 5400 m
+10 R f
+(4)1422 5400 w
+14 R f
+(.)1480 5400 w
+10 R f
+(0)1515 5400 w
+6 R f
+(T)1601 5390 w
+10 S1 f
+()1581 5400 w
+1581 5400 m
+75 build_ci
+1656 5400 m
+10 R f
+(5)1672 5400 w
+14 R f
+(.)1730 5400 w
+10 R f
+(0)1765 5400 w
+(Mushrooms)870 5520 w
+6 R f
+(T)1384 5510 w
+10 S1 f
+()1364 5520 w
+1364 5520 m
+75 build_ci
+1439 5520 m
+10 R f
+(3)1455 5520 w
+14 R f
+(.)1513 5520 w
+10 R f
+(5)1548 5520 w
+6 R f
+(T)1634 5510 w
+10 S1 f
+()1614 5520 w
+1614 5520 m
+75 build_ci
+1689 5520 m
+14 R f
+(.)1713 5520 w
+10 R f
+(4)1748 5520 w
+6 R f
+(T)1834 5510 w
+10 S1 f
+()1814 5520 w
+1814 5520 m
+75 build_ci
+1889 5520 m
+10 R f
+(6)1905 5520 w
+14 R f
+(.)1963 5520 w
+10 R f
+(0)1998 5520 w
+(Rye bread)1 415 1 870 5640 t
+6 R f
+(T)1321 5630 w
+10 S1 f
+()1301 5640 w
+1301 5640 m
+75 build_ci
+1376 5640 m
+10 R f
+(9)1392 5640 w
+14 R f
+(.)1450 5640 w
+10 R f
+(0)1485 5640 w
+6 R f
+(T)1571 5630 w
+10 S1 f
+()1551 5640 w
+1551 5640 m
+75 build_ci
+1626 5640 m
+14 R f
+(.)1650 5640 w
+10 R f
+(6)1685 5640 w
+6 R f
+(T)1771 5630 w
+10 S1 f
+()1751 5640 w
+1751 5640 m
+75 build_ci
+1826 5640 m
+10 R f
+(52)1842 5640 w
+14 R f
+(.)1950 5640 w
+10 R f
+(7)1985 5640 w
+14 R f
+(.)878 5760 w
+10 R f
+(TE)913 5760 w
+14 R f
+(.)878 5880 w
+10 R f
+(FP times)1 362 1 913 5880 t
+10 B f
+(Output:)2880 2820 w
+10 S f
+(_ ___________________________________________________)1 2569 1 2880 2900 t
+10 HB f
+(Composition of Foods)2 1071 1 2930 3020 t
+10 S f
+(_ ___________________________________________________)1 2569 1 2880 3040 t
+10 H f
+(Percent by Weight)2 830 1 4285 3160 t
+10 S f
+(_________________________)4076 3180 w
+10 H f
+(Carbo-)4928 3300 w
+(Food)3351 3290 w
+(Protein Fat)1 613 1 4151 3360 t
+(hydrate)4914 3420 w
+10 S f
+(_ ___________________________________________________)1 2569 1 2880 3440 t
+10 H f
+( 13.0)1 418( .5)1 353(Apples .4)1 1478 3 2930 3560 t
+( ...)1 362( 5.2)1 353(Halibut 18.4)1 1478 3 2930 3680 t
+( 22.0)1 418( .8)1 353( 7.5)1 954(Lima beans)1 524 4 2930 3800 t
+( 5.0)1 418( 4.0)1 353(Milk 3.3)1 1478 3 2930 3920 t
+( 6.0)1 418( .4)1 353(Mushrooms 3.5)1 1478 3 2930 4040 t
+( 52.7)1 418( .6)1 353( 9.0)1 1010(Rye bread)1 468 4 2930 4160 t
+10 S f
+( \347)1 -2569(_ ___________________________________________________)1 2569 2 2880 4180 t
+(\347)2880 4100 w
+(\347)2880 4000 w
+(\347)2880 3900 w
+(\347)2880 3800 w
+(\347)2880 3700 w
+(\347)2880 3600 w
+(\347)2880 3500 w
+(\347)2880 3400 w
+(\347)2880 3300 w
+(\347)2880 3200 w
+(\347)2880 3100 w
+(\347)2880 3000 w
+(\347)4076 4180 w
+(\347)4076 4140 w
+(\347)4076 4040 w
+(\347)4076 3940 w
+(\347)4076 3840 w
+(\347)4076 3740 w
+(\347)4076 3640 w
+(\347)4076 3540 w
+(\347)4076 3440 w
+(\347)4076 3340 w
+(\347)4076 3240 w
+(\347)4076 3140 w
+(\347)4544 4180 w
+(\347)4544 4080 w
+(\347)4544 3980 w
+(\347)4544 3880 w
+(\347)4544 3780 w
+(\347)4544 3680 w
+(\347)4544 3580 w
+(\347)4544 3480 w
+(\347)4544 3380 w
+(\347)4544 3280 w
+(\347)4839 4180 w
+(\347)4839 4080 w
+(\347)4839 3980 w
+(\347)4839 3880 w
+(\347)4839 3780 w
+(\347)4839 3680 w
+(\347)4839 3580 w
+(\347)4839 3480 w
+(\347)4839 3380 w
+(\347)4839 3280 w
+(\347)5449 4180 w
+(\347)5449 4100 w
+(\347)5449 4000 w
+(\347)5449 3900 w
+(\347)5449 3800 w
+(\347)5449 3700 w
+(\347)5449 3600 w
+(\347)5449 3500 w
+(\347)5449 3400 w
+(\347)5449 3300 w
+(\347)5449 3200 w
+(\347)5449 3100 w
+(\347)5449 3000 w
+10 R f
+( 43)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 43 9
+%%Page: 44 10
+/saveobj save def
+mark
+10 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 B f
+(Input:)720 960 w
+14 R f
+(.)878 1140 w
+10 R f
+(TS)913 1140 w
+(allbox;)870 1260 w
+( s)1 138(cfI s)1 215 2 870 1380 t
+( cw\(1i\))1 359(c cw\(1i\))1 436 2 870 1500 t
+(lp9 lp9 lp9)2 450 1 870 1620 t
+14 R f
+(.)1328 1620 w
+10 R f
+(New York Area Rocks)3 935 1 870 1740 t
+(Era)870 1860 w
+6 R f
+(T)1044 1850 w
+10 S1 f
+()1024 1860 w
+1024 1860 m
+75 build_ci
+1099 1860 m
+10 R f
+(Formation)1115 1860 w
+6 R f
+(T)1568 1850 w
+10 S1 f
+()1548 1860 w
+1548 1860 m
+75 build_ci
+1623 1860 m
+10 R f
+(Age \(years\))1 475 1 1639 1860 t
+(Precambrian)870 1980 w
+6 R f
+(T)1410 1970 w
+10 S1 f
+()1390 1980 w
+1390 1980 m
+75 build_ci
+1465 1980 m
+10 R f
+(Reading Prong)1 605 1 1481 1980 t
+6 R f
+(T)2122 1970 w
+10 S1 f
+()2102 1980 w
+2102 1980 m
+75 build_ci
+2177 1980 m
+10 S f
+(>)2193 1980 w
+10 R f
+(1 billion)1 345 1 2249 1980 t
+(Paleozoic)870 2100 w
+6 R f
+(T)1294 2090 w
+10 S1 f
+()1274 2100 w
+1274 2100 m
+75 build_ci
+1349 2100 m
+10 R f
+(Manhattan Prong)1 699 1 1365 2100 t
+6 R f
+(T)2100 2090 w
+10 S1 f
+()2080 2100 w
+2080 2100 m
+75 build_ci
+2155 2100 m
+10 R f
+(400 million)1 473 1 2171 2100 t
+(Mesozoic)870 2220 w
+6 R f
+(T)1294 2210 w
+10 S1 f
+()1274 2220 w
+1274 2220 m
+75 build_ci
+1349 2220 m
+10 R f
+(T{)1365 2220 w
+14 R f
+(.)878 2340 w
+10 R f
+(na)913 2340 w
+(Newark Basin, incl)2 784 1 870 2460 t
+14 R f
+(.)1662 2460 w
+10 R f
+(Stockton, Lockatong, and Brunswick)3 1509 1 870 2580 t
+(formations; also Watchungs)2 1137 1 870 2700 t
+(and Palisades)1 549 1 870 2820 t
+14 R f
+(.)1427 2820 w
+10 R f
+(T})870 2940 w
+6 R f
+(T)1015 2930 w
+10 S1 f
+()995 2940 w
+995 2940 m
+75 build_ci
+1070 2940 m
+10 R f
+(200 million)1 473 1 1086 2940 t
+(Cenozoic)870 3060 w
+6 R f
+(T)1283 3050 w
+10 S1 f
+()1263 3060 w
+1263 3060 m
+75 build_ci
+1338 3060 m
+10 R f
+(Coastal Plain)1 539 1 1354 3060 t
+6 R f
+(T)1929 3050 w
+10 S1 f
+()1909 3060 w
+1909 3060 m
+75 build_ci
+1984 3060 m
+10 R f
+(T{)2000 3060 w
+(On Long Island 30,000 years;)4 1222 1 870 3180 t
+(Cretaceous sediments redeposited)2 1369 1 870 3300 t
+(by recent glaciation)2 803 1 870 3420 t
+14 R f
+(.)1681 3420 w
+(.)878 3540 w
+10 R f
+(ad)913 3540 w
+(T})870 3660 w
+14 R f
+(.)878 3780 w
+10 R f
+(TE)913 3780 w
+10 B f
+(Output:)2880 960 w
+10 S f
+(_ _____________________________________________)1 2295 1 2880 1040 t
+10 I f
+(New York Area Rocks)3 898 1 3578 1160 t
+10 S f
+(_ _____________________________________________)1 2295 1 2880 1180 t
+10 R f
+( \(years\))1 309( Age)1 590(Era Formation)1 1015 3 3088 1300 t
+10 S f
+(_ _____________________________________________)1 2295 1 2880 1320 t
+9 R f
+( Prong)1 245(Precambrian Reading)1 905 2 2930 1440 t
+9 S f
+(>)4405 1440 w
+9 R f
+(1 billion)1 310 1 4455 1440 t
+10 S f
+(_ _____________________________________________)1 2295 1 2880 1460 t
+9 R f
+( million)1 290( 400)1 375( Prong)1 245(Paleozoic Manhattan)1 990 4 2930 1580 t
+10 S f
+(_ _____________________________________________)1 2295 1 2880 1600 t
+9 R f
+( Basin,)1 258( Newark)1 -1010( million)1 290(Mesozoic 200)1 1610 4 2930 1720 t
+(incl. Stockton,)1 561 1 3535 1830 t
+(Lockatong, and)1 568 1 3535 1940 t
+(Brunswick forma-)1 665 1 3535 2050 t
+(tions; also)1 375 1 3535 2160 t
+(Watchungs and)1 565 1 3535 2270 t
+(Palisades.)3535 2380 w
+10 S f
+(_ _____________________________________________)1 2295 1 2880 2400 t
+9 R f
+( Long Island)2 610( On)1 495( Plain)1 215(Cenozoic Coastal)1 875 4 2930 2520 t
+( Cre-)1 208(30,000 years;)1 512 2 4405 2630 t
+(taceous sediments)1 720 1 4405 2740 t
+(redeposited by)1 720 1 4405 2850 t
+(recent glaciation.)1 628 1 4405 2960 t
+10 S f
+( \347)1 -2295(_ _____________________________________________)1 2295 2 2880 2980 t
+(\347)2880 2940 w
+(\347)2880 2840 w
+(\347)2880 2740 w
+(\347)2880 2640 w
+(\347)2880 2540 w
+(\347)2880 2440 w
+(\347)2880 2340 w
+(\347)2880 2240 w
+(\347)2880 2140 w
+(\347)2880 2040 w
+(\347)2880 1940 w
+(\347)2880 1840 w
+(\347)2880 1740 w
+(\347)2880 1640 w
+(\347)2880 1540 w
+(\347)2880 1440 w
+(\347)2880 1340 w
+(\347)2880 1240 w
+(\347)2880 1140 w
+(\347)3460 2980 w
+(\347)3460 2880 w
+(\347)3460 2780 w
+(\347)3460 2680 w
+(\347)3460 2580 w
+(\347)3460 2480 w
+(\347)3460 2380 w
+(\347)3460 2280 w
+(\347)3460 2180 w
+(\347)3460 2080 w
+(\347)3460 1980 w
+(\347)3460 1880 w
+(\347)3460 1780 w
+(\347)3460 1680 w
+(\347)3460 1580 w
+(\347)3460 1480 w
+(\347)3460 1380 w
+(\347)3460 1280 w
+(\347)4330 2980 w
+(\347)4330 2880 w
+(\347)4330 2780 w
+(\347)4330 2680 w
+(\347)4330 2580 w
+(\347)4330 2480 w
+(\347)4330 2380 w
+(\347)4330 2280 w
+(\347)4330 2180 w
+(\347)4330 2080 w
+(\347)4330 1980 w
+(\347)4330 1880 w
+(\347)4330 1780 w
+(\347)4330 1680 w
+(\347)4330 1580 w
+(\347)4330 1480 w
+(\347)4330 1380 w
+(\347)4330 1280 w
+(\347)5175 2980 w
+(\347)5175 2940 w
+(\347)5175 2840 w
+(\347)5175 2740 w
+(\347)5175 2640 w
+(\347)5175 2540 w
+(\347)5175 2440 w
+(\347)5175 2340 w
+(\347)5175 2240 w
+(\347)5175 2140 w
+(\347)5175 2040 w
+(\347)5175 1940 w
+(\347)5175 1840 w
+(\347)5175 1740 w
+(\347)5175 1640 w
+(\347)5175 1540 w
+(\347)5175 1440 w
+(\347)5175 1340 w
+(\347)5175 1240 w
+(\347)5175 1140 w
+10 B f
+(Input:)720 4020 w
+14 R f
+(.)878 4200 w
+10 R f
+(EQ)913 4200 w
+(delim $$)1 361 1 870 4320 t
+14 R f
+(.)878 4440 w
+10 R f
+(EN)913 4440 w
+14 R f
+(. . .)2 187 1 878 4680 t
+(.)878 4920 w
+10 R f
+(TS)913 4920 w
+(doublebox;)870 5040 w
+(c c)1 121 1 870 5160 t
+(l l)1 89 1 870 5280 t
+14 R f
+(.)967 5280 w
+10 R f
+(Name)870 5400 w
+6 R f
+(T)1144 5390 w
+10 S1 f
+()1124 5400 w
+1124 5400 m
+75 build_ci
+1199 5400 m
+10 R f
+(De\256nition)1215 5400 w
+14 R f
+(.)878 5520 w
+10 R f
+(sp)913 5520 w
+14 R f
+(.)878 5640 w
+10 R f
+(vs +2p)1 278 1 913 5640 t
+(Gamma)870 5760 w
+6 R f
+(T)1222 5750 w
+10 S1 f
+()1202 5760 w
+1202 5760 m
+75 build_ci
+1277 5760 m
+10 R f
+( sup {z-1} e sup -t dt$)6 932( t)1 94($GAMMA \(z\) = int sub 0 sup inf)7 1386 3 1293 5760 t
+(Sine)870 5880 w
+6 R f
+(T)1084 5870 w
+10 S1 f
+()1064 5880 w
+1064 5880 m
+75 build_ci
+1139 5880 m
+10 R f
+($sin \(x\) = 1 over 2i \( e sup ix - e sup -ix \)$)14 1810 1 1155 5880 t
+(Error)870 6000 w
+6 R f
+(T)1116 5990 w
+10 S1 f
+()1096 6000 w
+1096 6000 m
+75 build_ci
+1171 6000 m
+10 R f
+($ roman erf \(z\) = 2 over sqrt pi int sub 0 sup z e sup {-t sup 2} dt$)19 2798 1 1187 6000 t
+(Bessel)870 6120 w
+6 R f
+(T)1167 6110 w
+10 S1 f
+()1147 6120 w
+1147 6120 m
+75 build_ci
+1222 6120 m
+10 R f
+($ J sub 0 \(z\) = 1 over pi int sub 0 sup pi cos \( z sin theta \) d theta $)22 2835 1 1238 6120 t
+(Zeta)870 6240 w
+6 R f
+(T)1083 6230 w
+10 S1 f
+()1063 6240 w
+1063 6240 m
+75 build_ci
+1138 6240 m
+10 R f
+($ zeta \(s\) = sum from k=1 to inf k sup -s \304\304\( Re\304s)13 2049 1 1154 6240 t
+10 S f
+(>)3236 6240 w
+10 R f
+(1\)$)3325 6240 w
+14 R f
+(.)878 6360 w
+10 R f
+(vs -2p)1 255 1 913 6360 t
+14 R f
+(.)878 6480 w
+10 R f
+(TE)913 6480 w
+10 B f
+(Output:)2880 4020 w
+10 S f
+(_ __________________________________)1 1712 1 2870 4090 t
+(_ _________________________________)1 1672 1 2890 4110 t
+10 R f
+(Name De\256nition)1 1193 1 2969 4220 t
+(Gamma)2930 4521 w
+10 S f
+(G)3396 4521 w
+10 R f
+(\()3464 4521 w
+10 I f
+(z)3505 4521 w
+10 R f
+(\))3552 4521 w
+10 S f
+(=)3601 4521 w
+14 S f
+(\362)3672 4531 w
+7 R f
+(0)3719 4585 w
+7 S f
+(\245)3750 4439 w
+10 I f
+(t)3817 4521 w
+7 I f
+(z)3856 4481 w
+7 S f
+(-)3899 4481 w
+7 R f
+(1)3949 4481 w
+10 I f
+(e)4000 4521 w
+7 S f
+(-)4055 4481 w
+7 I f
+(t)4105 4481 w
+10 I f
+(dt)4133 4521 w
+10 R f
+( \()1 41(Sine sin)1 583 2 2930 4701 t
+10 I f
+(x)3562 4701 w
+10 R f
+(\))3614 4701 w
+10 S f
+(=)3663 4701 w
+10 R f
+(2)3759 4771 w
+10 I f
+(i)3817 4771 w
+10 R f
+(1)3777 4641 w
+10 S1 f
+(_ __)1 116 1 3744 4671 t
+10 R f
+(\()3878 4701 w
+10 I f
+(e)3919 4701 w
+7 I f
+(ix)3974 4661 w
+10 S f
+(-)4057 4701 w
+10 I f
+(e)4128 4701 w
+7 S f
+(-)4183 4661 w
+7 I f
+(ix)4233 4661 w
+10 R f
+(\))4300 4701 w
+( \()1 41(Error erf)1 576 2 2930 4932 t
+10 I f
+(z)3555 4932 w
+10 R f
+(\))3602 4932 w
+10 S f
+(=)3651 4932 w
+11 S f
+(\326` `)1 132 1 3747 5028 t
+10 S f
+(p)3816 5028 w
+10 R f
+(2)3792 4872 w
+10 S1 f
+(_ ___)1 170 1 3732 4902 t
+14 S f
+(\362)3912 4942 w
+7 R f
+(0)3959 4996 w
+7 I f
+(z)3990 4850 w
+10 I f
+(e)4025 4932 w
+7 S f
+(-)4080 4892 w
+7 I f
+(t)4130 4892 w
+4 R f
+(2)4156 4855 w
+10 I f
+(dt)4197 4932 w
+10 R f
+(Bessel)2930 5189 w
+10 I f
+(J)3396 5189 w
+7 R f
+(0)3451 5209 w
+10 R f
+(\()3502 5189 w
+10 I f
+(z)3543 5189 w
+10 R f
+(\))3590 5189 w
+10 S f
+(=)3639 5189 w
+(p)3735 5259 w
+10 R f
+(1)3738 5129 w
+10 S1 f
+(_ _)1 85 1 3721 5159 t
+14 S f
+(\362)3816 5199 w
+7 R f
+(0)3863 5253 w
+7 S f
+(p)3894 5107 w
+10 R f
+(cos \()1 174 1 3949 5189 t
+10 I f
+(z)4131 5189 w
+10 R f
+(sin)4178 5189 w
+10 S f
+(q)4303 5189 w
+10 R f
+(\))4363 5189 w
+10 I f
+(d)4412 5189 w
+10 S f
+(q)4470 5189 w
+10 R f
+(Zeta)2930 5429 w
+10 S f
+(z)3396 5429 w
+10 R f
+(\()3453 5429 w
+10 I f
+(s)3494 5429 w
+10 R f
+(\))3541 5429 w
+10 S f
+(=)3590 5429 w
+7 I f
+(k)3661 5529 w
+7 S f
+(=)3708 5529 w
+7 R f
+(1)3758 5529 w
+15 S f
+(S)3682 5459 w
+7 S f
+(\245)3701 5329 w
+10 I f
+(k)3800 5429 w
+7 S f
+(-)3855 5389 w
+7 I f
+(s)3905 5389 w
+10 R f
+(\( Re)1 152 1 4030 5429 t
+10 I f
+(s)4231 5429 w
+10 S f
+(>)4294 5429 w
+10 R f
+(1 \))1 91 1 4366 5429 t
+10 S f
+(_ _________________________________)1 1672 1 2890 5519 t
+( \347)1 -1712(_ __________________________________)1 1712 2 2870 5539 t
+(\347)2870 5490 w
+(\347)2870 5390 w
+(\347)2870 5290 w
+(\347)2870 5190 w
+(\347)2870 5090 w
+(\347)2870 4990 w
+(\347)2870 4890 w
+(\347)2870 4790 w
+(\347)2870 4690 w
+(\347)2870 4590 w
+(\347)2870 4490 w
+(\347)2870 4390 w
+(\347)2870 4290 w
+(\347)2870 4190 w
+(\347)2890 5519 w
+(\347)2890 5510 w
+(\347)2890 5410 w
+(\347)2890 5310 w
+(\347)2890 5210 w
+(\347)2890 5110 w
+(\347)2890 5010 w
+(\347)2890 4910 w
+(\347)2890 4810 w
+(\347)2890 4710 w
+(\347)2890 4610 w
+(\347)2890 4510 w
+(\347)2890 4410 w
+(\347)2890 4310 w
+(\347)2890 4210 w
+(\347)4562 5519 w
+(\347)4562 5510 w
+(\347)4562 5410 w
+(\347)4562 5310 w
+(\347)4562 5210 w
+(\347)4562 5110 w
+(\347)4562 5010 w
+(\347)4562 4910 w
+(\347)4562 4810 w
+(\347)4562 4710 w
+(\347)4562 4610 w
+(\347)4562 4510 w
+(\347)4562 4410 w
+(\347)4562 4310 w
+(\347)4562 4210 w
+(\347)4582 5539 w
+(\347)4582 5490 w
+(\347)4582 5390 w
+(\347)4582 5290 w
+(\347)4582 5190 w
+(\347)4582 5090 w
+(\347)4582 4990 w
+(\347)4582 4890 w
+(\347)4582 4790 w
+(\347)4582 4690 w
+(\347)4582 4590 w
+(\347)4582 4490 w
+(\347)4582 4390 w
+(\347)4582 4290 w
+(\347)4582 4190 w
+10 R f
+( Papers)1 299(44 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 44 10
+%%Page: 45 11
+/saveobj save def
+mark
+11 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+10 B f
+(Input:)720 960 w
+14 R f
+(.)878 1140 w
+10 R f
+(TS)913 1140 w
+( : \);)2 121(box, tab\()1 363 2 870 1260 t
+(cb s s s s)4 382 1 870 1380 t
+(cp-2 s s s s)4 465 1 870 1500 t
+(c)870 1620 w
+10 S f
+(\357 \357)1 115 1 947 1620 t
+10 R f
+(c)1096 1620 w
+10 S f
+(\357)1173 1620 w
+10 R f
+(c)1256 1620 w
+10 S f
+(\357)1333 1620 w
+10 R f
+(c)1416 1620 w
+10 S f
+(\357)1493 1620 w
+10 R f
+(c)1576 1620 w
+(c)870 1740 w
+10 S f
+(\357 \357)1 115 1 947 1740 t
+10 R f
+(c)1096 1740 w
+10 S f
+(\357)1173 1740 w
+10 R f
+(c)1256 1740 w
+10 S f
+(\357)1333 1740 w
+10 R f
+(c)1416 1740 w
+10 S f
+(\357)1493 1740 w
+10 R f
+(c)1576 1740 w
+(r2)870 1860 w
+10 S f
+(\357 \357)1 115 1 986 1860 t
+10 R f
+(n2)1135 1860 w
+10 S f
+(\357)1268 1860 w
+10 R f
+(n2)1351 1860 w
+10 S f
+(\357)1484 1860 w
+10 R f
+(n2)1567 1860 w
+10 S f
+(\357)1700 1860 w
+10 R f
+(n)1783 1860 w
+14 R f
+(.)1841 1860 w
+10 R f
+(Readability of Text)2 793 1 870 1980 t
+(Line Width and Leading for 10-Point Type)6 1768 1 870 2100 t
+(=)870 2220 w
+(Line : Set : 1-Point : 2-Point : 4-Point)8 1436 1 870 2340 t
+(Width : Solid : Leading : Leading : Leading)8 1683 1 870 2460 t
+10 S f
+(_)870 2580 w
+10 R f
+( : \\-9)2 171(9 Pica)1 255 2 870 2700 t
+14 R f
+(.)1304 2700 w
+10 R f
+(3 : \\-6)2 221 1 1339 2700 t
+14 R f
+(.)1568 2700 w
+10 R f
+(0 : \\-5)2 221 1 1603 2700 t
+14 R f
+(.)1832 2700 w
+10 R f
+(3 : \\-7)2 221 1 1867 2700 t
+14 R f
+(.)2096 2700 w
+10 R f
+(1)2131 2700 w
+( : \\-4)2 171(14 Pica)1 305 2 870 2820 t
+14 R f
+(.)1354 2820 w
+10 R f
+(5 : \\-0)2 221 1 1389 2820 t
+14 R f
+(.)1618 2820 w
+10 R f
+(6 : \\-0)2 221 1 1653 2820 t
+14 R f
+(.)1882 2820 w
+10 R f
+(3 : \\-1)2 221 1 1917 2820 t
+14 R f
+(.)2146 2820 w
+10 R f
+(7)2181 2820 w
+( : \\-5)2 171(19 Pica)1 305 2 870 2940 t
+14 R f
+(.)1354 2940 w
+10 R f
+(0 : \\-5)2 221 1 1389 2940 t
+14 R f
+(.)1618 2940 w
+10 R f
+( 0)1 99(1 :)1 94 2 1653 2940 t
+14 R f
+(.)1854 2940 w
+10 R f
+(0 : \\-2)2 221 1 1889 2940 t
+14 R f
+(.)2118 2940 w
+10 R f
+(0)2153 2940 w
+( : \\-3)2 171(31 Pica)1 305 2 870 3060 t
+14 R f
+(.)1354 3060 w
+10 R f
+(7 : \\-3)2 221 1 1389 3060 t
+14 R f
+(.)1618 3060 w
+10 R f
+(8 : \\-2)2 221 1 1653 3060 t
+14 R f
+(.)1882 3060 w
+10 R f
+(4 : \\-3)2 221 1 1917 3060 t
+14 R f
+(.)2146 3060 w
+10 R f
+(6)2181 3060 w
+( : \\-9)2 171(43 Pica)1 305 2 870 3180 t
+14 R f
+(.)1354 3180 w
+10 R f
+(1 : \\-9)2 221 1 1389 3180 t
+14 R f
+(.)1618 3180 w
+10 R f
+(0 : \\-5)2 221 1 1653 3180 t
+14 R f
+(.)1882 3180 w
+10 R f
+(9 : \\-8)2 221 1 1917 3180 t
+14 R f
+(.)2146 3180 w
+10 R f
+(8)2181 3180 w
+14 R f
+(.)878 3300 w
+10 R f
+(TE)913 3300 w
+10 B f
+(Output:)2880 960 w
+10 S f
+(________________________________________)2880 1040 w
+10 B f
+(Readability of Text)2 838 1 3460 1160 t
+8 R f
+(Line Width and Leading for 10-Point Type)6 1408 1 3175 1280 t
+10 S f
+(________________________________________)2880 1290 w
+(________________________________________)2880 1310 w
+10 R f
+( 2-Point 4-Point)2 854( 1-Point)1 453(Line Set)1 514 3 2991 1420 t
+( Leading Leading Leading)3 1281(Width Solid)1 590 2 2957 1540 t
+10 S f
+(________________________________________)2880 1560 w
+10 R f
+( 7.1)1 140( \261)1 287( 5.3)1 140( \261)1 287( 6.0)1 140( \261)1 229( 9.3)1 140( \261)1 161(9 Pica)1 255 9 2980 1680 t
+( 1.7)1 140( \261)1 287( 0.3)1 140( \261)1 287( 0.6)1 140( \261)1 229( 4.5)1 140( \261)1 161(14 Pica)1 305 9 2930 1800 t
+( 2.0)1 140( \261)1 287( 0.0)1 427( 5.1)1 140( \261)1 229( 5.0)1 140( \261)1 161(19 Pica)1 305 8 2930 1920 t
+( 3.6)1 140( \261)1 287( 2.4)1 140( \261)1 287( 3.8)1 140( \261)1 229( 3.7)1 140( \261)1 161(31 Pica)1 305 9 2930 2040 t
+( 8.8)1 140( \261)1 287( 5.9)1 140( \261)1 287( 9.0)1 140( \261)1 229( 9.1)1 140( \261)1 161(43 Pica)1 305 9 2930 2160 t
+10 S f
+(________________________________________ \347)1 0 1 2880 2180 t
+(\347)2880 2140 w
+(\347)2880 2040 w
+(\347)2880 1940 w
+(\347)2880 1840 w
+(\347)2880 1740 w
+(\347)2880 1640 w
+(\347)2880 1540 w
+(\347)2880 1440 w
+(\347)2880 1340 w
+(\347)2880 1240 w
+(\347)2880 1140 w
+(\347)3275 2180 w
+(\347)3275 2110 w
+(\347)3275 2010 w
+(\347)3275 1910 w
+(\347)3275 1810 w
+(\347)3275 1710 w
+(\347)3275 1610 w
+(\347)3275 1510 w
+(\347)3275 1410 w
+(\347)3295 2180 w
+(\347)3295 2110 w
+(\347)3295 2010 w
+(\347)3295 1910 w
+(\347)3295 1810 w
+(\347)3295 1710 w
+(\347)3295 1610 w
+(\347)3295 1510 w
+(\347)3295 1410 w
+(\347)3597 2180 w
+(\347)3597 2110 w
+(\347)3597 2010 w
+(\347)3597 1910 w
+(\347)3597 1810 w
+(\347)3597 1710 w
+(\347)3597 1610 w
+(\347)3597 1510 w
+(\347)3597 1410 w
+(\347)4024 2180 w
+(\347)4024 2110 w
+(\347)4024 2010 w
+(\347)4024 1910 w
+(\347)4024 1810 w
+(\347)4024 1710 w
+(\347)4024 1610 w
+(\347)4024 1510 w
+(\347)4024 1410 w
+(\347)4451 2180 w
+(\347)4451 2110 w
+(\347)4451 2010 w
+(\347)4451 1910 w
+(\347)4451 1810 w
+(\347)4451 1710 w
+(\347)4451 1610 w
+(\347)4451 1510 w
+(\347)4451 1410 w
+(\347)4878 2180 w
+(\347)4878 2140 w
+(\347)4878 2040 w
+(\347)4878 1940 w
+(\347)4878 1840 w
+(\347)4878 1740 w
+(\347)4878 1640 w
+(\347)4878 1540 w
+(\347)4878 1440 w
+(\347)4878 1340 w
+(\347)4878 1240 w
+(\347)4878 1140 w
+10 R f
+( 45)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 45 11
+%%Page: 46 12
+/saveobj save def
+mark
+12 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 B f
+(Input:)720 960 w
+14 R f
+(.)878 1140 w
+10 R f
+(TS)913 1140 w
+(c s)1 116 1 870 1260 t
+(cip-2 s)1 277 1 870 1380 t
+(l n)1 111 1 870 1500 t
+(a n)1 127 1 870 1620 t
+14 R f
+(.)1005 1620 w
+10 R f
+(Some London Transport Statistics)3 1388 1 870 1740 t
+(\(Year 1964\))1 492 1 870 1860 t
+(Railway route miles)2 821 1 870 1980 t
+6 R f
+(T)1727 1970 w
+10 S1 f
+()1707 1980 w
+1707 1980 m
+75 build_ci
+1782 1980 m
+10 R f
+(244)1798 1980 w
+(Tube)870 2100 w
+6 R f
+(T)1111 2090 w
+10 S1 f
+()1091 2100 w
+1091 2100 m
+75 build_ci
+1166 2100 m
+10 R f
+(66)1182 2100 w
+(Sub-surface)870 2220 w
+6 R f
+(T)1382 2210 w
+10 S1 f
+()1362 2220 w
+1362 2220 m
+75 build_ci
+1437 2220 m
+10 R f
+(22)1453 2220 w
+(Surface)870 2340 w
+6 R f
+(T)1210 2330 w
+10 S1 f
+()1190 2340 w
+1190 2340 m
+75 build_ci
+1265 2340 m
+10 R f
+(156)1281 2340 w
+14 R f
+(.)878 2460 w
+10 R f
+(sp)913 2460 w
+14 R f
+(.)1043 2460 w
+10 R f
+(5)1078 2460 w
+14 R f
+(.)878 2580 w
+10 R f
+(T&)913 2580 w
+(l r)1 94 1 870 2700 t
+(a r)1 110 1 870 2820 t
+14 R f
+(.)988 2820 w
+10 R f
+(Passenger traf\256c \\- railway)3 1096 1 870 2940 t
+(Journeys)870 3060 w
+6 R f
+(T)1261 3050 w
+10 S1 f
+()1241 3060 w
+1241 3060 m
+75 build_ci
+1316 3060 m
+10 R f
+(674 million)1 473 1 1332 3060 t
+(Average length)1 620 1 870 3180 t
+6 R f
+(T)1526 3170 w
+10 S1 f
+()1506 3180 w
+1506 3180 m
+75 build_ci
+1581 3180 m
+10 R f
+(4)1597 3180 w
+14 R f
+(.)1655 3180 w
+10 R f
+(55 miles)1 350 1 1690 3180 t
+(Passenger miles)1 649 1 870 3300 t
+6 R f
+(T)1555 3290 w
+10 S1 f
+()1535 3300 w
+1535 3300 m
+75 build_ci
+1610 3300 m
+10 R f
+(3,066 million)1 548 1 1626 3300 t
+14 R f
+(.)878 3420 w
+10 R f
+(T&)913 3420 w
+(l r)1 94 1 870 3540 t
+(a r)1 110 1 870 3660 t
+14 R f
+(.)988 3660 w
+10 R f
+(Passenger traf\256c \\- road)3 974 1 870 3780 t
+(Journeys)870 3900 w
+6 R f
+(T)1261 3890 w
+10 S1 f
+()1241 3900 w
+1241 3900 m
+75 build_ci
+1316 3900 m
+10 R f
+(2,252 million)1 548 1 1332 3900 t
+(Average length)1 620 1 870 4020 t
+6 R f
+(T)1526 4010 w
+10 S1 f
+()1506 4020 w
+1506 4020 m
+75 build_ci
+1581 4020 m
+10 R f
+(2)1597 4020 w
+14 R f
+(.)1655 4020 w
+10 R f
+(26 miles)1 350 1 1690 4020 t
+(Passenger miles)1 649 1 870 4140 t
+6 R f
+(T)1555 4130 w
+10 S1 f
+()1535 4140 w
+1535 4140 m
+75 build_ci
+1610 4140 m
+10 R f
+(5,094 million)1 548 1 1626 4140 t
+14 R f
+(.)878 4260 w
+10 R f
+(T&)913 4260 w
+(l n)1 111 1 870 4380 t
+(a n)1 127 1 870 4500 t
+14 R f
+(.)1005 4500 w
+(.)878 4620 w
+10 R f
+(sp)913 4620 w
+14 R f
+(.)1043 4620 w
+10 R f
+(5)1078 4620 w
+(Vehicles)870 4740 w
+6 R f
+(T)1255 4730 w
+10 S1 f
+()1235 4740 w
+1235 4740 m
+75 build_ci
+1310 4740 m
+10 R f
+(12,521)1326 4740 w
+(Railway motor cars)2 798 1 870 4860 t
+6 R f
+(T)1704 4850 w
+10 S1 f
+()1684 4860 w
+1684 4860 m
+75 build_ci
+1759 4860 m
+10 R f
+(2,905)1775 4860 w
+(Railway trailer cars)2 797 1 870 4980 t
+6 R f
+(T)1703 4970 w
+10 S1 f
+()1683 4980 w
+1683 4980 m
+75 build_ci
+1758 4980 m
+10 R f
+(1,269)1774 4980 w
+(Total railway)1 543 1 870 5100 t
+6 R f
+(T)1449 5090 w
+10 S1 f
+()1429 5100 w
+1429 5100 m
+75 build_ci
+1504 5100 m
+10 R f
+(4,174)1520 5100 w
+(Omnibuses)870 5220 w
+6 R f
+(T)1356 5210 w
+10 S1 f
+()1336 5220 w
+1336 5220 m
+75 build_ci
+1411 5220 m
+10 R f
+(8,347)1427 5220 w
+14 R f
+(.)878 5340 w
+10 R f
+(T&)913 5340 w
+(l n)1 111 1 870 5460 t
+(a n)1 127 1 870 5580 t
+14 R f
+(.)1005 5580 w
+(.)878 5700 w
+10 R f
+(sp)913 5700 w
+14 R f
+(.)1043 5700 w
+10 R f
+(5)1078 5700 w
+(Staff)870 5820 w
+6 R f
+(T)1100 5810 w
+10 S1 f
+()1080 5820 w
+1080 5820 m
+75 build_ci
+1155 5820 m
+10 R f
+(73,739)1171 5820 w
+(Administrative, etc)1 774 1 870 5940 t
+14 R f
+(.)1652 5940 w
+6 R f
+(T)1723 5930 w
+10 S1 f
+()1703 5940 w
+1703 5940 m
+75 build_ci
+1778 5940 m
+10 R f
+(5,582)1794 5940 w
+(Civil engineering)1 705 1 870 6060 t
+6 R f
+(T)1611 6050 w
+10 S1 f
+()1591 6060 w
+1591 6060 m
+75 build_ci
+1666 6060 m
+10 R f
+(5,134)1682 6060 w
+(Electrical eng)1 559 1 870 6180 t
+14 R f
+(.)1437 6180 w
+6 R f
+(T)1508 6170 w
+10 S1 f
+()1488 6180 w
+1488 6180 m
+75 build_ci
+1563 6180 m
+10 R f
+(1,714)1579 6180 w
+(Mech)870 6300 w
+14 R f
+(.)1105 6300 w
+10 R f
+(eng)1173 6300 w
+14 R f
+(.)1325 6300 w
+10 R f
+(\\- railway)1 393 1 1393 6300 t
+6 R f
+(T)1822 6290 w
+10 S1 f
+()1802 6300 w
+1802 6300 m
+75 build_ci
+1877 6300 m
+10 R f
+(4,310)1893 6300 w
+(Mech)870 6420 w
+14 R f
+(.)1105 6420 w
+10 R f
+(eng)1173 6420 w
+14 R f
+(.)1325 6420 w
+10 R f
+(\\- road)1 271 1 1393 6420 t
+6 R f
+(T)1700 6410 w
+10 S1 f
+()1680 6420 w
+1680 6420 m
+75 build_ci
+1755 6420 m
+10 R f
+(9,152)1771 6420 w
+(Railway operations)1 782 1 870 6540 t
+6 R f
+(T)1688 6530 w
+10 S1 f
+()1668 6540 w
+1668 6540 m
+75 build_ci
+1743 6540 m
+10 R f
+(8,930)1759 6540 w
+(Road operations)1 660 1 870 6660 t
+6 R f
+(T)1566 6650 w
+10 S1 f
+()1546 6660 w
+1546 6660 m
+75 build_ci
+1621 6660 m
+10 R f
+(35,946)1637 6660 w
+(Other)870 6780 w
+6 R f
+(T)1133 6770 w
+10 S1 f
+()1113 6780 w
+1113 6780 m
+75 build_ci
+1188 6780 m
+10 R f
+(2,971)1204 6780 w
+14 R f
+(.)878 6900 w
+10 R f
+(TE)913 6900 w
+10 B f
+(Output:)2880 960 w
+10 R f
+(Some London Transport Statistics)3 1388 1 3082 1140 t
+8 I f
+(\(Year 1964\))1 389 1 3582 1260 t
+10 R f
+( 244)1 835(Railway route miles)2 821 2 2880 1380 t
+(Tube 66)1 1546 1 2990 1500 t
+(Sub-surface 22)1 1546 1 2990 1620 t
+(Surface 156)1 1546 1 2990 1740 t
+(Passenger traf\256c)1 670 1 2880 1920 t
+10 S f
+(-)3583 1920 w
+10 R f
+(railway)3671 1920 w
+( million)1 323(Journeys 674)1 1360 2 2990 2040 t
+( miles)1 250( 4.55)1 813(Average length)1 620 3 2990 2160 t
+( million)1 323( 3,066)1 711(Passenger miles)1 649 3 2990 2280 t
+(Passenger traf\256c)1 670 1 2880 2400 t
+10 S f
+(-)3583 2400 w
+10 R f
+(road)3671 2400 w
+( million)1 323(Journeys 2,252)1 1360 2 2990 2520 t
+( miles)1 250( 2.26)1 813(Average length)1 620 3 2990 2640 t
+( million)1 323( 5,094)1 711(Passenger miles)1 649 3 2990 2760 t
+(Vehicles 12,521)1 1656 1 2880 2940 t
+( 2,905)1 748(Railway motor cars)2 798 2 2990 3060 t
+( 1,269)1 749(Railway trailer cars)2 797 2 2990 3180 t
+( 4,174)1 1003(Total railway)1 543 2 2990 3300 t
+(Omnibuses 8,347)1 1546 1 2990 3420 t
+(Staff 73,739)1 1656 1 2880 3600 t
+( 5,582)1 747(Administrative, etc.)1 799 2 2990 3720 t
+( 5,134)1 841(Civil engineering)1 705 2 2990 3840 t
+( 1,714)1 962(Electrical eng.)1 584 2 2990 3960 t
+(Mech. eng.)1 454 1 2990 4080 t
+10 S f
+(-)3477 4080 w
+10 R f
+(railway 4,310)1 971 1 3565 4080 t
+(Mech. eng.)1 454 1 2990 4200 t
+10 S f
+(-)3477 4200 w
+10 R f
+(road 9,152)1 971 1 3565 4200 t
+( 8,930)1 764(Railway operations)1 782 2 2990 4320 t
+( 35,946)1 886(Road operations)1 660 2 2990 4440 t
+(Other 2,971)1 1546 1 2990 4560 t
+10 R f
+( Papers)1 299(46 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 46 12
+%%Page: 47 13
+/saveobj save def
+mark
+13 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+10 B f
+(Input:)720 840 w
+14 R f
+(.)876 1000 w
+8 R f
+(TS)911 1000 w
+(center box;)1 361 1 870 1100 t
+(cBp+2 s s)2 328 1 870 1200 t
+(cB s s)2 203 1 870 1300 t
+(li l lb)2 180 1 870 1400 t
+14 R f
+(.)1056 1400 w
+8 R f
+(Crisis and Emergency Numbers)3 1033 1 870 1500 t
+14 R f
+(.)876 1600 w
+8 R f
+(sp)911 1600 w
+(24-Hour Hotlines)1 566 1 870 1700 t
+(Abuse)870 1800 w
+6 R f
+(T)1103 1792 w
+10 S1 f
+()1083 1802 w
+1083 1802 m
+75 build_ci
+1158 1802 m
+8 R f
+(Child Abuse Reports)2 682 1 1174 1802 t
+6 R f
+(T)1885 1794 w
+10 S1 f
+()1865 1804 w
+1865 1804 m
+75 build_ci
+1940 1804 m
+8 R f
+(1-800-792-8610)1956 1804 w
+14 R f
+(.)876 1900 w
+8 R f
+(sp)911 1900 w
+14 R f
+(.)1014 1900 w
+8 R f
+(5)1049 1900 w
+(Alcohol)870 2000 w
+6 R f
+(T)1156 1992 w
+10 S1 f
+()1136 2002 w
+1136 2002 m
+75 build_ci
+1211 2002 m
+8 R f
+(Ala-Call)1227 2002 w
+6 R f
+(T)1530 1994 w
+10 S1 f
+()1510 2004 w
+1510 2004 m
+75 build_ci
+1585 2004 m
+8 R f
+(1-800-322-5525)1601 2004 w
+(Alcohol)870 2100 w
+6 R f
+(T)1156 2092 w
+10 S1 f
+()1136 2102 w
+1136 2102 m
+75 build_ci
+1211 2102 m
+8 R f
+(Overdose)1227 2102 w
+6 R f
+(T)1561 2094 w
+10 S1 f
+()1541 2104 w
+1541 2104 m
+75 build_ci
+1616 2104 m
+8 R f
+(1-800-962-1253)1632 2104 w
+14 R f
+(.)876 2200 w
+8 R f
+(sp)911 2200 w
+14 R f
+(.)1014 2200 w
+8 R f
+(5)1049 2200 w
+(Drug)870 2300 w
+6 R f
+(T)1063 2292 w
+10 S1 f
+()1043 2302 w
+1043 2302 m
+75 build_ci
+1118 2302 m
+8 R f
+(Drug Hotline)1 429 1 1134 2302 t
+6 R f
+(T)1592 2294 w
+10 S1 f
+()1572 2304 w
+1572 2304 m
+75 build_ci
+1647 2304 m
+8 R f
+(1-800-225-0196)1663 2304 w
+(Drug)870 2400 w
+6 R f
+(T)1063 2392 w
+10 S1 f
+()1043 2402 w
+1043 2402 m
+75 build_ci
+1118 2402 m
+8 R f
+(Overdose)1134 2402 w
+6 R f
+(T)1468 2394 w
+10 S1 f
+()1448 2404 w
+1448 2404 m
+75 build_ci
+1523 2404 m
+8 R f
+(1-800-962-1253)1539 2404 w
+(Drug)870 2500 w
+6 R f
+(T)1063 2492 w
+10 S1 f
+()1043 2502 w
+1043 2502 m
+75 build_ci
+1118 2502 m
+8 R f
+(Narcotics Anonymous)1 721 1 1134 2502 t
+6 R f
+(T)1884 2494 w
+10 S1 f
+()1864 2504 w
+1864 2504 m
+75 build_ci
+1939 2504 m
+8 R f
+(1-800-992-0401)1955 2504 w
+14 R f
+(.)876 2600 w
+8 R f
+(sp)911 2600 w
+14 R f
+(.)1014 2600 w
+8 R f
+(5)1049 2600 w
+(Poison)870 2700 w
+6 R f
+(T)1117 2692 w
+10 S1 f
+()1097 2702 w
+1097 2702 m
+75 build_ci
+1172 2702 m
+8 R f
+(Poison Hotline)1 483 1 1188 2702 t
+6 R f
+(T)1700 2694 w
+10 S1 f
+()1680 2704 w
+1680 2704 m
+75 build_ci
+1755 2704 m
+8 R f
+(1-800-962-1253)1771 2704 w
+14 R f
+(.)876 2800 w
+8 R f
+(sp)911 2800 w
+14 R f
+(.)1014 2800 w
+8 R f
+(5)1049 2800 w
+(Runaways)870 2900 w
+6 R f
+(T)1232 2892 w
+10 S1 f
+()1212 2902 w
+1212 2902 m
+75 build_ci
+1287 2902 m
+8 R f
+(Hotline)1303 2902 w
+6 R f
+(T)1571 2894 w
+10 S1 f
+()1551 2904 w
+1551 2904 m
+75 build_ci
+1626 2904 m
+8 R f
+(1-800-231-6946)1642 2904 w
+(Runaways)870 3000 w
+6 R f
+(T)1232 2992 w
+10 S1 f
+()1212 3002 w
+1212 3002 m
+75 build_ci
+1287 3002 m
+8 R f
+(Covenant House)1 536 1 1303 3002 t
+6 R f
+(T)1868 2994 w
+10 S1 f
+()1848 3004 w
+1848 3004 m
+75 build_ci
+1923 3004 m
+8 R f
+(1-800-999-9999)1939 3004 w
+14 R f
+(.)876 3100 w
+8 R f
+(sp)911 3100 w
+14 R f
+(.)1014 3100 w
+8 R f
+(5)1049 3100 w
+14 R f
+(.)876 3200 w
+8 R f
+(T&)911 3200 w
+(cB s s)2 203 1 870 3300 t
+(li l lb)2 180 1 870 3400 t
+14 R f
+(.)1056 3400 w
+8 R f
+(Other Hotlines)1 477 1 870 3500 t
+(AIDS)870 3600 w
+6 R f
+(T)1086 3592 w
+10 S1 f
+()1066 3602 w
+1066 3602 m
+75 build_ci
+1141 3602 m
+8 R f
+(National AIDS Hotline)2 752 1 1157 3602 t
+6 R f
+(T)1938 3594 w
+10 S1 f
+()1918 3604 w
+1918 3604 m
+75 build_ci
+1993 3604 m
+8 R f
+(1-800-342-AIDS)2009 3604 w
+(AIDS)870 3700 w
+6 R f
+(T)1086 3692 w
+10 S1 f
+()1066 3702 w
+1066 3702 m
+75 build_ci
+1141 3702 m
+8 R f
+(NJ AIDS Hotline)2 567 1 1157 3702 t
+6 R f
+(T)1753 3694 w
+10 S1 f
+()1733 3704 w
+1733 3704 m
+75 build_ci
+1808 3704 m
+8 R f
+(1-800-624-2377)1824 3704 w
+(Drug)870 3800 w
+6 R f
+(T)1063 3792 w
+10 S1 f
+()1043 3802 w
+1043 3802 m
+75 build_ci
+1118 3802 m
+8 R f
+(Cocaine)1134 3802 w
+6 R f
+(T)1424 3794 w
+10 S1 f
+()1404 3804 w
+1404 3804 m
+75 build_ci
+1479 3804 m
+8 R f
+(1-800-COCAINE)1495 3804 w
+(Eating)870 3900 w
+6 R f
+(T)1107 3892 w
+10 S1 f
+()1087 3902 w
+1087 3902 m
+75 build_ci
+1162 3902 m
+8 R f
+(Eating Disorders Hotline)2 808 1 1178 3902 t
+6 R f
+(T)2015 3894 w
+10 S1 f
+()1995 3904 w
+1995 3904 m
+75 build_ci
+2070 3904 m
+8 R f
+(1-800-624-2268)2086 3904 w
+(Support)870 4000 w
+6 R f
+(T)1152 3992 w
+10 S1 f
+()1132 4002 w
+1132 4002 m
+75 build_ci
+1207 4002 m
+8 R f
+(Support Group Information)2 888 1 1223 4002 t
+6 R f
+(T)2140 3994 w
+10 S1 f
+()2120 4004 w
+2120 4004 m
+75 build_ci
+2195 4004 m
+8 R f
+(1-800-367-6274)2211 4004 w
+(VD)870 4100 w
+6 R f
+(T)1015 4092 w
+10 S1 f
+()995 4102 w
+995 4102 m
+75 build_ci
+1070 4102 m
+8 R f
+(VD Information)1 521 1 1086 4102 t
+6 R f
+(T)1636 4094 w
+10 S1 f
+()1616 4104 w
+1616 4104 m
+75 build_ci
+1691 4104 m
+8 R f
+(1-800-227-8922)1707 4104 w
+14 R f
+(.)876 4200 w
+8 R f
+(TE)911 4200 w
+10 B f
+(Output:)720 4440 w
+8 S f
+(_ _____________________________________________________)1 2128 1 1996 4520 t
+10 B f
+(Crisis and Emergency Numbers)3 1387 1 2366 4620 t
+8 B f
+(24-Hour Hotlines)1 597 1 2761 4770 t
+8 I f
+(Abuse)2036 4870 w
+8 R f
+(Child Abuse Reports)2 682 1 2485 4870 t
+8 B f
+(1-800-792-8610)3493 4870 w
+8 I f
+(Alcohol)2036 5020 w
+8 R f
+(Ala-Call)2485 5020 w
+8 B f
+(1-800-322-5525)3493 5020 w
+8 I f
+(Alcohol)2036 5120 w
+8 R f
+(Overdose)2485 5120 w
+8 B f
+(1-800-962-1253)3493 5120 w
+8 I f
+(Drug)2036 5270 w
+8 R f
+(Drug Hotline)1 429 1 2485 5270 t
+8 B f
+(1-800-225-0196)3493 5270 w
+8 I f
+(Drug)2036 5370 w
+8 R f
+(Overdose)2485 5370 w
+8 B f
+(1-800-962-1253)3493 5370 w
+8 I f
+(Drug)2036 5470 w
+8 R f
+(Narcotics Anonymous)1 721 1 2485 5470 t
+8 B f
+(1-800-992-0401)3493 5470 w
+8 I f
+(Poison)2036 5620 w
+8 R f
+(Poison Hotline)1 483 1 2485 5620 t
+8 B f
+(1-800-962-1253)3493 5620 w
+8 I f
+(Runaways)2036 5770 w
+8 R f
+(Hotline)2485 5770 w
+8 B f
+(1-800-231-6946)3493 5770 w
+8 I f
+(Runaways)2036 5870 w
+8 R f
+(Covenant House)1 536 1 2485 5870 t
+8 B f
+(1-800-999-9999)3493 5870 w
+(Other Hotlines)1 512 1 2804 6020 t
+8 I f
+(AIDS)2036 6120 w
+8 R f
+(National AIDS Hotline)2 752 1 2485 6120 t
+8 B f
+(1-800-342-AIDS)3493 6120 w
+8 I f
+(AIDS)2036 6220 w
+8 R f
+(NJ AIDS Hotline)2 567 1 2485 6220 t
+8 B f
+(1-800-624-2377)3493 6220 w
+8 I f
+(Drug)2036 6320 w
+8 R f
+(Cocaine)2485 6320 w
+8 B f
+(1-800-COCAINE)3493 6320 w
+8 I f
+(Eating)2036 6420 w
+8 R f
+(Eating Disorders Hotline)2 808 1 2485 6420 t
+8 B f
+(1-800-624-2268)3493 6420 w
+8 I f
+(Support)2036 6520 w
+8 R f
+(Support Group Information)2 888 1 2485 6520 t
+8 B f
+(1-800-367-6274)3493 6520 w
+8 I f
+(VD)2036 6620 w
+8 R f
+(VD Information)1 521 1 2485 6620 t
+8 B f
+(1-800-227-8922)3493 6620 w
+8 S f
+( \347)1 -2128(_ _____________________________________________________)1 2128 2 1996 6640 t
+(\347)1996 6600 w
+(\347)1996 6520 w
+(\347)1996 6440 w
+(\347)1996 6360 w
+(\347)1996 6280 w
+(\347)1996 6200 w
+(\347)1996 6120 w
+(\347)1996 6040 w
+(\347)1996 5960 w
+(\347)1996 5880 w
+(\347)1996 5800 w
+(\347)1996 5720 w
+(\347)1996 5640 w
+(\347)1996 5560 w
+(\347)1996 5480 w
+(\347)1996 5400 w
+(\347)1996 5320 w
+(\347)1996 5240 w
+(\347)1996 5160 w
+(\347)1996 5080 w
+(\347)1996 5000 w
+(\347)1996 4920 w
+(\347)1996 4840 w
+(\347)1996 4760 w
+(\347)1996 4680 w
+(\347)1996 4600 w
+(\347)4124 6640 w
+(\347)4124 6600 w
+(\347)4124 6520 w
+(\347)4124 6440 w
+(\347)4124 6360 w
+(\347)4124 6280 w
+(\347)4124 6200 w
+(\347)4124 6120 w
+(\347)4124 6040 w
+(\347)4124 5960 w
+(\347)4124 5880 w
+(\347)4124 5800 w
+(\347)4124 5720 w
+(\347)4124 5640 w
+(\347)4124 5560 w
+(\347)4124 5480 w
+(\347)4124 5400 w
+(\347)4124 5320 w
+(\347)4124 5240 w
+(\347)4124 5160 w
+(\347)4124 5080 w
+(\347)4124 5000 w
+(\347)4124 4920 w
+(\347)4124 4840 w
+(\347)4124 4760 w
+(\347)4124 4680 w
+(\347)4124 4600 w
+10 R f
+( this way)2 383( In)1 152( only to indicate where the left and right margins are.)10 2231(This is a paragraph of normal text placed here)8 1914 4 720 6880 t
+( expanded tables, and observe how such tables are for-)9 2294(the reader can judge the appearance of centered tables or)9 2386 2 720 7000 t
+(matted.)720 7120 w
+10 R f
+( 47)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 47 13
+%%Page: 48 14
+/saveobj save def
+mark
+14 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 B f
+(Input:)720 960 w
+14 R f
+(.)876 1120 w
+8 R f
+(TS)911 1120 w
+(expand;)870 1220 w
+(c s s s)3 206 1 870 1320 t
+(c c c c)3 218 1 870 1420 t
+(l l n n)3 202 1 870 1520 t
+14 R f
+(.)1078 1520 w
+8 R f
+(New Jersey Bell Labs Locations)4 1055 1 870 1620 t
+(Name)870 1720 w
+6 R f
+(T)1089 1712 w
+10 S1 f
+()1069 1722 w
+1069 1722 m
+75 build_ci
+1144 1722 m
+8 R f
+(Address)1160 1722 w
+6 R f
+(T)1450 1714 w
+10 S1 f
+()1430 1724 w
+1430 1724 m
+75 build_ci
+1505 1724 m
+8 R f
+(Area Code)1 349 1 1521 1724 t
+6 R f
+(T)1899 1716 w
+10 S1 f
+()1879 1726 w
+1879 1726 m
+75 build_ci
+1954 1726 m
+8 R f
+(Phone)1970 1726 w
+(Chester)870 1820 w
+6 R f
+(T)1142 1812 w
+10 S1 f
+()1122 1822 w
+1122 1822 m
+75 build_ci
+1197 1822 m
+8 R f
+(Chester, NJ 07930)2 604 1 1213 1822 t
+6 R f
+(T)1846 1814 w
+10 S1 f
+()1826 1824 w
+1826 1824 m
+75 build_ci
+1901 1824 m
+8 R f
+(201)1917 1824 w
+6 R f
+(T)2066 1816 w
+10 S1 f
+()2046 1826 w
+2046 1826 m
+75 build_ci
+2121 1826 m
+8 R f
+(879-3400)2137 1826 w
+(Corporate Park III)2 594 1 870 1920 t
+6 R f
+(T)1493 1912 w
+10 S1 f
+()1473 1922 w
+1473 1922 m
+75 build_ci
+1548 1922 m
+8 R f
+(Somerset, NJ 08873)2 657 1 1564 1922 t
+6 R f
+(T)2250 1914 w
+10 S1 f
+()2230 1924 w
+2230 1924 m
+75 build_ci
+2305 1924 m
+8 R f
+(201)2321 1924 w
+6 R f
+(T)2470 1916 w
+10 S1 f
+()2450 1926 w
+2450 1926 m
+75 build_ci
+2525 1926 m
+8 R f
+(271-2300)2541 1926 w
+(Crawford Hill)1 455 1 870 2020 t
+6 R f
+(T)1354 2012 w
+10 S1 f
+()1334 2022 w
+1334 2022 m
+75 build_ci
+1409 2022 m
+8 R f
+(Holmdel, NJ 07733)2 640 1 1425 2022 t
+6 R f
+(T)2094 2014 w
+10 S1 f
+()2074 2024 w
+2074 2024 m
+75 build_ci
+2149 2024 m
+8 R f
+(201)2165 2024 w
+6 R f
+(T)2314 2016 w
+10 S1 f
+()2294 2026 w
+2294 2026 m
+75 build_ci
+2369 2026 m
+8 R f
+(888-7000)2385 2026 w
+(ERC)870 2120 w
+6 R f
+(T)1056 2112 w
+10 S1 f
+()1036 2122 w
+1036 2122 m
+75 build_ci
+1111 2122 m
+8 R f
+(Hopewell Township, NJ 08525)3 1017 1 1127 2122 t
+6 R f
+(T)2173 2114 w
+10 S1 f
+()2153 2124 w
+2153 2124 m
+75 build_ci
+2228 2124 m
+8 R f
+(609)2244 2124 w
+6 R f
+(T)2393 2116 w
+10 S1 f
+()2373 2126 w
+2373 2126 m
+75 build_ci
+2448 2126 m
+8 R f
+(639-1234)2464 2126 w
+(Freehold)870 2220 w
+6 R f
+(T)1182 2212 w
+10 S1 f
+()1162 2222 w
+1162 2222 m
+75 build_ci
+1237 2222 m
+8 R f
+(Freehold, NJ 07728)2 644 1 1253 2222 t
+6 R f
+(T)1926 2214 w
+10 S1 f
+()1906 2224 w
+1906 2224 m
+75 build_ci
+1981 2224 m
+8 R f
+(201)1997 2224 w
+6 R f
+(T)2146 2216 w
+10 S1 f
+()2126 2226 w
+2126 2226 m
+75 build_ci
+2201 2226 m
+8 R f
+(577-5000)2217 2226 w
+(Headquarters Plaza)1 621 1 870 2320 t
+6 R f
+(T)1520 2312 w
+10 S1 f
+()1500 2322 w
+1500 2322 m
+75 build_ci
+1575 2322 m
+8 R f
+(Morristown, NJ 07960)2 737 1 1591 2322 t
+6 R f
+(T)2357 2314 w
+10 S1 f
+()2337 2324 w
+2337 2324 m
+75 build_ci
+2412 2324 m
+8 R f
+(201)2428 2324 w
+6 R f
+(T)2577 2316 w
+10 S1 f
+()2557 2326 w
+2557 2326 m
+75 build_ci
+2632 2326 m
+8 R f
+(898-6000)2648 2326 w
+(Holmdel)870 2420 w
+6 R f
+(T)1178 2412 w
+10 S1 f
+()1158 2422 w
+1158 2422 m
+75 build_ci
+1233 2422 m
+8 R f
+(Holmdel, NJ 07733)2 640 1 1249 2422 t
+6 R f
+(T)1918 2414 w
+10 S1 f
+()1898 2424 w
+1898 2424 m
+75 build_ci
+1973 2424 m
+8 R f
+(201)1989 2424 w
+6 R f
+(T)2138 2416 w
+10 S1 f
+()2118 2426 w
+2118 2426 m
+75 build_ci
+2193 2426 m
+8 R f
+(834-1000)2209 2426 w
+(Knightsbridge)870 2520 w
+6 R f
+(T)1355 2512 w
+10 S1 f
+()1335 2522 w
+1335 2522 m
+75 build_ci
+1410 2522 m
+8 R f
+(Piscataway, NJ 08854)2 719 1 1426 2522 t
+6 R f
+(T)2174 2514 w
+10 S1 f
+()2154 2524 w
+2154 2524 m
+75 build_ci
+2229 2524 m
+8 R f
+(201)2245 2524 w
+6 R f
+(T)2394 2516 w
+10 S1 f
+()2374 2526 w
+2374 2526 m
+75 build_ci
+2449 2526 m
+8 R f
+(457-2000)2465 2526 w
+(Liberty Corner)1 481 1 870 2620 t
+6 R f
+(T)1380 2612 w
+10 S1 f
+()1360 2622 w
+1360 2622 m
+75 build_ci
+1435 2622 m
+8 R f
+(Warren, NJ 07060)2 598 1 1451 2622 t
+6 R f
+(T)2078 2614 w
+10 S1 f
+()2058 2624 w
+2058 2624 m
+75 build_ci
+2133 2624 m
+8 R f
+(201)2149 2624 w
+6 R f
+(T)2298 2616 w
+10 S1 f
+()2278 2626 w
+2278 2626 m
+75 build_ci
+2353 2626 m
+8 R f
+(580-4000)2369 2626 w
+(Lincroft)870 2720 w
+6 R f
+(T)1159 2712 w
+10 S1 f
+()1139 2722 w
+1139 2722 m
+75 build_ci
+1214 2722 m
+8 R f
+(Lincroft, NJ 07738)2 621 1 1230 2722 t
+6 R f
+(T)1880 2714 w
+10 S1 f
+()1860 2724 w
+1860 2724 m
+75 build_ci
+1935 2724 m
+8 R f
+(201)1951 2724 w
+6 R f
+(T)2100 2716 w
+10 S1 f
+()2080 2726 w
+2080 2726 m
+75 build_ci
+2155 2726 m
+8 R f
+(576-4000)2171 2726 w
+(MDC)870 2820 w
+6 R f
+(T)1082 2812 w
+10 S1 f
+()1062 2822 w
+1062 2822 m
+75 build_ci
+1137 2822 m
+8 R f
+(Hopewell Township, NJ 08525)3 1017 1 1153 2822 t
+6 R f
+(T)2199 2814 w
+10 S1 f
+()2179 2824 w
+2179 2824 m
+75 build_ci
+2254 2824 m
+8 R f
+(609)2270 2824 w
+6 R f
+(T)2419 2816 w
+10 S1 f
+()2399 2826 w
+2399 2826 m
+75 build_ci
+2474 2826 m
+8 R f
+(639-6100)2490 2826 w
+(Middletown)870 2920 w
+6 R f
+(T)1289 2912 w
+10 S1 f
+()1269 2922 w
+1269 2922 m
+75 build_ci
+1344 2922 m
+8 R f
+(Middletown, NJ 07748)2 751 1 1360 2922 t
+6 R f
+(T)2140 2914 w
+10 S1 f
+()2120 2924 w
+2120 2924 m
+75 build_ci
+2195 2924 m
+8 R f
+(201)2211 2924 w
+6 R f
+(T)2360 2916 w
+10 S1 f
+()2340 2926 w
+2340 2926 m
+75 build_ci
+2415 2926 m
+8 R f
+(957-2000)2431 2926 w
+(Morris)870 3020 w
+6 R f
+(T)1115 3012 w
+10 S1 f
+()1095 3022 w
+1095 3022 m
+75 build_ci
+1170 3022 m
+8 R f
+(Morristown, NJ 07960)2 737 1 1186 3022 t
+6 R f
+(T)1952 3014 w
+10 S1 f
+()1932 3024 w
+1932 3024 m
+75 build_ci
+2007 3024 m
+8 R f
+(201)2023 3024 w
+6 R f
+(T)2172 3016 w
+10 S1 f
+()2152 3026 w
+2152 3026 m
+75 build_ci
+2227 3026 m
+8 R f
+(898-1000)2243 3026 w
+(Murray Hill)1 388 1 870 3120 t
+6 R f
+(T)1287 3112 w
+10 S1 f
+()1267 3122 w
+1267 3122 m
+75 build_ci
+1342 3122 m
+8 R f
+(Murray Hill, NJ 07974)3 749 1 1358 3122 t
+6 R f
+(T)2136 3114 w
+10 S1 f
+()2116 3124 w
+2116 3124 m
+75 build_ci
+2191 3124 m
+8 R f
+(201)2207 3124 w
+6 R f
+(T)2356 3116 w
+10 S1 f
+()2336 3126 w
+2336 3126 m
+75 build_ci
+2411 3126 m
+8 R f
+(582-3000)2427 3126 w
+(Parsippany)870 3220 w
+6 R f
+(T)1253 3212 w
+10 S1 f
+()1233 3222 w
+1233 3222 m
+75 build_ci
+1308 3222 m
+8 R f
+(Parsippany, NJ 07054)2 715 1 1324 3222 t
+6 R f
+(T)2068 3214 w
+10 S1 f
+()2048 3224 w
+2048 3224 m
+75 build_ci
+2123 3224 m
+8 R f
+(201)2139 3224 w
+6 R f
+(T)2288 3216 w
+10 S1 f
+()2268 3226 w
+2268 3226 m
+75 build_ci
+2343 3226 m
+8 R f
+(299-3000)2359 3226 w
+(Patriots Plaza)1 441 1 870 3320 t
+6 R f
+(T)1340 3312 w
+10 S1 f
+()1320 3322 w
+1320 3322 m
+75 build_ci
+1395 3322 m
+8 R f
+(Morristown, NJ 07960)2 737 1 1411 3322 t
+6 R f
+(T)2177 3314 w
+10 S1 f
+()2157 3324 w
+2157 3324 m
+75 build_ci
+2232 3324 m
+8 R f
+(201)2248 3324 w
+6 R f
+(T)2397 3316 w
+10 S1 f
+()2377 3326 w
+2377 3326 m
+75 build_ci
+2452 3326 m
+8 R f
+(829-7200)2468 3326 w
+(Red Hill)1 279 1 870 3420 t
+6 R f
+(T)1178 3412 w
+10 S1 f
+()1158 3422 w
+1158 3422 m
+75 build_ci
+1233 3422 m
+8 R f
+(Middletown, NJ 07748)2 751 1 1249 3422 t
+6 R f
+(T)2029 3414 w
+10 S1 f
+()2009 3424 w
+2009 3424 m
+75 build_ci
+2084 3424 m
+8 R f
+(201)2100 3424 w
+6 R f
+(T)2249 3416 w
+10 S1 f
+()2229 3426 w
+2229 3426 m
+75 build_ci
+2304 3426 m
+8 R f
+(949-3000)2320 3426 w
+(Short Hills)1 354 1 870 3520 t
+6 R f
+(T)1253 3512 w
+10 S1 f
+()1233 3522 w
+1233 3522 m
+75 build_ci
+1308 3522 m
+8 R f
+(Short Hills, NJ 07078)3 715 1 1324 3522 t
+6 R f
+(T)2068 3514 w
+10 S1 f
+()2048 3524 w
+2048 3524 m
+75 build_ci
+2123 3524 m
+8 R f
+(201)2139 3524 w
+6 R f
+(T)2288 3516 w
+10 S1 f
+()2268 3526 w
+2268 3526 m
+75 build_ci
+2343 3526 m
+8 R f
+(564-2000)2359 3526 w
+(Somerset)870 3620 w
+6 R f
+(T)1195 3612 w
+10 S1 f
+()1175 3622 w
+1175 3622 m
+75 build_ci
+1250 3622 m
+8 R f
+(Somerset, NJ 08873)2 657 1 1266 3622 t
+6 R f
+(T)1952 3614 w
+10 S1 f
+()1932 3624 w
+1932 3624 m
+75 build_ci
+2007 3624 m
+8 R f
+(201)2023 3624 w
+6 R f
+(T)2172 3616 w
+10 S1 f
+()2152 3626 w
+2152 3626 m
+75 build_ci
+2227 3626 m
+8 R f
+(560-1300)2243 3626 w
+(Summit)870 3720 w
+6 R f
+(T)1152 3712 w
+10 S1 f
+()1132 3722 w
+1132 3722 m
+75 build_ci
+1207 3722 m
+8 R f
+(Summit, NJ 07901)2 614 1 1223 3722 t
+6 R f
+(T)1866 3714 w
+10 S1 f
+()1846 3724 w
+1846 3724 m
+75 build_ci
+1921 3724 m
+8 R f
+(201)1937 3724 w
+6 R f
+(T)2086 3716 w
+10 S1 f
+()2066 3726 w
+2066 3726 m
+75 build_ci
+2141 3726 m
+8 R f
+(522-6555)2157 3726 w
+(Warren Service Center)2 739 1 870 3820 t
+6 R f
+(T)1638 3812 w
+10 S1 f
+()1618 3822 w
+1618 3822 m
+75 build_ci
+1693 3822 m
+8 R f
+(Warren, NJ 07060)2 598 1 1709 3822 t
+6 R f
+(T)2336 3814 w
+10 S1 f
+()2316 3824 w
+2316 3824 m
+75 build_ci
+2391 3824 m
+8 R f
+(201)2407 3824 w
+6 R f
+(T)2556 3816 w
+10 S1 f
+()2536 3826 w
+2536 3826 m
+75 build_ci
+2611 3826 m
+8 R f
+(756-1527)2627 3826 w
+(West Long Branch)2 614 1 870 3920 t
+6 R f
+(T)1513 3912 w
+10 S1 f
+()1493 3922 w
+1493 3922 m
+75 build_ci
+1568 3922 m
+8 R f
+(West Long Branch, NJ 07764)4 975 1 1584 3922 t
+6 R f
+(T)2588 3914 w
+10 S1 f
+()2568 3924 w
+2568 3924 m
+75 build_ci
+2643 3924 m
+8 R f
+(201)2659 3924 w
+6 R f
+(T)2808 3916 w
+10 S1 f
+()2788 3926 w
+2788 3926 m
+75 build_ci
+2863 3926 m
+8 R f
+(870-7000)2879 3926 w
+(Whippany)870 4020 w
+6 R f
+(T)1231 4012 w
+10 S1 f
+()1211 4022 w
+1211 4022 m
+75 build_ci
+1286 4022 m
+8 R f
+(Whippany, NJ 07981)2 693 1 1302 4022 t
+6 R f
+(T)2024 4014 w
+10 S1 f
+()2004 4024 w
+2004 4024 m
+75 build_ci
+2079 4024 m
+8 R f
+(201)2095 4024 w
+6 R f
+(T)2244 4016 w
+10 S1 f
+()2224 4026 w
+2224 4026 m
+75 build_ci
+2299 4026 m
+8 R f
+(386-3000)2315 4026 w
+(Woodhollow)870 4120 w
+6 R f
+(T)1316 4112 w
+10 S1 f
+()1296 4122 w
+1296 4122 m
+75 build_ci
+1371 4122 m
+8 R f
+(Parsippany, NJ 07054)2 715 1 1387 4122 t
+6 R f
+(T)2131 4114 w
+10 S1 f
+()2111 4124 w
+2111 4124 m
+75 build_ci
+2186 4124 m
+8 R f
+(201)2202 4124 w
+6 R f
+(T)2351 4116 w
+10 S1 f
+()2331 4126 w
+2331 4126 m
+75 build_ci
+2406 4126 m
+8 R f
+(581-3000)2422 4126 w
+14 R f
+(.)876 4220 w
+8 R f
+(TE)911 4220 w
+8 B f
+(Output:)750 4420 w
+8 R f
+(New Jersey Bell Labs Locations)4 1055 1 2562 4570 t
+( Phone)1 1009( Code)1 195( Area)1 1288(Name Address)1 1860 4 1024 4670 t
+( 879-3400)1 1177( 201)1 1403( NJ 07930)2 341(Chester Chester,)1 1758 4 750 4770 t
+( 271-2300)1 1177( 201)1 1350( NJ 08873)2 341( Somerset,)1 1217(Corporate Park III)2 594 5 750 4870 t
+( 888-7000)1 1177( 201)1 1367( NJ 07733)2 341( Holmdel,)1 1339(Crawford Hill)1 455 5 750 4970 t
+( 639-1234)1 1177( 609)1 990( Township, NJ 08525)3 707(ERC Hopewell)1 1805 4 750 5070 t
+( 577-5000)1 1177( 201)1 1363( NJ 07728)2 341(Freehold Freehold,)1 1798 4 750 5170 t
+( 898-6000)1 1177( 201)1 1270( NJ 07960)2 341( Morristown,)1 1270(Headquarters Plaza)1 621 5 750 5270 t
+( 834-1000)1 1177( 201)1 1367( NJ 07733)2 341(Holmdel Holmdel,)1 1794 4 750 5370 t
+( 457-2000)1 1177( 201)1 1288( NJ 08854)2 341(Knightsbridge Piscataway,)1 1873 4 750 5470 t
+( 580-4000)1 1177( 201)1 1409( NJ 07060)2 341( Warren,)1 1271(Liberty Corner)1 481 5 750 5570 t
+( 576-4000)1 1177( 201)1 1386( NJ 07738)2 341(Lincroft Lincroft,)1 1775 4 750 5670 t
+( 639-6100)1 1177( 609)1 990( Township, NJ 08525)3 707(MDC Hopewell)1 1805 4 750 5770 t
+( 957-2000)1 1177( 201)1 1256( NJ 07748)2 341(Middletown Middletown,)1 1905 4 750 5870 t
+( 898-1000)1 1177( 201)1 1270( NJ 07960)2 341(Morris Morristown,)1 1891 4 750 5970 t
+( 582-3000)1 1177( 201)1 1258( Hill, NJ 07974)3 511( Murray)1 1345(Murray Hill)1 388 5 750 6070 t
+( 299-3000)1 1177( 201)1 1292( NJ 07054)2 341(Parsippany Parsippany,)1 1869 4 750 6170 t
+( 829-7200)1 1177( 201)1 1270( NJ 07960)2 341( Morristown,)1 1450(Patriots Plaza)1 441 5 750 6270 t
+( 949-3000)1 1177( 201)1 1256( NJ 07748)2 341( Middletown,)1 1626(Red Hill)1 279 5 750 6370 t
+( 564-2000)1 1177( 201)1 1292( Hills, NJ 07078)3 542( Short)1 1314(Short Hills)1 354 5 750 6470 t
+( 560-1300)1 1177( 201)1 1350( NJ 08873)2 341(Somerset Somerset,)1 1811 4 750 6570 t
+( 522-6555)1 1177( 201)1 1393( NJ 07901)2 341(Summit Summit,)1 1768 4 750 6670 t
+( 756-1527)1 1177( 201)1 1409( NJ 07060)2 341( Warren,)1 1013(Warren Service Center)2 739 5 750 6770 t
+( 870-7000)1 1177( 201)1 1032( Long Branch, NJ 07764)4 812( West)1 1044(West Long Branch)2 614 5 750 6870 t
+( 386-3000)1 1177( 201)1 1314( NJ 07981)2 341(Whippany Whippany,)1 1847 4 750 6970 t
+( 581-3000)1 1177( 201)1 1292( NJ 07054)2 341(Woodhollow Parsippany,)1 1869 4 750 7070 t
+10 R f
+( Papers)1 299(48 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 48 14
+%%Page: 49 15
+/saveobj save def
+mark
+15 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+8 B f
+(Input:)750 900 w
+14 R f
+(.)876 1035 w
+8 R f
+(TS)911 1035 w
+(box;)870 1125 w
+(cb s s s)3 402 1 870 1215 t
+(c)870 1305 w
+8 S f
+(\357)931 1305 w
+8 R f
+(c)997 1305 w
+8 S f
+(\357)1058 1305 w
+8 R f
+(c s)1 144 1 1124 1305 t
+(ltiw\(1i\))870 1395 w
+8 S f
+(\357)1134 1395 w
+8 R f
+(ltw\(2i\))1200 1395 w
+8 S f
+(\357)1442 1395 w
+8 R f
+(lp8)1508 1395 w
+8 S f
+(\357)1636 1395 w
+8 R f
+(lw\(1)1702 1395 w
+14 R f
+(.)1854 1395 w
+8 R f
+(6i\)p8)1889 1395 w
+14 R f
+(.)2063 1395 w
+8 R f
+(Some Interesting Places)2 776 1 870 1485 t
+8 S f
+(_)870 1575 w
+8 R f
+(Name)870 1665 w
+6 R f
+(T)1089 1657 w
+10 S1 f
+()1069 1667 w
+1069 1667 m
+75 build_ci
+1144 1667 m
+8 R f
+(Description)1160 1667 w
+6 R f
+(T)1560 1659 w
+10 S1 f
+()1540 1669 w
+1540 1669 m
+75 build_ci
+1615 1669 m
+8 R f
+(Practical Information)1 682 1 1631 1669 t
+8 S f
+(_)870 1755 w
+8 R f
+(T{)870 1845 w
+(American Museum of Natural History)4 1239 1 870 1935 t
+(T})870 2025 w
+6 R f
+(T)986 2017 w
+10 S1 f
+()966 2027 w
+966 2027 m
+75 build_ci
+1041 2027 m
+8 R f
+(T{)1057 2027 w
+(The collections \256ll 11)3 715 1 870 2115 t
+14 R f
+(.)1591 2115 w
+8 R f
+(5 acres \(Michelin\) or 25 acres \(MTA\))6 1235 1 1626 2115 t
+(of exhibition halls on four \257oors)5 1063 1 870 2205 t
+14 R f
+(.)1939 2205 w
+8 R f
+(There is a full-sized replica)4 891 1 2026 2205 t
+(of a blue whale and the world's largest star sapphire \(stolen in 1964\))12 2253 1 870 2295 t
+14 R f
+(.)3129 2295 w
+8 R f
+(T})870 2385 w
+6 R f
+(T)986 2377 w
+10 S1 f
+()966 2387 w
+966 2387 m
+75 build_ci
+1041 2387 m
+8 R f
+(Hours)1057 2387 w
+6 R f
+(T)1281 2379 w
+10 S1 f
+()1261 2389 w
+1261 2389 m
+75 build_ci
+1336 2389 m
+8 R f
+(10-5:45 S M Tu Th, 10-9 W Sat)7 1067 1 1352 2389 t
+14 R f
+(.)2425 2389 w
+8 R f
+(Sun)2486 2389 w
+14 R f
+(.)2617 2389 w
+8 R f
+(\\\303)870 2475 w
+6 R f
+(T)947 2467 w
+10 S1 f
+()927 2477 w
+927 2477 m
+75 build_ci
+1002 2477 m
+8 R f
+(\\\303)1018 2477 w
+6 R f
+(T)1095 2469 w
+10 S1 f
+()1075 2479 w
+1075 2479 m
+75 build_ci
+1150 2479 m
+8 R f
+(Location)1166 2479 w
+6 R f
+(T)1478 2471 w
+10 S1 f
+()1458 2481 w
+1458 2481 m
+75 build_ci
+1533 2481 m
+8 R f
+(T{)1549 2481 w
+(Central Park West & 79th St)5 944 1 870 2565 t
+14 R f
+(.)1820 2565 w
+8 R f
+(T})870 2655 w
+(\\\303)870 2745 w
+6 R f
+(T)947 2737 w
+10 S1 f
+()927 2747 w
+927 2747 m
+75 build_ci
+1002 2747 m
+8 R f
+(\\\303)1018 2747 w
+6 R f
+(T)1095 2739 w
+10 S1 f
+()1075 2749 w
+1075 2749 m
+75 build_ci
+1150 2749 m
+8 R f
+(Admission)1166 2749 w
+6 R f
+(T)1541 2741 w
+10 S1 f
+()1521 2751 w
+1521 2751 m
+75 build_ci
+1596 2751 m
+8 R f
+(Donation: $1)1 425 1 1612 2751 t
+14 R f
+(.)2043 2751 w
+8 R f
+(00 asked)1 287 1 2078 2751 t
+(\\\303)870 2835 w
+6 R f
+(T)947 2827 w
+10 S1 f
+()927 2837 w
+927 2837 m
+75 build_ci
+1002 2837 m
+8 R f
+(\\\303)1018 2837 w
+6 R f
+(T)1095 2829 w
+10 S1 f
+()1075 2839 w
+1075 2839 m
+75 build_ci
+1150 2839 m
+8 R f
+(Subway)1166 2839 w
+6 R f
+(T)1453 2831 w
+10 S1 f
+()1433 2841 w
+1433 2841 m
+75 build_ci
+1508 2841 m
+8 R f
+(AA to 81st St)3 456 1 1524 2841 t
+14 R f
+(.)1986 2841 w
+8 R f
+(\\\303)870 2925 w
+6 R f
+(T)947 2917 w
+10 S1 f
+()927 2927 w
+927 2927 m
+75 build_ci
+1002 2927 m
+8 R f
+(\\\303)1018 2927 w
+6 R f
+(T)1095 2919 w
+10 S1 f
+()1075 2929 w
+1075 2929 m
+75 build_ci
+1150 2929 m
+8 R f
+(Telephone)1166 2929 w
+6 R f
+(T)1531 2921 w
+10 S1 f
+()1511 2931 w
+1511 2931 m
+75 build_ci
+1586 2931 m
+8 R f
+(212-769-5100)1602 2931 w
+8 S f
+(_)870 3015 w
+8 R f
+(Bronx Zoo)1 355 1 870 3105 t
+6 R f
+(T)1254 3097 w
+10 S1 f
+()1234 3107 w
+1234 3107 m
+75 build_ci
+1309 3107 m
+8 R f
+(T{)1325 3107 w
+(About a mile long and)4 737 1 870 3195 t
+14 R f
+(.)1639 3195 w
+8 R f
+(6 mile wide, this is the largest zoo in America)9 1516 1 1674 3195 t
+14 R f
+(.)3196 3195 w
+8 R f
+(A lion eats 18 pounds)4 720 1 870 3285 t
+(of meat a day while a sea lion eats 15 pounds of \256sh)12 1735 1 870 3375 t
+14 R f
+(.)2611 3375 w
+8 R f
+(T})870 3465 w
+6 R f
+(T)986 3457 w
+10 S1 f
+()966 3467 w
+966 3467 m
+75 build_ci
+1041 3467 m
+8 R f
+(Hours)1057 3467 w
+6 R f
+(T)1281 3459 w
+10 S1 f
+()1261 3469 w
+1261 3469 m
+75 build_ci
+1336 3469 m
+8 R f
+(T{)1352 3469 w
+(10-5 M-Sat, to 5:30 Sun)4 798 1 870 3555 t
+(T})870 3645 w
+(\\\303)870 3735 w
+6 R f
+(T)947 3727 w
+10 S1 f
+()927 3737 w
+927 3737 m
+75 build_ci
+1002 3737 m
+8 R f
+(\\\303)1018 3737 w
+6 R f
+(T)1095 3729 w
+10 S1 f
+()1075 3739 w
+1075 3739 m
+75 build_ci
+1150 3739 m
+8 R f
+(Location)1166 3739 w
+6 R f
+(T)1478 3731 w
+10 S1 f
+()1458 3741 w
+1458 3741 m
+75 build_ci
+1533 3741 m
+8 R f
+(T{)1549 3741 w
+(185th St)1 275 1 870 3825 t
+14 R f
+(.)1151 3825 w
+8 R f
+(& Southern Blvd, the Bronx)4 927 1 1212 3825 t
+14 R f
+(.)2145 3825 w
+8 R f
+(T})870 3915 w
+(\\\303)870 4005 w
+6 R f
+(T)947 3997 w
+10 S1 f
+()927 4007 w
+927 4007 m
+75 build_ci
+1002 4007 m
+8 R f
+(\\\303)1018 4007 w
+6 R f
+(T)1095 3999 w
+10 S1 f
+()1075 4009 w
+1075 4009 m
+75 build_ci
+1150 4009 m
+8 R f
+(Admission)1166 4009 w
+6 R f
+(T)1541 4001 w
+10 S1 f
+()1521 4011 w
+1521 4011 m
+75 build_ci
+1596 4011 m
+8 R f
+($3.75/1.50 adult/children; Tu,We,Th donation)3 1490 1 1612 4011 t
+(\\\303)870 4095 w
+6 R f
+(T)947 4087 w
+10 S1 f
+()927 4097 w
+927 4097 m
+75 build_ci
+1002 4097 m
+8 R f
+(\\\303)1018 4097 w
+6 R f
+(T)1095 4089 w
+10 S1 f
+()1075 4099 w
+1075 4099 m
+75 build_ci
+1150 4099 m
+8 R f
+(Subway)1166 4099 w
+6 R f
+(T)1453 4091 w
+10 S1 f
+()1433 4101 w
+1433 4101 m
+75 build_ci
+1508 4101 m
+8 R f
+(2, 5 to East Tremont Ave)5 836 1 1524 4101 t
+14 R f
+(.)2366 4101 w
+8 R f
+(\\\303)870 4185 w
+6 R f
+(T)947 4177 w
+10 S1 f
+()927 4187 w
+927 4187 m
+75 build_ci
+1002 4187 m
+8 R f
+(\\\303)1018 4187 w
+6 R f
+(T)1095 4179 w
+10 S1 f
+()1075 4189 w
+1075 4189 m
+75 build_ci
+1150 4189 m
+8 R f
+(Telephone)1166 4189 w
+6 R f
+(T)1531 4181 w
+10 S1 f
+()1511 4191 w
+1511 4191 m
+75 build_ci
+1586 4191 m
+8 R f
+(212-367-1010)1602 4191 w
+8 S f
+(_)870 4275 w
+8 R f
+(Brooklyn Museum)1 607 1 870 4365 t
+6 R f
+(T)1506 4357 w
+10 S1 f
+()1486 4367 w
+1486 4367 m
+75 build_ci
+1561 4367 m
+8 R f
+(T{)1577 4367 w
+(Five \257oors of galleries contain American and ancient art)8 1840 1 870 4455 t
+14 R f
+(.)2716 4455 w
+8 R f
+(There are American period rooms and architectural ornaments saved)8 2226 1 870 4545 t
+(from wreckers, such as a classical \256gure from Pennsylvania Station)9 2200 1 870 4635 t
+14 R f
+(.)3076 4635 w
+8 R f
+(T})870 4725 w
+6 R f
+(T)986 4717 w
+10 S1 f
+()966 4727 w
+966 4727 m
+75 build_ci
+1041 4727 m
+8 R f
+(Hours)1057 4727 w
+6 R f
+(T)1281 4719 w
+10 S1 f
+()1261 4729 w
+1261 4729 m
+75 build_ci
+1336 4729 m
+8 R f
+(10-5, closed Tues)2 576 1 1352 4729 t
+(\\\303)870 4815 w
+6 R f
+(T)947 4807 w
+10 S1 f
+()927 4817 w
+927 4817 m
+75 build_ci
+1002 4817 m
+8 R f
+(\\\303)1018 4817 w
+6 R f
+(T)1095 4809 w
+10 S1 f
+()1075 4819 w
+1075 4819 m
+75 build_ci
+1150 4819 m
+8 R f
+(Location)1166 4819 w
+6 R f
+(T)1478 4811 w
+10 S1 f
+()1458 4821 w
+1458 4821 m
+75 build_ci
+1533 4821 m
+8 R f
+(T{)1549 4821 w
+(Eastern Parkway & Washington Ave)4 1201 1 870 4905 t
+14 R f
+(.)2077 4905 w
+8 R f
+(, Brooklyn)1 348 1 2112 4905 t
+14 R f
+(.)2466 4905 w
+8 R f
+(T})870 4995 w
+(\\\303)870 5085 w
+6 R f
+(T)947 5077 w
+10 S1 f
+()927 5087 w
+927 5087 m
+75 build_ci
+1002 5087 m
+8 R f
+(\\\303)1018 5087 w
+6 R f
+(T)1095 5079 w
+10 S1 f
+()1075 5089 w
+1075 5089 m
+75 build_ci
+1150 5089 m
+8 R f
+(Admission)1166 5089 w
+6 R f
+(T)1541 5081 w
+10 S1 f
+()1521 5091 w
+1521 5091 m
+75 build_ci
+1596 5091 m
+8 R f
+(Free)1612 5091 w
+(\\\303)870 5175 w
+6 R f
+(T)947 5167 w
+10 S1 f
+()927 5177 w
+927 5177 m
+75 build_ci
+1002 5177 m
+8 R f
+(\\\303)1018 5177 w
+6 R f
+(T)1095 5169 w
+10 S1 f
+()1075 5179 w
+1075 5179 m
+75 build_ci
+1150 5179 m
+8 R f
+(Subway)1166 5179 w
+6 R f
+(T)1453 5171 w
+10 S1 f
+()1433 5181 w
+1433 5181 m
+75 build_ci
+1508 5181 m
+8 R f
+(2,3 to Eastern Parkway)3 757 1 1524 5181 t
+14 R f
+(.)2287 5181 w
+8 R f
+(\\\303)870 5265 w
+6 R f
+(T)947 5257 w
+10 S1 f
+()927 5267 w
+927 5267 m
+75 build_ci
+1002 5267 m
+8 R f
+(\\\303)1018 5267 w
+6 R f
+(T)1095 5259 w
+10 S1 f
+()1075 5269 w
+1075 5269 m
+75 build_ci
+1150 5269 m
+8 R f
+(Telephone)1166 5269 w
+6 R f
+(T)1531 5261 w
+10 S1 f
+()1511 5271 w
+1511 5271 m
+75 build_ci
+1586 5271 m
+8 R f
+(212-367-1010)1602 5271 w
+8 S f
+(_)870 5355 w
+8 R f
+(T{)870 5445 w
+(New-York Historical Society)2 945 1 870 5535 t
+(T})870 5625 w
+6 R f
+(T)986 5617 w
+10 S1 f
+()966 5627 w
+966 5627 m
+75 build_ci
+1041 5627 m
+8 R f
+(T{)1057 5627 w
+(All the original paintings for Audubon's)5 1315 1 870 5715 t
+14 R f
+(.)876 5805 w
+8 R f
+(I)911 5805 w
+(Birds of America)2 564 1 870 5895 t
+14 R f
+(.)876 5985 w
+8 R f
+(R)911 5985 w
+(are here, as are exhibits of American decorative arts, New York history,)11 2351 1 870 6075 t
+(Hudson River school paintings, carriages, and glass paperweights)7 2131 1 870 6165 t
+14 R f
+(.)3007 6165 w
+8 R f
+(T})870 6255 w
+6 R f
+(T)986 6247 w
+10 S1 f
+()966 6257 w
+966 6257 m
+75 build_ci
+1041 6257 m
+8 R f
+(Hours)1057 6257 w
+6 R f
+(T)1281 6249 w
+10 S1 f
+()1261 6259 w
+1261 6259 m
+75 build_ci
+1336 6259 m
+8 R f
+(T{)1352 6259 w
+(Tues-Sun, 10-5)1 498 1 870 6345 t
+(T})870 6435 w
+(\\\303)870 6525 w
+6 R f
+(T)947 6517 w
+10 S1 f
+()927 6527 w
+927 6527 m
+75 build_ci
+1002 6527 m
+8 R f
+(\\\303)1018 6527 w
+6 R f
+(T)1095 6519 w
+10 S1 f
+()1075 6529 w
+1075 6529 m
+75 build_ci
+1150 6529 m
+8 R f
+(Location)1166 6529 w
+6 R f
+(T)1478 6521 w
+10 S1 f
+()1458 6531 w
+1458 6531 m
+75 build_ci
+1533 6531 m
+8 R f
+(T{)1549 6531 w
+(Central Park West & 77th St)5 944 1 870 6615 t
+14 R f
+(.)1820 6615 w
+8 R f
+(T})870 6705 w
+(\\\303)870 6795 w
+6 R f
+(T)947 6787 w
+10 S1 f
+()927 6797 w
+927 6797 m
+75 build_ci
+1002 6797 m
+8 R f
+(\\\303)1018 6797 w
+6 R f
+(T)1095 6789 w
+10 S1 f
+()1075 6799 w
+1075 6799 m
+75 build_ci
+1150 6799 m
+8 R f
+(Admission)1166 6799 w
+6 R f
+(T)1541 6791 w
+10 S1 f
+()1521 6801 w
+1521 6801 m
+75 build_ci
+1596 6801 m
+8 R f
+(Free)1612 6801 w
+(\\\303)870 6885 w
+6 R f
+(T)947 6877 w
+10 S1 f
+()927 6887 w
+927 6887 m
+75 build_ci
+1002 6887 m
+8 R f
+(\\\303)1018 6887 w
+6 R f
+(T)1095 6879 w
+10 S1 f
+()1075 6889 w
+1075 6889 m
+75 build_ci
+1150 6889 m
+8 R f
+(Subway)1166 6889 w
+6 R f
+(T)1453 6881 w
+10 S1 f
+()1433 6891 w
+1433 6891 m
+75 build_ci
+1508 6891 m
+8 R f
+(AA to 81st St)3 456 1 1524 6891 t
+14 R f
+(.)1986 6891 w
+8 R f
+(\\\303)870 6975 w
+6 R f
+(T)947 6967 w
+10 S1 f
+()927 6977 w
+927 6977 m
+75 build_ci
+1002 6977 m
+8 R f
+(\\\303)1018 6977 w
+6 R f
+(T)1095 6969 w
+10 S1 f
+()1075 6979 w
+1075 6979 m
+75 build_ci
+1150 6979 m
+8 R f
+(Telephone)1166 6979 w
+6 R f
+(T)1531 6971 w
+10 S1 f
+()1511 6981 w
+1511 6981 m
+75 build_ci
+1586 6981 m
+8 R f
+(212-873-3400)1602 6981 w
+14 R f
+(.)876 7065 w
+8 R f
+(TE)911 7065 w
+10 R f
+( 49)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 49 15
+%%Page: 50 16
+/saveobj save def
+mark
+16 pagesetup
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 720 480 t
+10 NI f
+(tbl)5276 480 w
+10 B f
+(Output:)720 960 w
+10 S f
+(_ ___________________________________________________________________________________________)1 4563 1 720 980 t
+10 B f
+(Some Interesting Places)2 1031 1 2486 1100 t
+10 S f
+(_ ___________________________________________________________________________________________)1 4563 1 720 1120 t
+10 R f
+( Information)1 510( Practical)1 1549(Name Description)1 1591 3 1019 1240 t
+10 S f
+(_ ___________________________________________________________________________________________)1 4563 1 720 1260 t
+8 R f
+( S M Tu Th, 10-9 W Sat. Sun.)8 1010(Hours 10-5:45)1 744 2 3247 1380 t
+( Park West & 79th St.)5 730(Location Central)1 730 2 3247 1500 t
+( $1.00 asked)2 413(Admission Donation:)1 815 2 3247 1620 t
+( to 81st St.)3 360(Subway AA)1 612 2 3247 1740 t
+(Telephone 212-769-5100)1 948 1 3247 1860 t
+10 I f
+(American Muse-)1 737 1 770 1380 t
+( Natural)1 424(um of)1 313 2 770 1500 t
+(History)770 1620 w
+10 R f
+( acres)1 295(The collections \256ll 11.5)3 1145 2 1657 1380 t
+(\(Michelin\) or 25 acres \(MTA\) of)5 1440 1 1657 1500 t
+( four \257oors.)2 583(exhibition halls on)2 857 2 1657 1620 t
+( of a)2 233(There is a full-sized replica)4 1207 2 1657 1740 t
+( the world's largest)3 810(blue whale and)2 630 2 1657 1860 t
+(star sapphire \(stolen in 1964\).)4 1222 1 1657 1980 t
+10 S f
+(_ ___________________________________________________________________________________________)1 4563 1 720 2000 t
+8 R f
+( M-Sat, to 5:30 Sun)4 652(Hours 10-5)1 642 2 3247 2120 t
+( St. & Southern Blvd, the Bronx.)6 1086(Location 185th)1 678 2 3247 2240 t
+( adult/children; Tu,We,Th donation)3 1148(Admission $3.75/1.50)1 838 2 3247 2360 t
+( 5 to East Tremont Ave.)5 796(Subway 2,)1 556 2 3247 2480 t
+10 I f
+(Bronx Zoo)1 433 1 770 2120 t
+8 R f
+(Telephone 212-367-1010)1 948 1 3247 2600 t
+10 R f
+( and .6 mile)3 595(About a mile long)3 845 2 1657 2120 t
+( largest zoo in)3 686(wide, this is the)3 754 2 1657 2240 t
+( 18 pounds)2 497( lion eats)2 417(America. A)1 526 3 1657 2360 t
+( eats)1 188(of meat a day while a sea lion)7 1252 2 1657 2480 t
+(15 pounds of \256sh.)3 741 1 1657 2600 t
+10 S f
+(_ ___________________________________________________________________________________________)1 4563 1 720 2620 t
+8 R f
+( closed Tues)2 410(Hours 10-5,)1 662 2 3247 2740 t
+( Ave.,)1 262( Parkway & Washington)3 990(Location Eastern)1 734 3 3247 2860 t
+(Brooklyn.)3743 2960 w
+(Admission Free)1 637 1 3247 3080 t
+( to Eastern Parkway.)3 677(Subway 2,3)1 596 2 3247 3200 t
+10 I f
+(Brooklyn Museum)1 737 1 770 2740 t
+8 R f
+(Telephone 718-638-5000)1 948 1 3247 3320 t
+10 R f
+( of galleries contain)3 955(Five \257oors)1 485 2 1657 2740 t
+( There)1 320(American and ancient art.)3 1120 2 1657 2860 t
+( and ar-)2 322(are American period rooms)3 1118 2 1657 2980 t
+( from)1 254(chitectural ornaments saved)2 1186 2 1657 3100 t
+(wreckers, such as a classical \256gure)5 1440 1 1657 3220 t
+(from Pennsylvania Station.)2 1102 1 1657 3340 t
+10 S f
+(_ ___________________________________________________________________________________________)1 4563 1 720 3360 t
+8 R f
+( 10-5)1 172(Hours Tues-Sun,)1 822 2 3247 3480 t
+( Park West & 77th St.)5 730(Location Central)1 730 2 3247 3600 t
+(Admission Free)1 637 1 3247 3720 t
+( to 81st St.)3 360(Subway AA)1 612 2 3247 3840 t
+(Telephone 212-873-3400)1 948 1 3247 3960 t
+10 I f
+(New-York Histor-)1 737 1 770 3480 t
+(ical Society)1 471 1 770 3600 t
+10 R f
+(All the original paintings for)4 1440 1 1657 3480 t
+(Audubon's)1657 3600 w
+10 I f
+( America)1 398(Birds of)1 356 2 2162 3600 t
+10 R f
+(are)2976 3600 w
+( of American)2 576(here, as are exhibits)3 864 2 1657 3720 t
+(decorative arts, New York history,)4 1440 1 1657 3840 t
+( school paintings,)2 823(Hudson River)1 617 2 1657 3960 t
+(carriages, and glass paperweights.)3 1384 1 1657 4080 t
+10 S f
+( \347)1 -4563(_ ___________________________________________________________________________________________)1 4563 2 720 4100 t
+(\347)720 4080 w
+(\347)720 3980 w
+(\347)720 3880 w
+(\347)720 3780 w
+(\347)720 3680 w
+(\347)720 3580 w
+(\347)720 3480 w
+(\347)720 3380 w
+(\347)720 3280 w
+(\347)720 3180 w
+(\347)720 3080 w
+(\347)720 2980 w
+(\347)720 2880 w
+(\347)720 2780 w
+(\347)720 2680 w
+(\347)720 2580 w
+(\347)720 2480 w
+(\347)720 2380 w
+(\347)720 2280 w
+(\347)720 2180 w
+(\347)720 2080 w
+(\347)720 1980 w
+(\347)720 1880 w
+(\347)720 1780 w
+(\347)720 1680 w
+(\347)720 1580 w
+(\347)720 1480 w
+(\347)720 1380 w
+(\347)720 1280 w
+(\347)720 1180 w
+(\347)720 1080 w
+(\347)1582 4100 w
+(\347)1582 4020 w
+(\347)1582 3920 w
+(\347)1582 3820 w
+(\347)1582 3720 w
+(\347)1582 3620 w
+(\347)1582 3520 w
+(\347)1582 3420 w
+(\347)1582 3320 w
+(\347)1582 3220 w
+(\347)1582 3120 w
+(\347)1582 3020 w
+(\347)1582 2920 w
+(\347)1582 2820 w
+(\347)1582 2720 w
+(\347)1582 2620 w
+(\347)1582 2520 w
+(\347)1582 2420 w
+(\347)1582 2320 w
+(\347)1582 2220 w
+(\347)1582 2120 w
+(\347)1582 2020 w
+(\347)1582 1920 w
+(\347)1582 1820 w
+(\347)1582 1720 w
+(\347)1582 1620 w
+(\347)1582 1520 w
+(\347)1582 1420 w
+(\347)1582 1320 w
+(\347)1582 1220 w
+(\347)3172 4100 w
+(\347)3172 4020 w
+(\347)3172 3920 w
+(\347)3172 3820 w
+(\347)3172 3720 w
+(\347)3172 3620 w
+(\347)3172 3520 w
+(\347)3172 3420 w
+(\347)3172 3320 w
+(\347)3172 3220 w
+(\347)3172 3120 w
+(\347)3172 3020 w
+(\347)3172 2920 w
+(\347)3172 2820 w
+(\347)3172 2720 w
+(\347)3172 2620 w
+(\347)3172 2520 w
+(\347)3172 2420 w
+(\347)3172 2320 w
+(\347)3172 2220 w
+(\347)3172 2120 w
+(\347)3172 2020 w
+(\347)3172 1920 w
+(\347)3172 1820 w
+(\347)3172 1720 w
+(\347)3172 1620 w
+(\347)3172 1520 w
+(\347)3172 1420 w
+(\347)3172 1320 w
+(\347)3172 1220 w
+(\347)3668 4100 w
+(\347)3668 4060 w
+(\347)3668 3960 w
+(\347)3668 3860 w
+(\347)3668 3760 w
+(\347)3668 3660 w
+(\347)3668 3560 w
+(\347)3668 3460 w
+(\347)3668 3360 w
+(\347)3668 3260 w
+(\347)3668 3160 w
+(\347)3668 3060 w
+(\347)3668 2960 w
+(\347)3668 2860 w
+(\347)3668 2760 w
+(\347)3668 2660 w
+(\347)3668 2560 w
+(\347)3668 2460 w
+(\347)3668 2360 w
+(\347)3668 2260 w
+(\347)3668 2160 w
+(\347)3668 2060 w
+(\347)3668 1960 w
+(\347)3668 1860 w
+(\347)3668 1760 w
+(\347)3668 1660 w
+(\347)3668 1560 w
+(\347)3668 1460 w
+(\347)3668 1360 w
+(\347)5283 4100 w
+(\347)5283 4080 w
+(\347)5283 3980 w
+(\347)5283 3880 w
+(\347)5283 3780 w
+(\347)5283 3680 w
+(\347)5283 3580 w
+(\347)5283 3480 w
+(\347)5283 3380 w
+(\347)5283 3280 w
+(\347)5283 3180 w
+(\347)5283 3080 w
+(\347)5283 2980 w
+(\347)5283 2880 w
+(\347)5283 2780 w
+(\347)5283 2680 w
+(\347)5283 2580 w
+(\347)5283 2480 w
+(\347)5283 2380 w
+(\347)5283 2280 w
+(\347)5283 2180 w
+(\347)5283 2080 w
+(\347)5283 1980 w
+(\347)5283 1880 w
+(\347)5283 1780 w
+(\347)5283 1680 w
+(\347)5283 1580 w
+(\347)5283 1480 w
+(\347)5283 1380 w
+(\347)5283 1280 w
+(\347)5283 1180 w
+(\347)5283 1080 w
+10 B f
+(5. Acknowledgments.)1 949 1 720 4776 t
+10 R f
+( has)1 177(Many thanks are due to J. C. Blinn, who)8 1757 2 970 4946 t
+(done a large amount of testing and assisted with the)9 2184 1 720 5066 t
+( has also written many of)5 1062( He)1 185(design of the program.)3 937 3 720 5186 t
+(the more intelligible sentences in this document and)7 2184 1 720 5306 t
+( phototypesetting programs)2 1130( All)1 204( of it.)2 250(helped edit all)2 600 4 720 5426 t
+(on)720 5546 w
+9 R f
+(UNIX)855 5546 w
+10 R f
+( on the work of the late J. F.)8 1217(are dependent)1 569 2 1118 5546 t
+( in par-)2 316(Ossanna, whose assistance with this program)5 1868 2 720 5666 t
+( program is pat-)3 680( This)1 251( helpful.)1 348(ticular had been most)3 905 4 720 5786 t
+( by J. F.)3 350(terned on a table formatter originally written)6 1834 2 720 5906 t
+( B. W.)2 327( assistance of T. A. Dolotta,)5 1285(Gimpel. The)1 572 3 720 6026 t
+( J. N. Sturman is gratefully ack-)6 1528(Kernighan, and)1 656 2 720 6146 t
+(nowledged.)720 6266 w
+10 B f
+(6. References.)1 630 1 720 6551 t
+10 R f
+( Docu-)1 311( Typing)1 384( L.L. and Lesk, M.E.)4 979(1. Cherry,)1 410 4 820 6721 t
+( Using the)2 467(ments on the UNIX System:)4 1249 2 928 6841 t
+10 CW f
+(-ms)2724 6841 w
+10 R f
+(and)928 6961 w
+10 CW f
+(-mcs)1189 6961 w
+10 R f
+( In)1 207( Troff.)1 326(Macros with)1 567 3 1519 6961 t
+10 I f
+(Unix)2710 6961 w
+(Programmer's Manual, Tenth Edition)3 1621 1 928 7081 t
+10 R f
+(, AT&T)1 355 1 2549 7081 t
+(Bell Laboratories, 1989.)2 987 1 928 7201 t
+10 R f
+( Typesetting)1 545( B.W. and Cherry, L.L.)4 985(2. Kernighan,)1 554 3 3316 4776 t
+( In)1 220( User's Guide.)2 737(Mathematics \320)1 721 3 3424 4896 t
+10 I f
+(Unix)5206 4896 w
+(Programmer's Manual, Tenth Edition)3 1621 1 3424 5016 t
+10 R f
+(, AT&T)1 355 1 5045 5016 t
+(Bell Laboratories, 1989.)2 987 1 3424 5136 t
+10 R f
+( Troff)1 328( and Ossanna, J.F.)3 907( B.W.)1 295(3. Kernighan,)1 554 4 3316 5292 t
+( In)1 161(User's Manual.)1 635 2 3424 5412 t
+10 I f
+(Unix Programmer's Manu-)2 1136 1 4264 5412 t
+(al, Tenth Edition)2 768 1 3424 5532 t
+10 R f
+( Bell Laboratories,)2 840(, AT&T)1 368 2 4192 5532 t
+(1989.)3424 5652 w
+10 R f
+( a program to format tables.)5 1174( \320)1 137( Tbl)1 209( M.E.)1 237(4. Lesk,)1 327 5 3316 5808 t
+(In)3424 5928 w
+10 I f
+( Manual)1 363(Unix Programmer's)1 835 2 3560 5928 t
+10 R f
+(, Vol. 2, M.D.)3 642 1 4758 5928 t
+( Bell)1 201( AT&T)1 339( Eds.)1 209(McIlroy and B.W. Kernighan,)3 1227 4 3424 6048 t
+(Laboratories, Murray Hill, NJ 07974, 1979.)5 1785 1 3424 6168 t
+10 R f
+( Computer)1 498( Kernighan, B.W.)2 787( M.E. and)2 472(5. Lesk,)1 327 4 3316 6324 t
+( In)1 150( Technical Journals on UNIX.)4 1236(Typesetting of)1 590 3 3424 6444 t
+10 I f
+( NCC)1 238(Proceedings of AFIPS)2 915 2 3424 6564 t
+10 R f
+(, Vol. 46, 1977, pp.)4 823 1 4577 6564 t
+(879-888.)3424 6684 w
+10 R f
+( Documentation)1 690( J.R. and Smith, D.W.)4 945(6. Mashey,)1 449 3 3316 6840 t
+( In)1 162(Tools and Techniques.)2 949 2 3424 6960 t
+10 I f
+(Proceedings of 2nd)2 819 1 4581 6960 t
+( Engineering)1 558(International Conf. on Software)3 1393 2 3424 7080 t
+10 R f
+(,)5375 7080 w
+(October, 1976, pp. 177-181.)3 1153 1 3424 7200 t
+10 R f
+( Papers)1 299(50 UNIX)1 4381 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 50 16
+%%Page: 51 17
+/saveobj save def
+mark
+17 pagesetup
+10 NI f
+(tbl)720 480 w
+10 R f
+(Tbl \320 A Program to Format Tables)6 1486 1 3914 480 t
+10 B f
+( of Tbl Command Characters and Words)6 1809(7. List)1 308 2 720 840 t
+10 I f
+( Section)1 996(Command Meaning)1 1563 2 1828 996 t
+10 CW f
+(a A)1 180 1 1782 1116 t
+10 R f
+( 2.2)1 907(Alphabetic subcolumn)1 910 2 2485 1116 t
+10 CW f
+(allbox)1782 1236 w
+10 R f
+( 2.1)1 720(Draw box around all items)4 1097 2 2485 1236 t
+10 CW f
+(b B)1 180 1 1782 1356 t
+10 R f
+( 2.2)1 1246(Boldface item)1 571 2 2485 1356 t
+10 CW f
+(box)1782 1476 w
+10 R f
+( 2.1)1 876(Draw box around table)3 941 2 2485 1476 t
+10 CW f
+(c C)1 180 1 1782 1596 t
+10 R f
+( 2.2)1 1124(Centered column)1 693 2 2485 1596 t
+10 CW f
+(center)1782 1716 w
+10 R f
+( 2.1)1 992(Center table in page)3 825 2 2485 1716 t
+10 CW f
+(delim\()1782 1836 w
+10 I f
+(xy)2142 1836 w
+10 CW f
+(\))2246 1836 w
+10 R f
+(Set)2485 1836 w
+10 I f
+(eqn)2646 1836 w
+10 R f
+(delimiters 2.1)1 1479 1 2823 1836 t
+10 CW f
+(doublebox)1782 1956 w
+10 R f
+( 2.1)1 753(Doubled box around table)3 1064 2 2485 1956 t
+10 CW f
+(e E)1 180 1 1782 2076 t
+10 R f
+( 2.2)1 951(Equal width columns)2 866 2 2485 2076 t
+10 CW f
+(expand)1782 2196 w
+10 R f
+( 2.1)1 747(Make table full line width)4 1070 2 2485 2196 t
+10 CW f
+(f F)1 180 1 1782 2316 t
+10 R f
+( 2.2)1 1318(Font change)1 499 2 2485 2316 t
+10 CW f
+(i I)1 180 1 1782 2436 t
+10 R f
+( 2.2)1 1401(Italic item)1 416 2 2485 2436 t
+10 CW f
+(l L)1 180 1 1782 2556 t
+10 R f
+( 2.2)1 952(Left adjusted column)2 865 2 2485 2556 t
+10 CW f
+(linesize\()1782 2676 w
+10 I f
+(n)2322 2676 w
+10 CW f
+(\))2388 2676 w
+10 R f
+( 2.1)1 531(Set point size for drawing lines)5 1286 2 2485 2676 t
+10 CW f
+(n N)1 180 1 1782 2796 t
+10 R f
+( 2.2)1 1063(Numerical column)1 754 2 2485 2796 t
+10 I f
+(nnn)1782 2916 w
+10 R f
+( 2.2)1 1051(Column separation)1 766 2 2485 2916 t
+10 CW f
+(p P)1 180 1 1782 3036 t
+10 R f
+( 2.2)1 1102(Point size change)2 715 2 2485 3036 t
+10 CW f
+(r R)1 180 1 1782 3156 t
+10 R f
+( 2.2)1 895(Right adjusted column)2 922 2 2485 3156 t
+10 CW f
+(s S)1 180 1 1782 3276 t
+10 R f
+( 2.2)1 1262(Spanned item)1 555 2 2485 3276 t
+10 CW f
+(t T)1 180 1 1782 3396 t
+10 R f
+( 2.2)1 836(Vertical spanning at top)3 981 2 2485 3396 t
+10 CW f
+(tab\()1782 3516 w
+10 I f
+(x \))1 93 1 2022 3516 t
+10 R f
+( 2.1)1 518(Change data separator character)3 1299 2 2485 3516 t
+10 CW f
+(T{ T})1 300 1 1782 3636 t
+10 R f
+( 2.3)1 1379(Text block)1 438 2 2485 3636 t
+10 CW f
+(u U)1 180 1 1782 3756 t
+10 R f
+( 2.2)1 1046(Staggered columns)1 771 2 2485 3756 t
+10 CW f
+(v V)1 180 1 1782 3876 t
+10 R f
+( 2.2)1 843(Vertical spacing change)2 974 2 2485 3876 t
+10 CW f
+(w W)1 180 1 1782 3996 t
+10 R f
+( 2.2)1 906(Minimum width value)2 911 2 2485 3996 t
+10 CW f
+(z Z)1 180 1 1782 4116 t
+10 R f
+( 2.2)1 359(Ignore width of data in this column)6 1458 2 2485 4116 t
+10 CW f
+(.)1782 4236 w
+10 I f
+(xx)1842 4236 w
+10 R f
+(Included)2485 4236 w
+10 I f
+(troff)2867 4236 w
+10 R f
+(command 2.3)1 1229 1 3073 4236 t
+10 CW f
+(|)1782 4356 w
+10 R f
+( 2.2)1 1313(Vertical line)1 504 2 2485 4356 t
+10 CW f
+(||)1782 4476 w
+10 R f
+( 2.2)1 1008(Double vertical line)2 809 2 2485 4476 t
+10 CW f
+(\303)1782 4596 w
+10 R f
+( 2.2)1 1280(Vertical span)1 537 2 2485 4596 t
+10 CW f
+(\\\303)1782 4716 w
+10 R f
+( 2.3)1 1280(Vertical span)1 537 2 2485 4716 t
+10 CW f
+(=)1782 4836 w
+10 R f
+( 2.3)1 902(Double horizontal line)2 915 2 2485 4836 t
+10 CW f
+(_)1782 4956 w
+10 R f
+( 2.3)1 1207(Horizontal line)1 610 2 2485 4956 t
+10 CW f
+(\\_)1782 5076 w
+10 R f
+( 2.3)1 979(Short horizontal line)2 838 2 2485 5076 t
+10 CW f
+(\\R)1782 5196 w
+10 I f
+(x)1902 5196 w
+10 R f
+( 2.3)1 1143(Repeat character)1 674 2 2485 5196 t
+10 R f
+( 51)1 3721(Research Tenth Edition)2 959 2 720 7560 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 51 17
+%%Trailer
+done
+%%Pages: 17
+%%DocumentFonts: Times-Roman Helvetica-Bold Times-BoldItalic Times-Bold Helvetica Times-Italic Times-Roman Symbol
+%%+ NewCenturySchlbk-Italic Courier
